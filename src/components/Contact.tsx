@@ -15,8 +15,8 @@ const Contact: React.FC = () => {
       >
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's talk</h2>
         <p className="text-lg text-slate-300 leading-relaxed mb-12">
-          Looking for a role where I can own product delivery, 
-          unblock teams through automation, and ship results you can measure.
+          Seeking a high-agency role where I can build multi-agent systems, 
+          streamline global operations through automation, and drive technical strategy.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
