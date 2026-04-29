@@ -26,7 +26,7 @@ export const AIFluency: React.FC = () => {
       className="w-full"
     >
       <div className="bg-[#1C1A24]/60 backdrop-blur-md rounded-2xl p-6 border border-white/5 relative overflow-hidden group hover:border-purple-500/30 transition-colors duration-500">
-        
+
         {/* Subtle background glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
@@ -46,7 +46,7 @@ export const AIFluency: React.FC = () => {
         {/* Description Section */}
         <div className="mb-6 relative z-10">
           <p className="text-[#9CA3AF] text-sm md:text-[15px] leading-relaxed">
-            Certified by Anthropic to teach teams and organizations how to adopt AI. The 4D framework: Delegation, Description, Discernment, Diligence — deciding what to delegate, communicating it well, evaluating outputs, and collaborating responsibly. Applied as Teaching Fellow at Maven's AI PM Bootcamp.
+            Certified by Anthropic to teach teams and organizations how to adopt AI. The 4D framework: Delegation, Description, Discernment, Diligence - deciding what to delegate, communicating it well, evaluating outputs, and collaborating responsibly.
           </p>
         </div>
 
