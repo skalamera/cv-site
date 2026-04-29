@@ -241,7 +241,8 @@ export const techStack = [
       { name: "Gemini", icon: "/icons/gemini.png" },
       { name: "OpenAI", icon: "/icons/chatgpt.png" },
       { name: "Claude API", icon: "/icons/claude.png" },
-      { name: "Anthropic / MCP", icon: "/icons/anthropic.png" }
+      { name: "Anthropic / MCP", icon: "/icons/anthropic.png" },
+      { name: "Pinecone", icon: "/icons/pinecone.png" }
     ]
   },
   {
