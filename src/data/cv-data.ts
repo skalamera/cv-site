@@ -163,7 +163,7 @@ export const projects: Project[] = [
   },
   {
     id: "jedana",
-    title: "Jedana",
+    title: "Jedana AI",
     description: "AI-Powered Freshdesk Analytics Suite offering automated QA reviews (AgentEye), customer sentiment tracking, and weighted multi-channel performance reviews.",
     techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
     logo: "/jedana.png",

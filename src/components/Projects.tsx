@@ -127,8 +127,8 @@ const Projects: React.FC = () => {
                 )}
               </div>
               <div className="flex gap-3 text-slate-400">
-                <a href="#" className="hover:text-primary transition-colors"><GithubIcon /></a>
-                <a href="#" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>
+                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
+                {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
               </div>
             </div>
             
