@@ -1,0 +1,51 @@
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Certifications from './components/Certifications';
+import Chatbot from './components/Chatbot';
+import { profileInfo } from './data/cv-data';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-[#111827] text-slate-300 selection:bg-primary/30 selection:text-white font-sans relative">
+      
+      {/* Global Background Grid */}
+      <div className="absolute inset-0 z-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+      {/* Navigation */}
+      <nav className="absolute top-0 w-full z-50 pt-8 pb-4">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {/* Logo or left side empty */}
+          </div>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400 font-mono tracking-widest uppercase">
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content Layout */}
+      <main className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Certifications />
+      </main>
+
+      <Chatbot />
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-slate-500 text-sm mt-12 border-t border-slate-800">
+        <p>Built with React, Tailwind & Framer Motion.</p>
+        <p className="mt-2">© {new Date().getFullYear()} {profileInfo.name}. All rights reserved.</p>
+      </footer>
+
+    </div>
+  );
+}
+
+export default App;
