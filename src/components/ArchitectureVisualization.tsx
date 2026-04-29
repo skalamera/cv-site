@@ -65,7 +65,7 @@ const ArchitectureVisualization: React.FC = () => {
           <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
         </div>
         <p className="text-slate-400 text-sm md:text-[15px] leading-relaxed max-w-3xl">
-          I built the floating AI assistant (bottom right) so recruiters and visitors can ask detailed questions about my experience 24/7. Click through the visualization below to see exactly how the RAG framework powers it under the hood.
+          I built the floating AI assistant so visitors can ask detailed questions about my background, experience, and projects 24/7. Click through the visualization below to see exactly how the RAG framework and automated evals power it and keep its answers grounded and secure.
         </p>
       </div>
 
