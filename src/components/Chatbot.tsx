@@ -63,7 +63,7 @@ const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string 
   }
 
   return (
-    <div className="prose prose-invert prose-sm max-w-none prose-p:leading-snug prose-ul:my-1 prose-li:my-0">
+    <div className="prose prose-invert prose-sm max-w-none prose-p:leading-snug prose-ul:my-1 prose-li:my-0 prose-pre:overflow-x-auto prose-pre:max-w-full">
       <ReactMarkdown>{displayed}</ReactMarkdown>
     </div>
   );
@@ -255,7 +255,7 @@ const Chatbot = () => {
                     </div>
                   )}
                     
-                    <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed overflow-hidden ${
                       msg.role === 'user' 
                         ? 'bg-primary text-white rounded-tr-sm' 
                         : 'bg-slate-800 text-slate-200 rounded-tl-sm border border-slate-700/50'
