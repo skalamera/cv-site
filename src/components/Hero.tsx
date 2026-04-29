@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <div className="pb-4 min-h-[100px] md:min-h-[140px] flex items-center justify-center md:justify-start">
+            <div className="pb-4 h-[100px] md:h-[140px] flex items-center justify-center md:justify-start">
               <TypeAnimation
                 sequence={[
                   'Support Engineering & Ops Leader',
