@@ -3,6 +3,7 @@ import Experience from './components/Experience';
 import { ClaudeCode } from './components/ClaudeCode';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import { AIFluency } from './components/AIFluency';
 import Certifications from './components/Certifications';
 import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
@@ -34,6 +35,7 @@ function App() {
         <Experience />
         <ClaudeCode />
         <Projects />
+        <AIFluency />
         <Skills />
         <Certifications />
       </main>
