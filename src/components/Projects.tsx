@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
                   <img src="/mycareermax/mycareermax_logo.png" alt="myCareerMax" className="w-full h-full object-contain rounded-lg" />
                 </div>
                 <div className="px-4 py-1.5 rounded-full bg-yellow-900/30 text-yellow-500 text-xs font-semibold tracking-wide border border-yellow-700/50">
-                  Top 10 Business App
+                  Top 10 New Business App
                 </div>
               </div>
               
@@ -102,8 +102,7 @@ const Projects: React.FC = () => {
             <div className="w-full lg:w-[280px] flex flex-col gap-6 shrink-0">
               
               {/* Award Image */}
-              <div className="w-full flex items-center justify-center p-4 bg-slate-900/60 border border-slate-700/50 rounded-xl relative overflow-hidden group/award">
-                <div className="absolute inset-0 bg-yellow-600/5 transition-opacity group-hover/award:bg-yellow-600/10 pointer-events-none"></div>
+              <div className="w-full flex items-center justify-center p-4 relative group/award">
                 <img 
                   src="/mycareermax/top10_award.png" 
                   alt="Top 10 Award" 
