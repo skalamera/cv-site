@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, User, Loader2, Briefcase, Rocket, HelpCircle, Mail, Bot } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { profileInfo } from '../data/cv-data';
+import { profileInfo, projects, jobs } from '../data/cv-data';
 
 interface Message {
   id: string;
@@ -32,11 +32,12 @@ Important guidelines:
 BACKGROUND DATA:
 Role: ${profileInfo.title}
 Tagline: ${profileInfo.tagline}
-Skills: AI, LLMs, Python, TypeScript, React, Cloud (GCP/Azure)
-Experience: 10+ years in Technical Support Engineering, Operations Leadership, and Custom Tooling.
-Key Roles:
-- Sigma: Technical Support Engineering Manager (Sept 2025 - Present). Sustained 4.84/5 CSAT, built ML forecasting models.
-- Benchmark Education: Lead, Customer Tech Support (Mar 2022 - Aug 2025). Reduced resolution time by 38%, built Power BI + Python Ops Hub.
+
+PROFESSIONAL EXPERIENCE:
+${JSON.stringify(jobs.map(j => ({ company: j.company, role: j.role, period: j.period, description: j.description, skills: j.skills })), null, 2)}
+
+PORTFOLIO PROJECTS & TECH STACKS:
+${JSON.stringify(projects.map(p => ({ title: p.title, description: p.description, techStack: p.techStack, metrics: p.metrics, highlights: p.highlights })), null, 2)}
 `;
 
 const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string }) => {
