@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
 import { QuickNav } from './components/QuickNav';
+import ArchitectureVisualization from './components/ArchitectureVisualization';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         </section>
 
         <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <ArchitectureVisualization />
           <Experience />
         </section>
 
