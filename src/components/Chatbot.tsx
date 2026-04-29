@@ -46,11 +46,11 @@ const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string 
     if (msgId === '1') return; // Initial message is instant
     let index = 0;
     const interval = setInterval(() => {
-      index += 3;
+      index += 1;
       if (index > content.length) index = content.length;
       setDisplayed(content.slice(0, index));
       if (index === content.length) clearInterval(interval);
-    }, 15);
+    }, 25);
     return () => clearInterval(interval);
   }, [content, msgId]);
 
@@ -180,7 +180,7 @@ const Chatbot = () => {
             }}
           >
             <Bot className="w-4 h-4 text-cyan-100 group-hover:rotate-12 transition-transform" />
-            Talk to my AI!
+            Ask Me!
             
             {/* Ping animation dot */}
             <span className="absolute -top-1 -right-1 flex h-3 w-3">

@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
               </div>
               
               <h3 className="text-3xl font-bold text-white mb-4">
-                mycareermax
+                myCareerMax
               </h3>
               
               <p className="text-slate-400 leading-relaxed mb-8">
