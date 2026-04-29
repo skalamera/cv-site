@@ -23,7 +23,7 @@ export const AIFluency: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="mb-20 max-w-4xl mx-auto"
+      className="w-full"
     >
       <div className="bg-[#1C1A24]/60 backdrop-blur-md rounded-2xl p-6 border border-white/5 relative overflow-hidden group hover:border-purple-500/30 transition-colors duration-500">
         

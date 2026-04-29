@@ -7,6 +7,7 @@ import { AIFluency } from './components/AIFluency';
 import Certifications from './components/Certifications';
 import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
+import { QuickNav } from './components/QuickNav';
 
 function App() {
   return (
@@ -30,14 +31,46 @@ function App() {
       </nav>
 
       {/* Main Content Layout */}
-      <main className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
-        <Hero />
-        <Experience />
-        <ClaudeCode />
-        <Projects />
-        <AIFluency />
-        <Skills />
-        <Certifications />
+      <main className="relative z-10">
+        
+        <section className="pt-20 pb-12 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <Hero />
+        </section>
+
+        <section className="py-10 bg-black/20 border-y border-white/5 mb-20">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+            <QuickNav />
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <Experience />
+        </section>
+
+        <section className="py-16 bg-black/20 border-y border-white/5 mb-20">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+            <ClaudeCode />
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <Projects />
+        </section>
+
+        <section className="py-16 bg-black/20 border-y border-white/5 mb-20">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+            <AIFluency />
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <Skills />
+        </section>
+
+        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+          <Certifications />
+        </section>
+
       </main>
 
       <Chatbot />

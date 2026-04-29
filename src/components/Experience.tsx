@@ -22,7 +22,7 @@ const Experience: React.FC = () => {
       </div>
 
       {/* Intro & Cards Grid */}
-      <div className="mb-20 max-w-4xl mx-auto">
+      <div className="mb-20 w-full">
         <p className="text-center text-lg text-slate-300 mb-12">
           Orchestrating global support operations and driving efficiency through <span className="text-white font-semibold">Agentic AI implementations, custom tooling, and cross-functional leadership</span>.
         </p>
