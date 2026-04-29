@@ -78,9 +78,13 @@ const ArchitectureVisualization: React.FC = () => {
           <h2 className="text-2xl font-bold text-white tracking-tight">AI Architecture</h2>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
         </div>
-        <p className="text-slate-400 text-sm md:text-[15px] leading-relaxed max-w-3xl">
-          I built the floating AI assistant so visitors can ask detailed questions about my background, experience, and projects 24/7. Click through the visualization below to see exactly how the RAG framework and automated evals power it and keep its answers grounded and secure.
-        </p>
+        <div className="glass p-5 rounded-xl border border-slate-700/50 bg-slate-800/20 max-w-3xl relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+          <p className="text-slate-300 text-sm md:text-[15px] leading-relaxed pl-2 font-light tracking-wide">
+            I built the floating AI assistant so visitors can ask detailed questions about my background, experience, and projects <strong className="text-white font-medium">24/7</strong>. 
+            Click through the visualization below to see exactly how the <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-semibold">RAG framework</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">automated evals</span> power it and keep its answers grounded and secure.
+          </p>
+        </div>
       </div>
 
       <div className="glass-panel border border-slate-700/50 bg-[#1f1e14]/40 rounded-2xl p-6 lg:p-8 relative overflow-hidden">
