@@ -39,6 +39,36 @@ Key Roles:
 - Benchmark Education: Lead, Customer Tech Support (Mar 2022 - Aug 2025). Reduced resolution time by 38%, built Power BI + Python Ops Hub.
 `;
 
+const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string }) => {
+  const [displayed, setDisplayed] = useState('');
+  
+  useEffect(() => {
+    if (msgId === '1') return; // Initial message is instant
+    let index = 0;
+    const interval = setInterval(() => {
+      index += 3;
+      if (index > content.length) index = content.length;
+      setDisplayed(content.slice(0, index));
+      if (index === content.length) clearInterval(interval);
+    }, 15);
+    return () => clearInterval(interval);
+  }, [content, msgId]);
+
+  if (msgId === '1') {
+    return (
+      <div className="text-sm leading-snug">
+        Hi! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 font-medium">@stephen</span>. Ask me anything: experience, projects, what drives me.
+      </div>
+    );
+  }
+
+  return (
+    <div className="prose prose-invert prose-sm max-w-none prose-p:leading-snug prose-ul:my-1 prose-li:my-0">
+      <ReactMarkdown>{displayed}</ReactMarkdown>
+    </div>
+  );
+};
+
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
@@ -233,9 +263,7 @@ const Chatbot = () => {
                       {msg.role === 'user' ? (
                         msg.content
                       ) : (
-                        <div className="prose prose-invert prose-sm max-w-none prose-p:leading-snug prose-ul:my-1 prose-li:my-0">
-                          <ReactMarkdown>{msg.content}</ReactMarkdown>
-                        </div>
+                        <TypewriterMessage content={msg.content} msgId={msg.id} />
                       )}
                     </div>
 
