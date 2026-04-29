@@ -48,24 +48,6 @@ export const ClaudeCode: React.FC = () => {
           <p className="text-[#9CA3AF] text-sm md:text-[15px] leading-relaxed">
             My daily workflow is a multi-agent orchestration lab. The problems I solve (context management, inter-agent communication, memory persistence) are the same ones enterprise customers face.
           </p>
-          <ul className="space-y-2 text-[#9CA3AF] text-[13px] md:text-sm">
-            <li className="flex items-start gap-2">
-              <span className="text-[#A78BFA] mt-0.5">›</span>
-              <span><strong className="text-slate-300 font-medium">Multi-agent orchestration:</strong> 5+ specialized agents running in parallel via tmux, each with its own context, skills, and hooks</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#A78BFA] mt-0.5">›</span>
-              <span><strong className="text-slate-300 font-medium">Inter-agent IPC:</strong> async communication protocol between agents via JSON — they consult each other for cross-domain decisions</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#A78BFA] mt-0.5">›</span>
-              <span><strong className="text-slate-300 font-medium">Memory persistence:</strong> pre-compact hook that crystallizes knowledge with Haiku before each compaction — memory that survives sessions</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#A78BFA] mt-0.5">›</span>
-              <span><strong className="text-slate-300 font-medium">Reusable custom skills:</strong> automated deploy, tech translation, design systems, SEO, career consulting</span>
-            </li>
-          </ul>
         </div>
 
         {/* Action Buttons */}
