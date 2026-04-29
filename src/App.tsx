@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import { AIFluency } from './components/AIFluency';
 import Certifications from './components/Certifications';
+import Contact from './components/Contact';
 import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
 import { QuickNav } from './components/QuickNav';
@@ -69,6 +70,12 @@ function App() {
 
         <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
           <Certifications />
+        </section>
+
+        <section className="py-16 bg-black/20 border-y border-white/5 mt-20">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+            <Contact />
+          </div>
         </section>
 
       </main>
