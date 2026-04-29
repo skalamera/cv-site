@@ -15,8 +15,8 @@ const Contact: React.FC = () => {
       >
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's talk</h2>
         <p className="text-lg text-slate-300 leading-relaxed mb-12">
-          Seeking a high-agency role where I can build multi-agent systems, 
-          streamline global operations through automation, and drive technical strategy.
+          Seeking a high-agency role where I can build, lead, and scale global support engineering teams, 
+          while architecting the multi-agent systems and custom tooling that drive their efficiency.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
