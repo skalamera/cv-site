@@ -41,6 +41,7 @@ Key Roles:
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { id: '1', role: 'assistant', content: `Hello! I'm an AI assistant trained on Stephen's resume and portfolio. What would you like to know about his experience or projects?` }
   ]);
@@ -134,13 +135,42 @@ const Chatbot = () => {
 
   return (
     <>
+      {/* Tooltip */}
+      <AnimatePresence>
+        {!hasOpened && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+            transition={{ delay: 1, duration: 0.4, type: "spring", stiffness: 100 }}
+            className="fixed bottom-9 right-24 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white text-sm font-semibold px-4 py-2.5 rounded-2xl rounded-br-sm shadow-lg shadow-cyan-500/20 z-40 whitespace-nowrap cursor-pointer flex items-center gap-2 group"
+            onClick={() => {
+              setIsOpen(true);
+              setHasOpened(true);
+            }}
+          >
+            <Bot className="w-4 h-4 text-cyan-100 group-hover:rotate-12 transition-transform" />
+            Talk to my AI!
+            
+            {/* Ping animation dot */}
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500 border border-white"></span>
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating Button */}
       <motion.button
         id="chat-toggle-btn"
         className="fixed bottom-6 right-6 w-14 h-14 bg-slate-800 rounded-full border border-slate-600 shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center z-50 hover:bg-slate-700 transition-colors p-0.5 overflow-hidden"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsOpen(true);
+          setHasOpened(true);
+        }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isOpen ? 0 : 1, y: isOpen ? 20 : 0 }}
         style={{ pointerEvents: isOpen ? 'none' : 'auto' }}
