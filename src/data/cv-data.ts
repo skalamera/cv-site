@@ -166,7 +166,8 @@ export const projects: Project[] = [
     title: "Jedana",
     description: "AI-Powered Freshdesk Analytics Suite offering automated QA reviews (AgentEye), customer sentiment tracking, and weighted multi-channel performance reviews.",
     techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
-    logo: "/icons/jedana.png"
+    logo: "/jedana.png",
+    link: "https://jedana-app.vercel.app/"
   },
   {
     id: "stephen-cv-site",
