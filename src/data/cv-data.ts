@@ -171,11 +171,11 @@ export const projects: Project[] = [
   },
   {
     id: "stephen-cv-site",
-    title: "stephen-cv-site",
+    title: "AI Portfolio & CV",
     description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations.",
     techStack: ["React", "Vite", "Tailwind CSS 4", "Framer Motion", "Gemini API"],
-    github: "https://github.com/skalamera/stephen-cv",
-    link: "http://localhost:5173",
+    github: "https://github.com/skalamera/cv-site",
+    link: "https://skalamera.me",
     logo: "/profile.png"
   },
   {
