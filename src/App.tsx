@@ -1,5 +1,6 @@
 import Hero from './components/Hero';
 import Experience from './components/Experience';
+import { ClaudeCode } from './components/ClaudeCode';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Certifications from './components/Certifications';
@@ -31,6 +32,7 @@ function App() {
       <main className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
         <Hero />
         <Experience />
+        <ClaudeCode />
         <Projects />
         <Skills />
         <Certifications />
