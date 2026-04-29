@@ -24,7 +24,7 @@ const Experience: React.FC = () => {
       {/* Intro & Cards Grid */}
       <div className="mb-20 max-w-4xl mx-auto">
         <p className="text-center text-lg text-slate-300 mb-12">
-          End-to-end ownership across <span className="text-white font-semibold">discovery → prioritization → delivery → adoption</span>, collaborating closely with stakeholders and engineering.
+          Orchestrating global support operations and driving efficiency through <span className="text-white font-semibold">Agentic AI implementations, custom tooling, and cross-functional leadership</span>.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
