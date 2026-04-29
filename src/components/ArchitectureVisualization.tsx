@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Database, Cpu, MessageSquare, ShieldCheck, ChevronRight, Activity, ArrowRight } from 'lucide-react';
+import { Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
@@ -84,7 +84,7 @@ const ArchitectureVisualization: React.FC = () => {
                   key={step.id}
                   onClick={() => setActiveStep(index)}
                   className={`relative z-10 flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all duration-300 ${
-                    isActive ? \`bg-gradient-to-r \${step.color} border \${step.borderColor} shadow-lg\` : 
+                    isActive ? `bg-gradient-to-r ${step.color} border ${step.borderColor} shadow-lg` : 
                     isPast ? 'opacity-70 hover:opacity-100 hover:bg-slate-800/50' : 'opacity-40 hover:opacity-70'
                   }`}
                 >
