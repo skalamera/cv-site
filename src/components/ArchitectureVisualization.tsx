@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
+import { techStack as allTechStack } from '../data/cv-data';
+
+const getTechIcon = (techName: string) => {
+  for (const category of allTechStack) {
+    const found = category.skills.find(s => techName.toLowerCase().includes(s.name.toLowerCase()));
+    if (found) return found.icon;
+  }
+  return null;
+};
 
 const steps = [
   {
@@ -10,7 +19,8 @@ const steps = [
     icon: <MessageSquare size={24} className="text-cyan-400" />,
     color: 'from-cyan-500/20 to-cyan-500/5',
     borderColor: 'border-cyan-500/30',
-    iconBg: 'bg-cyan-500/10'
+    iconBg: 'bg-cyan-500/10',
+    tools: ['React', 'Tailwind CSS']
   },
   {
     id: 'embed',
@@ -19,7 +29,8 @@ const steps = [
     icon: <Activity size={24} className="text-purple-400" />,
     color: 'from-purple-500/20 to-purple-500/5',
     borderColor: 'border-purple-500/30',
-    iconBg: 'bg-purple-500/10'
+    iconBg: 'bg-purple-500/10',
+    tools: ['Gemini', 'Node.js']
   },
   {
     id: 'retrieve',
@@ -28,7 +39,8 @@ const steps = [
     icon: <Database size={24} className="text-emerald-400" />,
     color: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'border-emerald-500/30',
-    iconBg: 'bg-emerald-500/10'
+    iconBg: 'bg-emerald-500/10',
+    tools: ['Pinecone', 'Vercel']
   },
   {
     id: 'generate',
@@ -37,7 +49,8 @@ const steps = [
     icon: <Cpu size={24} className="text-blue-400" />,
     color: 'from-blue-500/20 to-blue-500/5',
     borderColor: 'border-blue-500/30',
-    iconBg: 'bg-blue-500/10'
+    iconBg: 'bg-blue-500/10',
+    tools: ['Gemini']
   },
   {
     id: 'evals',
@@ -46,7 +59,8 @@ const steps = [
     icon: <ShieldCheck size={24} className="text-rose-400" />,
     color: 'from-rose-500/20 to-rose-500/5',
     borderColor: 'border-rose-500/30',
-    iconBg: 'bg-rose-500/10'
+    iconBg: 'bg-rose-500/10',
+    tools: ['GitHub', 'Gemini']
   }
 ];
 
@@ -129,9 +143,21 @@ const ArchitectureVisualization: React.FC = () => {
                   {steps[activeStep].title}
                 </h3>
                 
-                <p className="text-slate-400 leading-relaxed text-lg mb-8 max-w-md">
+                <p className="text-slate-400 leading-relaxed text-lg mb-6 max-w-md">
                   {steps[activeStep].desc}
                 </p>
+
+                <div className="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start">
+                  {steps[activeStep].tools.map((tech) => {
+                    const icon = getTechIcon(tech);
+                    return (
+                      <div key={tech} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#111827] border border-slate-700/50 rounded-md text-xs font-medium text-slate-300 shadow-sm">
+                        {icon && <img src={icon} alt={tech} className="w-4 h-4 object-contain" />}
+                        {tech}
+                      </div>
+                    );
+                  })}
+                </div>
 
                 <button 
                   onClick={nextStep}
