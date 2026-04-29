@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { projects } from '../data/cv-data';
+import { projects, techStack as allTechStack } from '../data/cv-data';
 import { ExternalLink } from 'lucide-react';
 
 const GithubIcon = () => (
@@ -9,6 +9,14 @@ const GithubIcon = () => (
     <path d="M9 18c-4.51 2-5-2-7-2"/>
   </svg>
 );
+
+const getTechIcon = (techName: string) => {
+  for (const category of allTechStack) {
+    const found = category.skills.find(s => techName.toLowerCase().includes(s.name.toLowerCase()));
+    if (found) return found.icon;
+  }
+  return null;
+};
 
 const Projects: React.FC = () => {
   const featured = projects.find(p => p.featured);
@@ -57,7 +65,7 @@ const Projects: React.FC = () => {
               </p>
 
               {featured.highlights && (
-                <ul className="space-y-4 mb-10 flex-1">
+                <ul className="space-y-4 mb-8 flex-1">
                   {featured.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-4">
                       <div className="mt-1 text-yellow-500">
@@ -68,6 +76,18 @@ const Projects: React.FC = () => {
                   ))}
                 </ul>
               )}
+
+              <ul className="flex flex-wrap gap-2 mb-8">
+                {featured.techStack.map(tech => {
+                  const icon = getTechIcon(tech);
+                  return (
+                    <li key={tech} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#111827] border border-yellow-600/30 rounded-md text-xs font-medium text-slate-300 shadow-sm">
+                      {icon && <img src={icon} alt={tech} className="w-4 h-4 object-contain" />}
+                      {tech}
+                    </li>
+                  );
+                })}
+              </ul>
 
               <a href="https://github.com/skalamera/mycareermax" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-6 py-3 rounded-lg border border-yellow-600/50 bg-yellow-900/20 text-yellow-500 text-sm font-bold hover:bg-yellow-900/40 transition-colors w-fit relative z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -138,10 +158,16 @@ const Projects: React.FC = () => {
               {project.description}
             </p>
             
-            <ul className="flex flex-wrap gap-2 font-mono text-[11px] text-slate-500 mt-auto">
-              {project.techStack.map(tech => (
-                <li key={tech}>{tech}</li>
-              ))}
+            <ul className="flex flex-wrap gap-2 mt-auto">
+              {project.techStack.map(tech => {
+                const icon = getTechIcon(tech);
+                return (
+                  <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
+                    {icon && <img src={icon} alt={tech} className="w-3.5 h-3.5 object-contain" />}
+                    {tech}
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         ))}
