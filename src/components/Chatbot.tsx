@@ -8,12 +8,13 @@ interface Message {
   id: string;
   role: 'user' | 'assistant';
   content: string;
+  suggestedPrompts?: string[];
 }
 
-const PRESET_PROMPTS = [
-  { icon: <FileText size={14}/>, text: "AI Experience" },
-  { icon: <FileText size={14}/>, text: "Top Projects" },
-  { icon: <FileText size={14}/>, text: "Why hire him?" }
+const DEFAULT_PROMPTS = [
+  "AI Experience",
+  "Top Projects",
+  "Why hire him?"
 ];
 
 const SYSTEM_PROMPT = `
@@ -23,10 +24,11 @@ Your primary goal is to answer questions from recruiters, hiring managers, or ot
 Adopt Stephen's persona: Be professional, concise, technologically adept, and slightly conversational. If you don't know the answer to something, state that you are an AI assistant and recommend they reach out via email: ${profileInfo.email}.
 
 Important guidelines:
-1. Keep answers relatively brief and easy to read. Use multiple short paragraphs rather than one large block of text.
+1. Keep answers extremely brief and easy to scan. Use multiple short paragraphs (1-2 sentences max) separated by blank lines. Never output giant walls of text.
 2. Format your output using standard Markdown.
-3. When discussing projects, you MUST include a Markdown hyperlink to the project's URL or GitHub if it exists in the data.
+3. When discussing projects, you MUST include a Markdown hyperlink to the project's URL or GitHub if it exists in the data. Do NOT say "URLs are not directly available" because they are in the JSON data provided below. Look for the "link" or "github" keys.
 4. If asked about the "Flagship" or most important project, always talk about "mycareermax" first, mentioning its metrics (Top 10 new business app in 17 countries, ~20k global downloads).
+5. At the very end of your response, ALWAYS provide exactly 3 suggested follow-up prompts formatted as a JSON array on a new line prefixed with "SUGGESTIONS:". Make them highly relevant to your response. Example: SUGGESTIONS: ["Tell me about Jedana AI", "What was your impact at Sigma?", "GitHub link to myCareerMax"]
 
 BACKGROUND DATA:
 Role: ${profileInfo.title}
@@ -142,8 +144,28 @@ const Chatbot = () => {
       }
 
       const data = await response.json();
+      
+      let responseText = data.text;
+      let suggestedPrompts = DEFAULT_PROMPTS;
+      
+      // Parse out the dynamic suggestions if provided
+      const suggestionsMatch = responseText.match(/SUGGESTIONS:\s*(\[.*?\])/);
+      if (suggestionsMatch && suggestionsMatch[1]) {
+        try {
+          suggestedPrompts = JSON.parse(suggestionsMatch[1]);
+          // Remove the suggestions block from the visible text
+          responseText = responseText.replace(/SUGGESTIONS:\s*\[.*?\]/, '').trim();
+        } catch (e) {
+          console.error("Failed to parse dynamic suggestions", e);
+        }
+      }
 
-      setMessages(prev => [...prev, { id: Date.now().toString(), role: 'assistant', content: data.text }]);
+      setMessages(prev => [...prev, { 
+        id: Date.now().toString(), 
+        role: 'assistant', 
+        content: responseText,
+        suggestedPrompts 
+      }]);
     } catch (error) {
       console.error("Chat error:", error);
       setMessages(prev => [...prev, { 
@@ -277,15 +299,15 @@ const Chatbot = () => {
                   {/* Preset Prompts just below the latest assistant message */}
                   {msg.role === 'assistant' && msg.id === messages[messages.length - 1].id && !isLoading && (
                     <div className="flex flex-wrap gap-2 mt-3 ml-9">
-                      {PRESET_PROMPTS.map((preset, i) => (
+                      {(msg.suggestedPrompts || DEFAULT_PROMPTS).map((promptText, i) => (
                         <button
                           key={i}
-                          onClick={() => handlePresetClick(preset.text)}
+                          onClick={() => handlePresetClick(promptText)}
                           disabled={isLoading}
                           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/40 border border-cyan-900/50 text-xs font-medium text-cyan-400 hover:bg-cyan-900/30 hover:border-cyan-700 transition-colors disabled:opacity-50"
                         >
-                          {preset.icon}
-                          <span>{preset.text}</span>
+                          <FileText size={14} />
+                          <span>{promptText}</span>
                         </button>
                       ))}
                     </div>
