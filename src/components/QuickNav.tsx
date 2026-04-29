@@ -10,17 +10,29 @@ export const QuickNav: React.FC = () => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="flex flex-wrap items-center justify-center sm:justify-start md:justify-center gap-4 w-full"
     >
-      <a href="#experience" className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors">
+      <a 
+        href="#experience" 
+        onClick={(e) => { e.preventDefault(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); }}
+        className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors"
+      >
         <Briefcase className="w-4 h-4" />
         My path
       </a>
       
-      <a href="#projects" className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors">
+      <a 
+        href="#projects" 
+        onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+        className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors"
+      >
         <FolderGit2 className="w-4 h-4" />
         What I build
       </a>
       
-      <a href="#contact" className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors">
+      <a 
+        href="#contact" 
+        onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+        className="flex items-center gap-2 px-6 py-3 bg-[#1C1A24] hover:bg-[#2D243B] border border-white/5 rounded-full text-[15px] font-medium text-slate-200 transition-colors"
+      >
         <Mail className="w-4 h-4" />
         Let's talk
       </a>

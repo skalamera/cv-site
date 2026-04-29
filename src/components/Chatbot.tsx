@@ -136,6 +136,7 @@ const Chatbot = () => {
     <>
       {/* Floating Button */}
       <motion.button
+        id="chat-toggle-btn"
         className="fixed bottom-6 right-6 w-14 h-14 bg-slate-800 rounded-full border border-slate-600 shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center z-50 hover:bg-slate-700 transition-colors p-0.5 overflow-hidden"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
