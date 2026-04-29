@@ -59,9 +59,14 @@ const ArchitectureVisualization: React.FC = () => {
 
   return (
     <section className="mb-20">
-      <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl font-bold text-white tracking-tight">AI Architecture</h2>
-        <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
+      <div className="flex flex-col gap-3 mb-10">
+        <div className="flex items-center gap-4">
+          <h2 className="text-2xl font-bold text-white tracking-tight">AI Architecture</h2>
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
+        </div>
+        <p className="text-slate-400 text-sm md:text-[15px] leading-relaxed max-w-3xl">
+          I built the floating AI assistant (bottom right) so recruiters and visitors can ask detailed questions about my experience 24/7. Click through the visualization below to see exactly how the RAG framework powers it under the hood.
+        </p>
       </div>
 
       <div className="glass-panel border border-slate-700/50 bg-[#1f1e14]/40 rounded-2xl p-6 lg:p-8 relative overflow-hidden">
