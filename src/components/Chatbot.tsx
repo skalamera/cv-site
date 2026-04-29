@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Loader2, Briefcase, Rocket, HelpCircle, Mail, Bot } from 'lucide-react';
+import { X, Send, User, Loader2, Bot, FileText } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { profileInfo, projects, jobs } from '../data/cv-data';
 
@@ -11,10 +11,9 @@ interface Message {
 }
 
 const PRESET_PROMPTS = [
-  { icon: <Briefcase size={14}/>, text: "AI Experience" },
-  { icon: <Rocket size={14}/>, text: "Top Projects" },
-  { icon: <HelpCircle size={14}/>, text: "Why hire him?" },
-  { icon: <Mail size={14}/>, text: "Contact" }
+  { icon: <FileText size={14}/>, text: "AI Experience" },
+  { icon: <FileText size={14}/>, text: "Top Projects" },
+  { icon: <FileText size={14}/>, text: "Why hire him?" }
 ];
 
 const SYSTEM_PROMPT = `
@@ -24,10 +23,10 @@ Your primary goal is to answer questions from recruiters, hiring managers, or ot
 Adopt Stephen's persona: Be professional, concise, technologically adept, and slightly conversational. If you don't know the answer to something, state that you are an AI assistant and recommend they reach out via email: ${profileInfo.email}.
 
 Important guidelines:
-1. Keep answers relatively brief and easy to read (use short paragraphs or bullet points).
-2. When discussing projects, highlight the Tech Stack used.
-3. If asked about the "Flagship" or most important project, always talk about "mycareermax" first, mentioning its metrics (Top 10 new business app in 17 countries, ~20k global downloads).
-4. Format your output using standard Markdown.
+1. Keep answers relatively brief and easy to read. Use multiple short paragraphs rather than one large block of text.
+2. Format your output using standard Markdown.
+3. When discussing projects, you MUST include a Markdown hyperlink to the project's URL or GitHub if it exists in the data.
+4. If asked about the "Flagship" or most important project, always talk about "mycareermax" first, mentioning its metrics (Top 10 new business app in 17 countries, ~20k global downloads).
 
 BACKGROUND DATA:
 Role: ${profileInfo.title}
@@ -64,7 +63,7 @@ const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string 
   }
 
   return (
-    <div className="prose prose-invert prose-sm max-w-none prose-p:leading-snug prose-ul:my-1 prose-li:my-0 prose-pre:overflow-x-auto prose-pre:max-w-full">
+    <div className="prose prose-invert prose-sm max-w-none text-slate-300 prose-p:leading-relaxed prose-p:mb-4 last:prose-p:mb-0 prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:mb-4 prose-li:my-1 prose-pre:overflow-x-auto prose-pre:max-w-full">
       <ReactMarkdown>{displayed}</ReactMarkdown>
     </div>
   );
@@ -275,15 +274,15 @@ const Chatbot = () => {
                     )}
                   </div>
                   
-                  {/* Preset Prompts just below the initial assistant message */}
-                  {msg.id === '1' && msg.role === 'assistant' && (
+                  {/* Preset Prompts just below the latest assistant message */}
+                  {msg.role === 'assistant' && msg.id === messages[messages.length - 1].id && !isLoading && (
                     <div className="flex flex-wrap gap-2 mt-3 ml-9">
                       {PRESET_PROMPTS.map((preset, i) => (
                         <button
                           key={i}
                           onClick={() => handlePresetClick(preset.text)}
                           disabled={isLoading}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/60 border border-slate-600/50 text-xs text-primary hover:bg-slate-700 hover:text-blue-300 hover:border-primary/50 transition-colors disabled:opacity-50"
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/40 border border-cyan-900/50 text-xs font-medium text-cyan-400 hover:bg-cyan-900/30 hover:border-cyan-700 transition-colors disabled:opacity-50"
                         >
                           {preset.icon}
                           <span>{preset.text}</span>
