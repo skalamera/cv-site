@@ -72,6 +72,8 @@ const Hero: React.FC = () => {
                   'Open Source Builder',
                   2000,
                   'Multi-Agent Systems Builder',
+                  2000,
+                  'Support Tooling Engineer',
                   2000
                 ]}
                 wrapper="span"
