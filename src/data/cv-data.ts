@@ -282,7 +282,6 @@ export const techStack = [
       { name: "Tailwind CSS", icon: "/icons/tailwind_css.png" },
       { name: "SQL", icon: "/icons/sql.png" }
     ,
-        { name: "JS", icon: "/icons/js.png" },
         { name: "Flask", icon: "/icons/flask.png" },
         { name: "Framer Motion", icon: "/icons/framer_motion.png" },
         { name: "Chrome Extension", icon: "/icons/chrome_extension.png" },
@@ -340,4 +339,5 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
 
