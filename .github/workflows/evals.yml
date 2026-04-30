@@ -1,34 +1,62 @@
-name: Promptfoo Evals
+name: LLM Ops - Trace-to-Eval Pipeline
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    # Run automatically every night at midnight UTC to sync new attacks
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual triggering from GitHub UI
 
 jobs:
-  evaluate:
+  sync-and-evaluate:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          # Ensure we can push commits back to the repo
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci || npm install
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Run Promptfoo Evals
+      - name: Sync New Attacks from Langfuse
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
-          # The GitHub action needs the Gemini API key to act as the "Judge" LLM
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_BASEURL: "https://us.cloud.langfuse.com"
+        run: |
+          # Create a temporary .env.local so the script can read the vars
+          echo "LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY}" > .env.local
+          echo "LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY}" >> .env.local
+          echo "LANGFUSE_BASEURL=${LANGFUSE_BASEURL}" >> .env.local
+          node scripts/sync-evals.js
+          rm .env.local
+
+      - name: Commit New Test Cases
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action [Bot]"
+          git add tests/adversarial-inputs.json
+          # Only commit and push if there are actual changes
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-sync adversarial tests from Langfuse traces" && git push)
+
+      - name: Run Promptfoo Evaluations
+        env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npx promptfoo eval
         
-      - name: Output Eval Results
-        run: |
-          echo "Prompt evaluations completed successfully!"
-          # Optionally generate a JSON/HTML report
-          # npx promptfoo eval -o output.html
+      # Optional: In a true strict setup, if the eval fails, the workflow fails, 
+      # blocking Vercel from deploying (if Vercel is configured to require passing GitHub checks). 
