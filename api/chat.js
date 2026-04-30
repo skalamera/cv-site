@@ -1,5 +1,12 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Pinecone } from '@pinecone-database/pinecone';
+import { Langfuse } from 'langfuse';
+
+const langfuse = new Langfuse({
+  secretKey: process.env.LANGFUSE_SECRET_KEY,
+  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
+  baseUrl: process.env.LANGFUSE_BASEURL || "https://cloud.langfuse.com"
+});
 
 // Vercel Serverless Function to proxy Gemini requests securely
 export default async function handler(req, res) {
@@ -32,6 +39,15 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Gemini API key is not configured on the server.' });
     }
     
+    // Initialize Langfuse Trace
+    const trace = langfuse.trace({
+      name: "cv-chat-interaction",
+      sessionId: req.headers['x-session-id'] || "anonymous-session",
+      metadata: {
+        method: "gemini-2.5-flash",
+      }
+    });
+
     const genAI = new GoogleGenerativeAI(apiKey);
     
     let ragContext = "";
@@ -52,15 +68,26 @@ export default async function handler(req, res) {
              includeMetadata: true
           });
           
+          let retrievedDocs = [];
           if (queryResponse.matches && queryResponse.matches.length > 0) {
              ragContext = "\\n\\n--- START RELEVANT SOURCE CODE & CONTEXT ---\\n";
              queryResponse.matches.forEach((match, i) => {
                 if (match.metadata && match.metadata.text) {
                    ragContext += `\\n[Context ${i+1} from ${match.metadata.source}]:\\n${match.metadata.text}\\n`;
+                   retrievedDocs.push(match.metadata.text);
                 }
              });
              ragContext += "--- END RELEVANT SOURCE CODE & CONTEXT ---\\n\\nUse this context to accurately answer the user's question. If the context contains source code, you may quote it or explain it.";
           }
+          
+          // Log Vector Search to Langfuse
+          trace.span({
+            name: "pinecone-vector-search",
+            input: message,
+            output: retrievedDocs,
+            metadata: { topK: 5 }
+          });
+          
        } catch (err) {
           console.error("RAG pipeline failed, falling back to base model:", err);
        }
@@ -75,12 +102,30 @@ export default async function handler(req, res) {
       history: history,
     });
 
+    // Start Langfuse Generation
+    const generation = trace.generation({
+      name: "gemini-chat-completion",
+      model: "gemini-2.5-flash",
+      modelParameters: { temperature: 0.7 },
+      prompt: { history, message, systemInstruction: systemInstruction + ragContext }
+    });
+
     const result = await chat.sendMessage(message);
     const responseText = result.response.text();
+
+    // End Langfuse Generation
+    generation.end({
+      completion: responseText,
+    });
+
+    // Ensure traces are flushed before the serverless function exits
+    await langfuse.flushAsync();
 
     return res.status(200).json({ text: responseText });
   } catch (error) {
     console.error('Gemini API Error:', error);
+    trace?.update({ level: "ERROR", statusMessage: error.message });
+    await langfuse.flushAsync();
     return res.status(500).json({ error: 'Failed to generate response' });
   }
 }
