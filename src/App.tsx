@@ -11,6 +11,7 @@ import { profileInfo } from './data/cv-data';
 import { QuickNav } from './components/QuickNav';
 import ArchitectureVisualization from './components/ArchitectureVisualization';
 import { FloatingNav } from './components/FloatingNav';
+import { FuturisticClock } from './components/FuturisticClock';
 
 function App() {
   return (
@@ -27,10 +28,8 @@ function App() {
           <div className="flex items-center gap-2">
             {/* Logo or left side empty */}
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400 font-mono tracking-widest uppercase">
-            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+          <div className="hidden md:flex items-center">
+            <FuturisticClock />
           </div>
         </div>
       </nav>
