@@ -55,10 +55,10 @@ export const FloatingNav: React.FC = () => {
           onClick={() => scrollTo(item.id)}
           className="group flex items-center gap-4 text-sm font-mono tracking-wider transition-all duration-300"
         >
-          <div className={\w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 \\}>
-            <div className={\w-1.5 h-1.5 rounded-full \\} />
+          <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${activeSection === item.id ? 'bg-white' : 'bg-transparent border border-white/20 group-hover:border-white/50'}`}>
+            <div className={`w-1.5 h-1.5 rounded-full ${activeSection === item.id ? 'bg-black' : 'bg-transparent'}`} />
           </div>
-          <span className={\	ransition-all duration-300 \\}>
+          <span className={`transition-all duration-300 ${activeSection === item.id ? 'text-white opacity-100 translate-x-2' : 'text-white/40 opacity-0 group-hover:opacity-100 group-hover:text-white/70'}`}>
             {item.label}
           </span>
         </button>
