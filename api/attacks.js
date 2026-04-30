@@ -10,12 +10,14 @@ export default async function handler(req, res) {
     const auth = Buffer.from(process.env.LANGFUSE_PUBLIC_KEY + ':' + process.env.LANGFUSE_SECRET_KEY).toString('base64');
     const baseUrl = process.env.LANGFUSE_BASEURL || 'https://us.cloud.langfuse.com';
     
-    // Fallback to fetch API if node version >= 18 is used in Vercel
-    const response = await fetch(\\/api/public/traces?tags=attack_detected&limit=1\, {
+    const url = baseUrl + '/api/public/traces?tags=attack_detected&limit=1';
+    
+    const response = await fetch(url, {
       headers: {
         'Authorization': 'Basic ' + auth
       }
     });
+    
     const data = await response.json();
     
     return res.status(200).json({ count: data.meta?.totalItems || 0 });
