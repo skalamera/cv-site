@@ -171,9 +171,9 @@ export const projects: Project[] = [
   },
   {
     id: "stephen-cv-site",
-    title: "AI Portfolio & CV",
-    description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations.",
-    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini", "Pinecone"],
+    title: "AI Portfolio & CV (skalamera.me)",
+    description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations. The backend implements a production-grade LLMOps architecture: it uses a Guardian AI model as an active firewall to block prompt injections, performs RAG (Retrieval-Augmented Generation) via Pinecone vector search over 15,000+ chunks of source code and resume data, logs all telemetry to Langfuse, and utilizes a closed-loop CI/CD pipeline via GitHub Actions to automatically convert thwarted attacks into Promptfoo regression tests.",
+    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini 2.5 Flash", "Pinecone", "Langfuse", "Promptfoo", "Vercel Serverless"],
     github: "https://github.com/skalamera/cv-site",
     link: "https://skalamera.me",
     logo: "/profile.png"
