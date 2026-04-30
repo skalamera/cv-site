@@ -10,6 +10,7 @@ import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
 import { QuickNav } from './components/QuickNav';
 import ArchitectureVisualization from './components/ArchitectureVisualization';
+import { FloatingNav } from './components/FloatingNav';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       
       {/* Global Background Grid */}
       <div className="absolute inset-0 z-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+      <FloatingNav />
 
       {/* Navigation */}
       <nav className="absolute top-0 w-full z-50 pt-8 pb-4">
@@ -35,7 +38,7 @@ function App() {
       {/* Main Content Layout */}
       <main className="relative z-10">
         
-        <section className="pt-20 pb-12 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+        <section id="hero" className="pt-20 pb-12 max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
           <Hero />
         </section>
 
@@ -45,22 +48,25 @@ function App() {
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+        <section id="architecture" className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
           <ArchitectureVisualization />
+        </section>
+
+        <section id="experience" className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0 mt-20">
           <Experience />
         </section>
 
-        <section className="py-16 bg-black/20 border-y border-white/5 mb-20">
+        <section id="claude" className="py-16 bg-black/20 border-y border-white/5 mb-20 mt-20">
           <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
             <ClaudeCode />
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
+        <section id="projects" className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0 mt-20">
           <Projects />
         </section>
 
-        <section className="py-16 bg-black/20 border-y border-white/5 mb-20">
+        <section id="skills" className="py-16 bg-black/20 border-y border-white/5 mb-20 mt-20">
           <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-0">
             <AIFluency />
           </div>
