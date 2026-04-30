@@ -1,6 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { techStack, sideSkills } from '../data/cv-data';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+const SkillCard = ({ category, itemVariants }: { category: any, itemVariants: any }) => {
+  const [expanded, setExpanded] = useState(false);
+  const threshold = 6;
+  const isLong = category.skills.length > threshold;
+  const displayedSkills = expanded ? category.skills : category.skills.slice(0, threshold);
+
+  return (
+    <motion.div 
+      variants={itemVariants}
+      className="bg-[#1c2128] border border-slate-700/60 rounded-2xl p-6 hover:border-slate-500 transition-colors flex flex-col h-full"
+    >
+      <h4 className="text-sm font-bold text-cyan-400 tracking-wider uppercase mb-6">{category.category}</h4>
+      <div className="flex flex-wrap gap-x-4 gap-y-4 content-start flex-1">
+        {displayedSkills.map((skill: any, j: number) => {
+          if (skill.name === "HTML/CSS") {
+            return (
+              <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
+                <div className="flex items-center justify-center shrink-0 gap-1">
+                  <img src="/icons/html.png" alt="HTML" className="w-5 h-5 object-contain" />
+                  <img src="/icons/css.png" alt="CSS" className="w-5 h-5 object-contain" />
+                </div>
+                <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
+              </div>
+            );
+          }
+          return (
+            <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
+              <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                <img src={skill.icon} alt={skill.name} className="max-w-full max-h-full object-contain" />
+              </div>
+              <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
+            </div>
+          );
+        })}
+      </div>
+      {isLong && (
+        <button 
+          onClick={() => setExpanded(!expanded)}
+          className="mt-6 text-xs font-semibold text-cyan-500 hover:text-cyan-400 transition-colors flex items-center justify-center gap-1 w-full border-t border-slate-700/50 pt-4"
+        >
+          {expanded ? (
+            <React.Fragment>View Less <ChevronUp size={14} /></React.Fragment>
+          ) : (
+            <React.Fragment>View More ({category.skills.length - threshold}) <ChevronDown size={14} /></React.Fragment>
+          )}
+        </button>
+      )}
+    </motion.div>
+  );
+};
 
 const Skills: React.FC = () => {
   const container = {
@@ -74,36 +126,7 @@ const Skills: React.FC = () => {
             className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
           >
             {techStack.map((category, i) => (
-              <motion.div 
-                key={i} 
-                variants={item}
-                className="bg-[#1c2128] border border-slate-700/60 rounded-2xl p-6 hover:border-slate-500 transition-colors"
-              >
-                <h4 className="text-sm font-bold text-cyan-400 tracking-wider uppercase mb-6">{category.category}</h4>
-                <div className="flex flex-wrap gap-x-4 gap-y-4">
-                  {category.skills.map((skill, j) => {
-                    if (skill.name === "HTML/CSS") {
-                      return (
-                        <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
-                          <div className="flex items-center justify-center shrink-0 gap-1">
-                            <img src="/icons/html.png" alt="HTML" className="w-5 h-5 object-contain" />
-                            <img src="/icons/css.png" alt="CSS" className="w-5 h-5 object-contain" />
-                          </div>
-                          <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
-                        </div>
-                      );
-                    }
-                    return (
-                      <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
-                        <div className="w-5 h-5 flex items-center justify-center shrink-0">
-                          <img src={skill.icon} alt={skill.name} className="max-w-full max-h-full object-contain" />
-                        </div>
-                        <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </motion.div>
+              <SkillCard key={i} category={category} itemVariants={item} />
             ))}
           </motion.div>
 

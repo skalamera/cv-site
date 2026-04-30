@@ -20,9 +20,8 @@ export interface Project {
   featured?: boolean;
   logo?: string;
   highlights?: string[];
-  kpis?: { value: string; label: string 
+  kpis?: { value: string; label: string }[];
   theme?: "yellow" | "blue" | "purple";
-}[];
 }
 
 export interface Certification {
@@ -353,6 +352,7 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
 
 
 
