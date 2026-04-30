@@ -142,8 +142,8 @@ const AIPortfolioCard: React.FC = () => {
           {/* Top Content: Project Info */}
           <div className="flex-1 flex flex-col relative z-10">
             <div className="flex items-start justify-between mb-8">
-              <div className={`w-20 h-20 bg-[#111827] rounded-xl border ${innerBorderColor} p-2 shadow-lg flex items-center justify-center shrink-0`}>
-                <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain rounded-lg" />
+              <div className="w-24 h-24 flex items-center justify-center shrink-0">
+                <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-cover rounded-xl shadow-lg border border-purple-600/30" />
               </div>
               <div className="flex flex-col items-end gap-2">
                 <AttackTracker />
