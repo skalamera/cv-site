@@ -262,6 +262,7 @@ export const techStack = [
       { name: "Power BI", icon: "/icons/powerbi.png" },
       { name: "Tableau", icon: "/icons/tableau.png" },
       { name: "Snowflake", icon: "/icons/snowflake.png" },
+      { name: "Redshift", icon: "/icons/redshift.png" },
       { name: "BigQuery", icon: "/icons/Big_Query.png" },
       { name: "Sigma", icon: "/icons/sigma_white.png" }
     ]
