@@ -287,8 +287,6 @@ export const techStack = [
         { name: "Framer Motion", icon: "/icons/framer_motion.png" },
         { name: "Chrome Extension", icon: "/icons/chrome_extension.png" },
         { name: "HTML/CSS", icon: "/icons/html.png" },
-        { name: "HTML", icon: "/icons/html.png" },
-        { name: "CSS", icon: "/icons/css.png" },
         { name: "Supabase", icon: "/icons/supabase.png" },
         { name: "Vite", icon: "/icons/vite.png" },
         { name: "Web Technologies", icon: "/icons/web_technologies.png" }
@@ -342,3 +340,4 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
