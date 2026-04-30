@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
 import { ExternalLink, Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
+import { AttackTracker } from './AttackTracker';
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -140,15 +141,21 @@ const AIPortfolioCard: React.FC = () => {
           
           {/* Top Content: Project Info */}
           <div className="flex-1 flex flex-col relative z-10">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-start justify-between mb-8">
               <div className={`w-20 h-20 bg-[#111827] rounded-xl border ${innerBorderColor} p-2 shadow-lg flex items-center justify-center shrink-0`}>
                 <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain rounded-lg" />
               </div>
-              {featured.metrics && (
-                <div className={`px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
-                  {featured.metrics}
+              <div className="flex flex-col items-end gap-2">
+                <AttackTracker />
+                <div className="flex flex-wrap gap-2 justify-end">
+                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
+                    RAG (Retrieval-Augmented Generation)
+                  </div>
+                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
+                    Self-healing
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
             
             <h3 className="text-3xl font-bold text-white mb-4">
