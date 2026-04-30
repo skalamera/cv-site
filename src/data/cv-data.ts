@@ -239,10 +239,11 @@ export const techStack = [
     category: "AI / LLM",
     skills: [
       { name: "Gemini", icon: "/icons/gemini.png" },
-      { name: "OpenAI", icon: "/icons/chatgpt.png" },
+      { name: "OpenAI", icon: "/icons/white_chatgpt.png" },
       { name: "Claude API", icon: "/icons/claude.png" },
       { name: "Anthropic / MCP", icon: "/icons/anthropic - white.png" },
-      { name: "Pinecone", icon: "/icons/pinecone.png" }
+      { name: "Pinecone", icon: "/icons/pinecone.png" },
+      { name: "Langfuse", icon: "/icons/langfuse.png" }
     ]
   },
   {
@@ -250,7 +251,7 @@ export const techStack = [
     skills: [
       { name: "Freshdesk", icon: "/icons/freshdesk.png" },
       { name: "Zendesk", icon: "/icons/zendesk.png" },
-      { name: "Intercom", icon: "/icons/intercom.png" },
+      { name: "Intercom", icon: "/icons/intercom_blue.png" },
       { name: "Salesforce", icon: "/icons/salesforce.png" },
       { name: "RingCentral", icon: "/icons/ringcentral.png" }
     ]
@@ -261,8 +262,8 @@ export const techStack = [
       { name: "Power BI", icon: "/icons/powerbi.png" },
       { name: "Tableau", icon: "/icons/tableau.png" },
       { name: "Snowflake", icon: "/icons/snowflake.png" },
-      { name: "Redshift", icon: "/icons/redshift.png" },
-      { name: "Sigma", icon: "/icons/sigma.png" }
+      { name: "BigQuery", icon: "/icons/Big_Query.png" },
+      { name: "Sigma", icon: "/icons/sigma_white.png" }
     ]
   },
   {
@@ -271,7 +272,7 @@ export const techStack = [
       { name: "Python", icon: "/icons/python.png" },
       { name: "JavaScript", icon: "/icons/javascript.png" },
       { name: "React", icon: "/icons/react.png" },
-      { name: "Next.js", icon: "/icons/next.js.png" },
+      { name: "Next.js", icon: "/icons/next.js_white_font.png" },
       { name: "SQL", icon: "/icons/sql.png" }
     ]
   },
