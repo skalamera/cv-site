@@ -43,6 +43,7 @@ export default async function handler(req, res) {
     const trace = langfuse.trace({
       name: "cv-chat-interaction",
       sessionId: req.headers['x-session-id'] || "anonymous-session",
+      input: message,
       metadata: {
         method: "gemini-2.5-flash",
       }
