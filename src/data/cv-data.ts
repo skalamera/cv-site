@@ -181,28 +181,28 @@ export const projects: Project[] = [
   {
     id: "motiv-proj",
     title: "Motiv",
-    description: "AI-powered car maintenance assistant providing diagnostic insights, schedules, news, recalls, and multimodal interaction using Google Gemini.",
+    description: "Motiv is a comprehensive, AI-powered car maintenance and diagnostics platform. It provides users with automated maintenance schedules, NHTSA recall tracking, automotive news, and a multimodal 'Ask Motiv' assistant capable of reading uploaded owner manuals. Built on Next.js 16 with the App Router, it utilizes Supabase for authentication, PostgreSQL, and PDF document storage. The Vercel AI SDK integrates Google Gemini via an AI Gateway, allowing users to query their vehicle data and manuals in real-time.",
     techStack: ["Next.js 16", "Supabase", "Vercel AI SDK", "Tailwind CSS"],
     logo: "/icons/motiv.svg"
   },
   {
     id: "jayobee",
     title: "Jayobee",
-    description: "A specialized Chrome extension leveraging generative AI to contextualize web text, construct dynamic CVs, and auto-fill ATS application forms.",
+    description: "Jayobee is an advanced Chrome Extension designed to streamline the job application process using generative AI. It leverages Google Gemini via Manifest V3 background service workers and offscreen documents to contextualize highlighted web text and construct dynamically targeted resumes. The extension features a robust set of custom portal handlers capable of autonomously parsing and auto-filling complex Applicant Tracking System (ATS) forms across platforms like Workday, Greenhouse, Lever, Ashby, iCIMS, and Taleo.",
     techStack: ["JavaScript", "Chrome Extension API", "Gemini API", "HTML/CSS"],
     logo: "/icons/jayobee_app_icon.png"
   },
   {
     id: "harry",
     title: "HARry",
-    description: "A web application that parses and analyzes HTTP Archive (HAR) files, providing detailed metrics, error tracking, and network insights.",
+    description: "HARry is a specialized web application engineered to parse, analyze, and visualize HTTP Archive (HAR) files for deep network diagnostics. Designed to assist technical support teams, the Flask backend processes raw JSON-formatted network payloads to generate detailed, interactive reports. It automatically extracts and groups critical request metrics, status code distributions, latency timing data, and error traces, allowing engineers to rapidly identify API failures.",
     techStack: ["Python", "Flask", "Web Technologies"],
     logo: "/icons/HARry.png"
   },
   {
     id: "queuety",
     title: "Queuety",
-    description: "Integrated call and queue management system built over the RingCentral API, featuring OAuth2 authentication and Redis caching.",
+    description: "Queuety is an integrated call routing and queue management system developed on top of the RingCentral SDK. Built with a lightweight Python/Flask backend, it provides operational support teams with enhanced visibility into live caller queues and agent availability. The application utilizes a Redis caching layer for fast, real-time state management and implements robust OAuth2 authentication workflows to securely interface directly with RingCentral enterprise accounts.",
     techStack: ["Python", "Flask", "RingCentral API", "Redis"],
     logo: "/icons/queuety.png"
   }
@@ -339,6 +339,8 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
+
 
 
 
