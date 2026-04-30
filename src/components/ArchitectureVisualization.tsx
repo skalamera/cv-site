@@ -101,7 +101,7 @@ const ArchitectureVisualization: React.FC = () => {
         <div className="glass p-5 rounded-xl border border-slate-700/50 bg-slate-800/20 max-w-3xl relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <p className="text-slate-300 text-sm md:text-[15px] leading-relaxed pl-2 font-light tracking-wide">
-            I built the floating AI assistant so visitors can ask detailed questions about my background, experience, and projects <strong className="text-white font-medium">24/7</strong>. 
+            I built this AI Agent so visitors can ask detailed questions about my background, experience, and projects <strong className="text-white font-medium">24/7</strong>. 
             However, deploying an LLM to the public web introduces significant risks like prompt injection and data hallucinations. Click through the visualization below to explore the <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">self-healing LLMOps architecture</span> I designed to keep the agent secure. It features an active AI firewall, deep semantic retrieval (RAG), and a closed-loop CI/CD pipeline that automatically turns failed attacks into regression tests.
           </p>
         </div>
