@@ -11,6 +11,12 @@ const GithubIcon = () => (
 );
 
 const getTechIcon = (techName: string) => {
+  if (techName.toLowerCase() === "html/css") {
+    return [
+      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "HTML")?.icon,
+      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "CSS")?.icon
+    ];
+  }
   for (const category of allTechStack) {
     const found = category.skills.find(s => techName.toLowerCase().includes(s.name.toLowerCase()));
     if (found) return found.icon;
@@ -79,10 +85,13 @@ const Projects: React.FC = () => {
 
               <ul className="flex flex-wrap gap-2 mb-8">
                 {featured.techStack.map(tech => {
-                  const icon = getTechIcon(tech);
+                  const icons = getTechIcon(tech);
                   return (
                     <li key={tech} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#111827] border border-yellow-600/30 rounded-md text-xs font-medium text-slate-300 shadow-sm">
-                      {icon && <img src={icon} alt={tech} className="w-4 h-4 object-contain" />}
+                      {Array.isArray(icons) 
+                        ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-4 h-4 object-contain" />)
+                        : (icons && <img src={icons as string} alt={tech} className="w-4 h-4 object-contain" />)
+                      }
                       {tech}
                     </li>
                   );
@@ -159,10 +168,13 @@ const Projects: React.FC = () => {
             
             <ul className="flex flex-wrap gap-2 mt-auto">
               {project.techStack.map(tech => {
-                const icon = getTechIcon(tech);
+                const icons = getTechIcon(tech);
                 return (
                   <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
-                    {icon && <img src={icon} alt={tech} className="w-3.5 h-3.5 object-contain" />}
+                    {Array.isArray(icons) 
+                      ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
+                      : (icons && <img src={icons as string} alt={tech} className="w-3.5 h-3.5 object-contain" />)
+                    }
                     {tech}
                   </li>
                 );

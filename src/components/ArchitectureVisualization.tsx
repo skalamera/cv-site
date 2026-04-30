@@ -4,6 +4,12 @@ import { Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 
 import { techStack as allTechStack } from '../data/cv-data';
 
 const getTechIcon = (techName: string) => {
+  if (techName.toLowerCase() === "html/css") {
+    return [
+      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "HTML")?.icon,
+      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "CSS")?.icon
+    ];
+  }
   for (const category of allTechStack) {
     const found = category.skills.find(s => techName.toLowerCase().includes(s.name.toLowerCase()));
     if (found) return found.icon;
@@ -176,10 +182,13 @@ const ArchitectureVisualization: React.FC = () => {
 
                 <div className="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start">
                   {steps[activeStep].tools.map((tech) => {
-                    const icon = getTechIcon(tech);
+                    const icons = getTechIcon(tech);
                     return (
                       <div key={tech} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#111827] border border-slate-700/50 rounded-md text-xs font-medium text-slate-300 shadow-sm">
-                        {icon && <img src={icon} alt={tech} className="w-4 h-4 object-contain" />}
+                        {Array.isArray(icons) 
+                          ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-4 h-4 object-contain" />)
+                          : (icons && <img src={icons as string} alt={tech} className="w-4 h-4 object-contain" />)
+                        }
                         {tech}
                       </div>
                     );
