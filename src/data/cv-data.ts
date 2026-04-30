@@ -145,6 +145,8 @@ export const projects: Project[] = [
     { 
       id: "jedana",
       title: "Jedana AI",
+      logo: "/jedana.png",
+      link: "https://jedana-app.vercel.app/",
       featured: true,
       theme: "blue",
       metrics: "Department-wide adoption at Benchmark Education",
@@ -154,21 +156,19 @@ export const projects: Project[] = [
         "**Customer Sentiment Analysis:** Aggregates company-wide ticket data to calculate a weighted 0-100 churn-risk score.",
         "**Performance Dashboard:** Provides macro-level tracking and reporting for support teams."
       ],
-    techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
-    logo: "/jedana.png",
-    link: "https://jedana-app.vercel.app/"
+    techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"]
   },
-    { 
+    {
       id: "stephen-cv-site",
       title: "AI Portfolio & CV (skalamera.me)",
+      logo: "/profile.png",
+      github: "https://github.com/skalamera/cv-site",
       featured: true,
       theme: "purple",
-    description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations. The backend implements a production-grade LLMOps architecture: it uses a Guardian AI model as an active firewall to block prompt injections, performs RAG (Retrieval-Augmented Generation) via Pinecone vector search over 15,000+ chunks of source code and resume data, logs all telemetry to Langfuse, and utilizes a closed-loop CI/CD pipeline via GitHub Actions to automatically convert thwarted attacks into Promptfoo regression tests.",
-    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini 2.5 Flash", "Pinecone", "Langfuse", "Promptfoo", "Vercel Serverless"],
-    github: "https://github.com/skalamera/cv-site",
-    link: "https://skalamera.me",
-    logo: "/profile.png"
-  },
+      description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations. The backend implements a production-grade LLMOps architecture: it uses a Guardian AI model as an active firewall to block prompt injections, performs RAG (Retrieval-Augmented Generation) via Pinecone vector search over 15,000+ chunks of source code and resume data, logs all telemetry to Langfuse, and utilizes a closed-loop CI/CD pipeline via GitHub Actions to automatically convert thwarted attacks into Promptfoo regression tests.",
+      techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini 2.5 Flash", "Pinecone", "Langfuse", "Promptfoo", "Vercel Serverless"],
+      link: "https://skalamera.me"
+    },
     {
     id: "mycareermax",
       logo: "/mycareermax/mycareermax_logo.png",
@@ -354,6 +354,17 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 
