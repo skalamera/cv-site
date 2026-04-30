@@ -71,6 +71,14 @@ body {
 .markdown-content li {
   margin-bottom: 0.25rem;
 }
+.markdown-content a {
+  color: var(--primary) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+.markdown-content a:hover {
+  color: #7dd3fc !important; /* Tailwind sky-300 */
+}
 
 .glow-border {
   box-shadow: 0 0 15px var(--accent-glow);
