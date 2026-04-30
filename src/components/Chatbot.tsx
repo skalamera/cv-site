@@ -68,9 +68,16 @@ const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string 
   return (
     <div className="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-p:mb-4 last:prose-p:mb-0 prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:mb-4 prose-li:my-1 prose-pre:overflow-x-auto prose-pre:max-w-full">
       <ReactMarkdown 
-        className="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline"
+        className="markdown-content"
         components={{
-          a: ({node, ...props}) => <a target="_blank" rel="noopener noreferrer" {...props} />
+          a: ({node, ...props}) => (
+            <a 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors"
+              {...props} 
+            />
+          )
         }}
       >
         {displayed}
