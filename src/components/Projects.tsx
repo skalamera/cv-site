@@ -25,7 +25,7 @@ const getTechIcon = (techName: string) => {
 };
 
 const Projects: React.FC = () => {
-  const featuredProjects = projects.filter(p => p.featured);
+  const featuredProjects = projects.filter(p => p.featured && p.id !== "stephen-cv-site");
   const gridProjects = projects.filter(p => !p.featured);
 
   return (
