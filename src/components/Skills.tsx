@@ -81,14 +81,27 @@ const Skills: React.FC = () => {
               >
                 <h4 className="text-sm font-bold text-cyan-400 tracking-wider uppercase mb-6">{category.category}</h4>
                 <div className="flex flex-wrap gap-x-4 gap-y-4">
-                  {category.skills.map((skill, j) => (
-                    <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
-                      <div className="w-5 h-5 flex items-center justify-center shrink-0">
-                        <img src={skill.icon} alt={skill.name} className="max-w-full max-h-full object-contain" />
+                  {category.skills.map((skill, j) => {
+                    if (skill.name === "HTML/CSS") {
+                      return (
+                        <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
+                          <div className="flex items-center justify-center shrink-0 gap-1">
+                            <img src="/icons/html.png" alt="HTML" className="w-5 h-5 object-contain" />
+                            <img src="/icons/css.png" alt="CSS" className="w-5 h-5 object-contain" />
+                          </div>
+                          <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div key={j} className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800/50 transition-colors w-fit">
+                        <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                          <img src={skill.icon} alt={skill.name} className="max-w-full max-h-full object-contain" />
+                        </div>
+                        <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
                       </div>
-                      <span className="text-slate-200 text-sm font-medium whitespace-nowrap">{skill.name}</span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
