@@ -161,7 +161,7 @@ export const projects: Project[] = [
     {
       id: "stephen-cv-site",
       title: "AI Portfolio & CV (skalamera.me)",
-      logo: "/profile.png",
+      logo: "/profile_pic_square_frame_dark_shirt.png",
       github: "https://github.com/skalamera/cv-site",
       featured: true,
       theme: "purple",
@@ -354,6 +354,8 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
+
 
 
 
