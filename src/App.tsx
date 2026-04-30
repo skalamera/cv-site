@@ -10,6 +10,7 @@ import Chatbot from './components/Chatbot';
 import { profileInfo } from './data/cv-data';
 import { QuickNav } from './components/QuickNav';
 import AIPortfolioCard from './components/AIPortfolioCard';
+import { AttackTracker } from './components/AttackTracker';
 import { FloatingNav } from './components/FloatingNav';
 import { FuturisticClock } from './components/FuturisticClock';
 
@@ -26,7 +27,7 @@ function App() {
       <nav className="absolute top-0 w-full z-50 pt-8 pb-4">
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* Logo or left side empty */}
+            <AttackTracker />
           </div>
           <div className="hidden md:flex items-center">
             <FuturisticClock />
