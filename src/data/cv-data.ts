@@ -273,7 +273,9 @@ export const techStack = [
       { name: "JavaScript", icon: "/icons/javascript.png" },
       { name: "React", icon: "/icons/react.png" },
       { name: "Next.js", icon: "/icons/next.js_white_font.png" },
-      { name: "SQL", icon: "/icons/sql.png" }
+      { name: "SQL", icon: "/icons/sql.png" },
+      { name: "Cursor", icon: "/icons/cursor.png" },
+      { name: "OpenCode", icon: "/icons/opencode.png" }
     ]
   },
   {
