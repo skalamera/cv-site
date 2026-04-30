@@ -163,8 +163,8 @@ export const projects: Project[] = [
   },
   {
     id: "jedana",
-    title: "Jedana AI",
-    description: "AI-Powered Freshdesk Analytics Suite offering automated QA reviews (AgentEye), customer sentiment tracking, and weighted multi-channel performance reviews.",
+      title: "Jedana AI",
+      description: "AI-Powered Customer Support Analytics Suite built specifically for Freshdesk. It features three core modules: AgentEye, which utilizes OpenAI to automatically ingest full ticket threads and generate granular, 4-pillar QA scorecards; Customer Sentiment Analysis, which aggregates company-wide ticket data to calculate a weighted 0-100 churn-risk score based on semantic language and outcomes; and a Performance Review Dashboard for macro-level tracking. The backend handles complex API pagination, rate-limiting, and data sanitation before injecting transcripts into specialized LLM prompts for structured JSON evaluation.",
     techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
     logo: "/jedana.png",
     link: "https://jedana-app.vercel.app/"
@@ -339,5 +339,7 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
+
 
 
