@@ -90,7 +90,7 @@ const Projects: React.FC = () => {
                     <li key={tech} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#111827] border border-yellow-600/30 rounded-md text-xs font-medium text-slate-300 shadow-sm">
                       {Array.isArray(icons) 
                         ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-4 h-4 object-contain" />)
-                        : (icons && <img src={icons as string} alt={tech} className="w-4 h-4 object-contain" />)
+                        : (icons && <img src={icons as string} alt={tech} className="w-4 max-h-4 object-contain" />)
                       }
                       {tech}
                     </li>
@@ -173,7 +173,7 @@ const Projects: React.FC = () => {
                   <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
                     {Array.isArray(icons) 
                       ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
-                      : (icons && <img src={icons as string} alt={tech} className="w-3.5 h-3.5 object-contain" />)
+                      : (icons && <img src={icons as string} alt={tech} className="w-3.5 max-h-3.5 object-contain" />)
                     }
                     {tech}
                   </li>
