@@ -237,14 +237,16 @@ export const certifications: Certification[] = [
 export const techStack = [
   {
     category: "AI / LLM",
-    skills: [
+      skills: [
       { name: "Gemini", icon: "/icons/gemini.png" },
       { name: "OpenAI", icon: "/icons/white_chatgpt.png" },
       { name: "Claude API", icon: "/icons/claude.png" },
       { name: "Anthropic / MCP", icon: "/icons/anthropic - white.png" },
       { name: "Pinecone", icon: "/icons/pinecone.png" },
       { name: "Langfuse", icon: "/icons/langfuse.png" }
-    ]
+    ,
+        { name: "Promptfoo", icon: "/icons/promptfoo.png" }
+      ]
   },
   {
     category: "SUPPORT / CRM",
@@ -258,25 +260,39 @@ export const techStack = [
   },
   {
     category: "DATA & BI",
-    skills: [
+      skills: [
       { name: "Power BI", icon: "/icons/powerbi.png" },
       { name: "Tableau", icon: "/icons/tableau.png" },
       { name: "Snowflake", icon: "/icons/snowflake.png" },
       { name: "Redshift", icon: "/icons/redshift.png" },
       { name: "BigQuery", icon: "/icons/Big_Query.png" },
       { name: "Sigma", icon: "/icons/sigma_white.png" }
-    ]
+    ,
+        { name: "Databricks", icon: "/icons/databricks.png" },
+        { name: "Redis", icon: "/icons/redis.png" }
+      ]
   },
   {
     category: "DEV",
-    skills: [
+      skills: [
       { name: "Python", icon: "/icons/python.png" },
       { name: "JavaScript", icon: "/icons/javascript.png" },
       { name: "React", icon: "/icons/react.png" },
       { name: "Next.js", icon: "/icons/next.js_white_font.png" },
       { name: "Tailwind CSS", icon: "/icons/tailwind_css.png" },
       { name: "SQL", icon: "/icons/sql.png" }
-    ]
+    ,
+        { name: "JS", icon: "/icons/js.png" },
+        { name: "Flask", icon: "/icons/flask.png" },
+        { name: "Framer Motion", icon: "/icons/framer_motion.png" },
+        { name: "Chrome Extension", icon: "/icons/chrome_extension.png" },
+        { name: "HTML/CSS", icon: "/icons/html.png" },
+        { name: "HTML", icon: "/icons/html.png" },
+        { name: "CSS", icon: "/icons/css.png" },
+        { name: "Supabase", icon: "/icons/supabase.png" },
+        { name: "Vite", icon: "/icons/vite.png" },
+        { name: "Web Technologies", icon: "/icons/web_technologies.png" }
+      ]
   },
   {
     category: "AI CODING",
@@ -288,13 +304,16 @@ export const techStack = [
   },
   {
     category: "INFRA & TOOLS",
-    skills: [
+      skills: [
       { name: "Azure", icon: "/icons/azure.png" },
       { name: "GCP", icon: "/icons/gcp.png" },
       { name: "Vercel", icon: "/icons/vercel.png" },
       { name: "Jira", icon: "/icons/jira.png" },
       { name: "Zapier", icon: "/icons/zapier.png" }
-    ]
+    ,
+        { name: "Docker", icon: "/icons/docker.png" },
+        { name: "Selenium", icon: "/icons/selenium.png" }
+      ]
   }
 ];
 
