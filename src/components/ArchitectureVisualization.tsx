@@ -23,28 +23,38 @@ const steps = [
     tools: ['React', 'Tailwind CSS']
   },
   {
+    id: 'firewall',
+    title: '2. AI Firewall (Guardian)',
+    desc: 'A secondary Gemini model instantly screens the raw input for prompt injections, safely blocking hostile attacks before they hit the database.',
+    icon: <ShieldCheck size={24} className="text-rose-400" />,
+    color: 'from-rose-500/20 to-rose-500/5',
+    borderColor: 'border-rose-500/30',
+    iconBg: 'bg-rose-500/10',
+    tools: ['Gemini', 'Node.js']
+  },
+  {
     id: 'embed',
-    title: '2. Vector Embedding',
-    desc: 'Gemini transforms the question into a 3,072-dimensional mathematical vector.',
+    title: '3. Vector Embedding',
+    desc: 'If safe, Gemini transforms the question into a 3,072-dimensional mathematical vector.',
     icon: <Activity size={24} className="text-purple-400" />,
     color: 'from-purple-500/20 to-purple-500/5',
     borderColor: 'border-purple-500/30',
     iconBg: 'bg-purple-500/10',
-    tools: ['Gemini', 'Node.js']
+    tools: ['Gemini']
   },
   {
     id: 'retrieve',
-    title: '3. RAG Retrieval',
-    desc: 'Pinecone searches 15,000+ chunks of my source code and resume to find relevant context.',
+    title: '4. RAG Retrieval',
+    desc: 'Pinecone searches thousands of chunks of my source code and resume to find relevant context.',
     icon: <Database size={24} className="text-emerald-400" />,
     color: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'border-emerald-500/30',
     iconBg: 'bg-emerald-500/10',
-    tools: ['Pinecone', 'Vercel']
+    tools: ['Pinecone']
   },
   {
     id: 'generate',
-    title: '4. LLM Generation',
+    title: '5. LLM Generation',
     desc: 'Gemini 2.5 Flash synthesizes the retrieved codebase context and answers intelligently.',
     icon: <Cpu size={24} className="text-blue-400" />,
     color: 'from-blue-500/20 to-blue-500/5',
@@ -53,14 +63,24 @@ const steps = [
     tools: ['Gemini']
   },
   {
+    id: 'observability',
+    title: '6. Telemetry & Observability',
+    desc: 'Every trace, latency metric, and vector result is logged to Langfuse for real-time monitoring.',
+    icon: <Activity size={24} className="text-amber-400" />,
+    color: 'from-amber-500/20 to-amber-500/5',
+    borderColor: 'border-amber-500/30',
+    iconBg: 'bg-amber-500/10',
+    tools: ['Vercel'] // We use generic Vercel since Langfuse isn't in your tech stack icons likely
+  },
+  {
     id: 'evals',
-    title: '5. CI/CD Evals',
-    desc: 'Promptfoo & GitHub Actions test prompt accuracy on every commit to prevent regressions.',
-    icon: <ShieldCheck size={24} className="text-rose-400" />,
-    color: 'from-rose-500/20 to-rose-500/5',
-    borderColor: 'border-rose-500/30',
-    iconBg: 'bg-rose-500/10',
-    tools: ['GitHub', 'Gemini']
+    title: '7. Closed-Loop CI/CD',
+    desc: 'A nightly GitHub Action extracts blocked attacks from Langfuse, turning them into automated regression tests via Promptfoo.',
+    icon: <Database size={24} className="text-indigo-400" />,
+    color: 'from-indigo-500/20 to-indigo-500/5',
+    borderColor: 'border-indigo-500/30',
+    iconBg: 'bg-indigo-500/10',
+    tools: ['GitHub']
   }
 ];
 
