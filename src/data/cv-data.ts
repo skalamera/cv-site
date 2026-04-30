@@ -171,6 +171,8 @@ export const projects: Project[] = [
   },
     {
     id: "mycareermax",
+      logo: "/mycareermax/mycareermax_logo.png",
+      github: "https://github.com/skalamera/mycareermax",
       title: "myCareerMax",
       theme: "yellow",
     description: "An intelligent, end-to-end career management platform. Enables users to build resumes and receive automated job alerts via a robust Python/Flask backend and Azure cloud integration.",
@@ -352,6 +354,8 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
+
 
 
 
