@@ -15,7 +15,7 @@ const steps = [
   {
     id: 'query',
     title: '1. User Input',
-    desc: 'Visitor asks a technical question via the floating chat UI.',
+    desc: 'A visitor asks a question via the floating React chat interface. The request is securely routed to a Vercel Serverless Function, ensuring API keys remain hidden from the client browser.',
     icon: <MessageSquare size={24} className="text-cyan-400" />,
     color: 'from-cyan-500/20 to-cyan-500/5',
     borderColor: 'border-cyan-500/30',
@@ -25,7 +25,7 @@ const steps = [
   {
     id: 'firewall',
     title: '2. AI Firewall (Guardian)',
-    desc: 'A secondary Gemini model instantly screens the raw input for prompt injections, safely blocking hostile attacks before they hit the database.',
+    desc: 'Before processing begins, a lightweight Gemini Flash model evaluates the raw input. It acts as an active firewall, detecting prompt injections or jailbreak attempts and blocking them instantly to protect the agent\'s persona.',
     icon: <ShieldCheck size={24} className="text-rose-400" />,
     color: 'from-rose-500/20 to-rose-500/5',
     borderColor: 'border-rose-500/30',
@@ -35,7 +35,7 @@ const steps = [
   {
     id: 'embed',
     title: '3. Vector Embedding',
-    desc: 'If safe, Gemini transforms the question into a 3,072-dimensional mathematical vector.',
+    desc: 'Once cleared by the firewall, the user\'s text is passed to Google\'s embedding model. It translates the semantic meaning of the question into a high-dimensional mathematical vector for similarity comparison.',
     icon: <Activity size={24} className="text-purple-400" />,
     color: 'from-purple-500/20 to-purple-500/5',
     borderColor: 'border-purple-500/30',
@@ -45,7 +45,7 @@ const steps = [
   {
     id: 'retrieve',
     title: '4. RAG Retrieval',
-    desc: 'Pinecone searches thousands of chunks of my source code and resume to find relevant context.',
+    desc: 'The vector is sent to a Pinecone vector database containing embedded chunks of my resume and source code. Pinecone performs a nearest-neighbor search to retrieve the most highly relevant context.',
     icon: <Database size={24} className="text-emerald-400" />,
     color: 'from-emerald-500/20 to-emerald-500/5',
     borderColor: 'border-emerald-500/30',
@@ -55,7 +55,7 @@ const steps = [
   {
     id: 'generate',
     title: '5. LLM Generation',
-    desc: 'Gemini 2.5 Flash synthesizes the retrieved codebase context and answers intelligently.',
+    desc: 'The primary Gemini 2.5 Flash model receives the original question alongside the retrieved context and strict system instructions. It synthesizes this data to generate a precise, persona-aligned response.',
     icon: <Cpu size={24} className="text-blue-400" />,
     color: 'from-blue-500/20 to-blue-500/5',
     borderColor: 'border-blue-500/30',
@@ -65,17 +65,17 @@ const steps = [
   {
     id: 'observability',
     title: '6. Telemetry & Observability',
-    desc: 'Every trace, latency metric, and vector result is logged to Langfuse for real-time monitoring.',
+    desc: 'Every step of the pipeline is silently monitored by Langfuse. It captures full execution traces, latency metrics, and token usage, and automatically tags any malicious attempts for future analysis.',
     icon: <Activity size={24} className="text-amber-400" />,
     color: 'from-amber-500/20 to-amber-500/5',
     borderColor: 'border-amber-500/30',
     iconBg: 'bg-amber-500/10',
-    tools: ['Vercel'] // We use generic Vercel since Langfuse isn't in your tech stack icons likely
+    tools: ['Vercel']
   },
   {
     id: 'evals',
     title: '7. Closed-Loop CI/CD',
-    desc: 'A nightly GitHub Action extracts blocked attacks from Langfuse, turning them into automated regression tests via Promptfoo.',
+    desc: 'A nightly GitHub Action queries Langfuse for newly thwarted attacks. It automatically converts these failed injections into Promptfoo regression tests, ensuring the CI/CD gate permanently immunizes the system against known vulnerabilities.',
     icon: <Database size={24} className="text-indigo-400" />,
     color: 'from-indigo-500/20 to-indigo-500/5',
     borderColor: 'border-indigo-500/30',
