@@ -104,16 +104,6 @@ const ArchitectureVisualization: React.FC = () => {
           <h2 className="text-2xl font-bold text-white tracking-tight">AI Architecture</h2>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
         </div>
-        <div className="glass p-5 rounded-xl border border-slate-700/50 bg-slate-800/20 max-w-3xl relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-          <p className="text-slate-300 text-sm md:text-[15px] leading-relaxed pl-2 font-light tracking-wide">
-            I built this <button onClick={() => {
-              const chatBtn = document.getElementById('chat-toggle-btn');
-              if (chatBtn) chatBtn.click();
-            }} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold hover:opacity-80 transition-opacity cursor-pointer">AI Agent</button> so visitors can ask detailed questions about my background, experience, and projects <strong className="text-white font-medium">24/7</strong>. 
-            However, deploying an LLM to the public web introduces significant risks like prompt injection and data hallucinations. Click through the visualization below to explore the <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">self-healing LLMOps architecture</span> I designed to keep the agent secure. It features an <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">active AI firewall</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">deep semantic retrieval (RAG)</span>, and a <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400 font-semibold">closed-loop CI/CD</span> pipeline that automatically turns failed attacks into regression tests.
-          </p>
-        </div>
       </div>
 
       <div className="glass-panel border border-slate-700/50 bg-[#1f1e14]/40 rounded-2xl p-6 lg:p-8 relative overflow-hidden">

@@ -20,7 +20,9 @@ export interface Project {
   featured?: boolean;
   logo?: string;
   highlights?: string[];
-  kpis?: { value: string; label: string }[];
+  kpis?: { value: string; label: string 
+  theme?: "yellow" | "blue" | "purple";
+}[];
 }
 
 export interface Certification {
@@ -141,9 +143,37 @@ export const jobs: Job[] = [
 ];
 
 export const projects: Project[] = [
-  {
+    { 
+      id: "jedana",
+      title: "Jedana AI",
+      featured: true,
+      theme: "blue",
+      metrics: "Department-wide adoption at Benchmark Education",
+      description: "AI-Powered Customer Support Analytics Suite built specifically for Freshdesk. The backend handles complex API pagination, rate-limiting, and data sanitation before injecting transcripts into specialized LLM prompts for structured JSON evaluation.",
+      highlights: [
+        "**AgentEye:** Automated QA Review leveraging OpenAI to ingest full ticket threads and generate 4-pillar QA scorecards.",
+        "**Customer Sentiment Analysis:** Aggregates company-wide ticket data to calculate a weighted 0-100 churn-risk score.",
+        "**Performance Dashboard:** Provides macro-level tracking and reporting for support teams."
+      ],
+    techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
+    logo: "/jedana.png",
+    link: "https://jedana-app.vercel.app/"
+  },
+    { 
+      id: "stephen-cv-site",
+      title: "AI Portfolio & CV (skalamera.me)",
+      featured: true,
+      theme: "purple",
+    description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations. The backend implements a production-grade LLMOps architecture: it uses a Guardian AI model as an active firewall to block prompt injections, performs RAG (Retrieval-Augmented Generation) via Pinecone vector search over 15,000+ chunks of source code and resume data, logs all telemetry to Langfuse, and utilizes a closed-loop CI/CD pipeline via GitHub Actions to automatically convert thwarted attacks into Promptfoo regression tests.",
+    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini 2.5 Flash", "Pinecone", "Langfuse", "Promptfoo", "Vercel Serverless"],
+    github: "https://github.com/skalamera/cv-site",
+    link: "https://skalamera.me",
+    logo: "/profile.png"
+  },
+    {
     id: "mycareermax",
-    title: "myCareerMax",
+      title: "myCareerMax",
+      theme: "yellow",
     description: "An intelligent, end-to-end career management platform. Enables users to build resumes and receive automated job alerts via a robust Python/Flask backend and Azure cloud integration.",
     techStack: ["Python", "Flask", "Azure", "Docker", "Selenium"],
     metrics: "Top 10 new business app in 17 countries · ~20k global downloads",
@@ -161,59 +191,38 @@ export const projects: Project[] = [
       { value: "5+", label: "core features" }
     ]
   },
-  {
-    id: "jedana",
-      title: "Jedana AI",
-      description: "AI-Powered Customer Support Analytics Suite built specifically for Freshdesk. The backend handles complex API pagination, rate-limiting, and data sanitation before injecting transcripts into specialized LLM prompts for structured JSON evaluation.",
-      highlights: [
-        "**AgentEye:** Automated QA Review leveraging OpenAI to ingest full ticket threads and generate 4-pillar QA scorecards.",
-        "**Customer Sentiment Analysis:** Aggregates company-wide ticket data to calculate a weighted 0-100 churn-risk score.",
-        "**Performance Dashboard:** Provides macro-level tracking and reporting for support teams."
-      ],
-    techStack: ["Python", "Flask", "PostgreSQL", "OpenAI API", "Freshdesk API"],
-    logo: "/jedana.png",
-    link: "https://jedana-app.vercel.app/"
-  },
-  {
-    id: "stephen-cv-site",
-    title: "AI Portfolio & CV (skalamera.me)",
-    description: "Interactive CV portfolio with an embedded AI assistant. Features a custom chatbot, modern glassmorphism UI, and responsive animations. The backend implements a production-grade LLMOps architecture: it uses a Guardian AI model as an active firewall to block prompt injections, performs RAG (Retrieval-Augmented Generation) via Pinecone vector search over 15,000+ chunks of source code and resume data, logs all telemetry to Langfuse, and utilizes a closed-loop CI/CD pipeline via GitHub Actions to automatically convert thwarted attacks into Promptfoo regression tests.",
-    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Gemini 2.5 Flash", "Pinecone", "Langfuse", "Promptfoo", "Vercel Serverless"],
-    github: "https://github.com/skalamera/cv-site",
-    link: "https://skalamera.me",
-    logo: "/profile.png"
-  },
-  {
-    id: "motiv-proj",
+    { 
+      id: "motiv-proj",
     title: "Motiv",
     description: "Motiv is a comprehensive, AI-powered car maintenance and diagnostics platform. It provides users with automated maintenance schedules, NHTSA recall tracking, automotive news, and a multimodal 'Ask Motiv' assistant capable of reading uploaded owner manuals. Built on Next.js 16 with the App Router, it utilizes Supabase for authentication, PostgreSQL, and PDF document storage. The Vercel AI SDK integrates Google Gemini via an AI Gateway, allowing users to query their vehicle data and manuals in real-time.",
     techStack: ["Next.js 16", "Supabase", "Vercel AI SDK", "Tailwind CSS"],
     logo: "/icons/motiv.svg"
   },
-  {
-    id: "jayobee",
+    { 
+      id: "jayobee",
     title: "Jayobee",
     description: "Jayobee is an advanced Chrome Extension designed to streamline the job application process using generative AI. It leverages Google Gemini via Manifest V3 background service workers and offscreen documents to contextualize highlighted web text and construct dynamically targeted resumes. The extension features a robust set of custom portal handlers capable of autonomously parsing and auto-filling complex Applicant Tracking System (ATS) forms across platforms like Workday, Greenhouse, Lever, Ashby, iCIMS, and Taleo.",
     techStack: ["JavaScript", "Chrome Extension API", "Gemini API", "HTML/CSS"],
     logo: "/icons/jayobee_app_icon.png"
   },
-  {
-    id: "harry",
+    { 
+      id: "harry",
     title: "HARry",
     description: "HARry is a specialized web application engineered to parse, analyze, and visualize HTTP Archive (HAR) files for deep network diagnostics. Designed to assist technical support teams, the Flask backend processes raw JSON-formatted network payloads to generate detailed, interactive reports. It automatically extracts and groups critical request metrics, status code distributions, latency timing data, and error traces, allowing engineers to rapidly identify API failures.",
     techStack: ["Python", "Flask", "Web Technologies"],
     logo: "/icons/HARry.png"
   },
-  {
-    id: "queuety",
+    { 
+      id: "queuety",
     title: "Queuety",
     description: "Queuety is an integrated call routing and queue management system developed on top of the RingCentral SDK. Built with a lightweight Python/Flask backend, it provides operational support teams with enhanced visibility into live caller queues and agent availability. The application utilizes a Redis caching layer for fast, real-time state management and implements robust OAuth2 authentication workflows to securely interface directly with RingCentral enterprise accounts.",
     techStack: ["Python", "Flask", "RingCentral API", "Redis"],
     logo: "/icons/queuety.png"
   }
-];
 
-export const certifications: Certification[] = [
+  ];
+  
+  export const certifications: Certification[] = [
   { id: 'anthropic-1', name: 'Building with the Claude API', issuer: 'Anthropic', year: '2026', url: 'https://verify.skilljar.com/c/392aefqudihm', logo: '/icons/anthropic - white.png' },
   { id: 'anthropic-2', name: 'Claude Code in Action', issuer: 'Anthropic', year: '2026', url: 'https://verify.skilljar.com/c/phtqmceb829q', logo: '/icons/anthropic - white.png' },
   { id: 'anthropic-3', name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', year: '2026', url: 'https://verify.skilljar.com/c/6p4gtj4etexo', logo: '/icons/anthropic - white.png' },
@@ -344,6 +353,7 @@ export const profileInfo = {
   github: "https://github.com/skalamera",
   linkedin: "https://linkedin.com/in/skalamera"
 };
+
 
 
 
