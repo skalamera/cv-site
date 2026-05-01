@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
-import { ExternalLink, Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
+import { Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
 import { AttackTracker } from './AttackTracker';
 import PortfolioDeepDive from './PortfolioDeepDive';
 
@@ -116,9 +116,6 @@ const AIPortfolioCard: React.FC = () => {
   const textColor = 'text-purple-400';
   const badgeBg = 'bg-purple-900/30';
   const badgeBorder = 'border-purple-700/50';
-  const btnHoverBg = 'hover:bg-purple-900/40';
-  const btnBorder = 'border-purple-600/50';
-  const btnBg = 'bg-purple-900/20';
 
   return (
     <section className="mb-20">
