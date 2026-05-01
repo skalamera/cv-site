@@ -105,7 +105,10 @@ const Hero: React.FC = () => {
               Builder
             </div>
             <div className="px-5 py-2 rounded-full border border-slate-700/50 text-slate-300 text-sm glass hover:bg-slate-800 transition-colors cursor-default">
-              Support Operations
+              LLMOps
+            </div>
+            <div className="px-5 py-2 rounded-full border border-slate-700/50 text-slate-300 text-sm glass hover:bg-slate-800 transition-colors cursor-default">
+              Support Ops
             </div>
             <a href="#projects" className="px-5 py-2 rounded-full border border-teal-500/30 text-slate-200 bg-teal-500/10 text-sm glass hover:bg-teal-500/20 transition-colors flex items-center gap-2 glow-border">
               <GithubIcon />
