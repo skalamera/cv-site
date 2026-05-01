@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Activity } from 'lucide-react';
+import JedanaDeepDive from './JedanaDeepDive';
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,6 +26,7 @@ const getTechIcon = (techName: string) => {
 };
 
 const Projects: React.FC = () => {
+  const [showJedanaDeepDive, setShowJedanaDeepDive] = useState(false);
   const featuredProjects = projects.filter(p => p.featured && p.id !== "stephen-cv-site");
   const gridProjects = projects.filter(p => !p.featured);
 
@@ -116,18 +118,33 @@ const Projects: React.FC = () => {
                   })}
                 </ul>
 
-                <div className="flex gap-4 relative z-10 flex-wrap">
-                  {featured.link && (
-                    <a href={featured.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-3 px-6 py-3 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
-                      <ExternalLink size={20} />
+                <div className="flex gap-4 relative z-10 flex-wrap mt-6">
+                  {featured.link && featured.id !== 'jedana' && (
+                    <a href={featured.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
+                      <ExternalLink size={18} />
                       View Project
                     </a>
                   )}
+                  {featured.id === 'jedana' && (
+                    <a href="https://jedana-app.vercel.app/apps" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white shadow-lg shadow-orange-600/20 text-sm font-bold transition-all w-fit`}>
+                      <ExternalLink size={18} />
+                      Try Demo
+                    </a>
+                  )}
                   {featured.github && (
-                    <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-3 px-6 py-3 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
+                    <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit`}>
                       <GithubIcon />
                       View Code
                     </a>
+                  )}
+                  {featured.id === 'jedana' && (
+                    <button
+                      onClick={() => setShowJedanaDeepDive(true)}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit`}
+                    >
+                      <Activity size={18} />
+                      Read Deep Dive
+                    </button>
                   )}
                 </div>
               </div>
@@ -164,6 +181,8 @@ const Projects: React.FC = () => {
           </motion.div>
         );
       })}
+
+      <JedanaDeepDive isOpen={showJedanaDeepDive} onClose={() => setShowJedanaDeepDive(false)} />
 
       {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
 import { ExternalLink, Database, Cpu, MessageSquare, ShieldCheck, Activity, ArrowRight } from 'lucide-react';
 import { AttackTracker } from './AttackTracker';
+import PortfolioDeepDive from './PortfolioDeepDive';
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,6 +101,7 @@ const steps = [
 
 const AIPortfolioCard: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [showDeepDive, setShowDeepDive] = useState(false);
   const featured = projects.find(p => p.id === "stephen-cv-site");
 
   if (!featured) return null;
@@ -181,21 +183,24 @@ const AIPortfolioCard: React.FC = () => {
               })}
             </ul>
 
-            <div className="flex gap-4 flex-wrap">
-              {featured.link && (
-                <a href={featured.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-3 px-6 py-3 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
-                  <ExternalLink size={20} />
-                  View Project
-                </a>
-              )}
+            <div className="flex gap-4 flex-wrap mt-6">
               {featured.github && (
-                <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-3 px-6 py-3 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
+                <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit`}>
                   <GithubIcon />
                   View Code
                 </a>
               )}
+              <button
+                onClick={() => setShowDeepDive(true)}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-purple-500/30 bg-purple-900/30 text-purple-300 text-sm font-bold hover:bg-purple-900/60 hover:border-purple-500/50 transition-colors w-fit`}
+              >
+                <Activity size={18} />
+                Read Deep Dive
+              </button>
             </div>
           </div>
+
+          <PortfolioDeepDive isOpen={showDeepDive} onClose={() => setShowDeepDive(false)} />
 
           <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-purple-600/30 to-transparent my-2 relative z-10"></div>
 

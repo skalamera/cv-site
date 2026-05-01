@@ -99,6 +99,9 @@ const Hero: React.FC = () => {
               Leader
             </div>
             <div className="px-5 py-2 rounded-full border border-slate-700/50 text-slate-300 text-sm glass hover:bg-slate-800 transition-colors cursor-default">
+              Learner
+            </div>
+            <div className="px-5 py-2 rounded-full border border-slate-700/50 text-slate-300 text-sm glass hover:bg-slate-800 transition-colors cursor-default">
               Builder
             </div>
             <div className="px-5 py-2 rounded-full border border-slate-700/50 text-slate-300 text-sm glass hover:bg-slate-800 transition-colors cursor-default">
