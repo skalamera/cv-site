@@ -29,24 +29,28 @@ const Projects: React.FC = () => {
   const [showJedanaDeepDive, setShowJedanaDeepDive] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [carouselDirection, setCarouselDirection] = useState(0);
-  const touchStartX = useRef<number | null>(null);
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
   const featuredProjects = projects.filter(p => p.featured && p.id !== "stephen-cv-site");
-  const gridProjects = projects.filter(p => !p.featured);
-  const activeProject = gridProjects[carouselIndex];
+  const carouselProjectIds = ["motiv-proj", "jayobee", "queuety", "harry"];
+  const carouselProjects = carouselProjectIds
+    .map(id => projects.find(project => project.id === id))
+    .filter((project): project is NonNullable<typeof project> => Boolean(project));
+  const activeProject = carouselProjects[carouselIndex];
   const paginateCarousel = (direction: number) => {
     setCarouselDirection(direction);
-    setCarouselIndex((current) => (current + direction + gridProjects.length) % gridProjects.length);
+    setCarouselIndex((current) => (current + direction + carouselProjects.length) % carouselProjects.length);
   };
   const setCarouselProject = (index: number) => {
     setCarouselDirection(index > carouselIndex ? 1 : -1);
     setCarouselIndex(index);
   };
-  const handleTouchEnd = (x: number) => {
-    if (touchStartX.current === null) return;
-    const swipeOffset = x - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(swipeOffset) > 50) {
-      paginateCarousel(swipeOffset < 0 ? 1 : -1);
+  const handleSwipeEnd = (x: number, y: number) => {
+    if (!swipeStart.current) return;
+    const offsetX = x - swipeStart.current.x;
+    const offsetY = y - swipeStart.current.y;
+    swipeStart.current = null;
+    if (Math.abs(offsetX) > 50 && Math.abs(offsetX) > Math.abs(offsetY) * 1.2) {
+      paginateCarousel(offsetX < 0 ? 1 : -1);
     }
   };
 
@@ -210,7 +214,7 @@ const Projects: React.FC = () => {
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-slate-500">More Projects</p>
             <p className="text-sm text-slate-400 mt-1">
-              {carouselIndex + 1} / {gridProjects.length}
+              {carouselIndex + 1} / {carouselProjects.length}
             </p>
           </div>
         </div>
@@ -234,26 +238,18 @@ const Projects: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: carouselDirection >= 0 ? -80 : 80 }}
                 transition={{ duration: 0.28, ease: 'easeOut' }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.18}
-                onDragEnd={(_, info) => {
-                  const swipeDistance = Math.abs(info.offset.x);
-                  const swipeVelocity = Math.abs(info.velocity.x);
-                  if (swipeDistance > 70 || swipeVelocity > 450) {
-                    paginateCarousel(info.offset.x < 0 ? 1 : -1);
-                  }
+                onPointerDown={(event) => {
+                  if (event.pointerType === 'mouse') return;
+                  swipeStart.current = { x: event.clientX, y: event.clientY };
                 }}
-                onTouchStart={(event) => {
-                  touchStartX.current = event.touches[0]?.clientX ?? null;
+                onPointerUp={(event) => {
+                  if (event.pointerType === 'mouse') return;
+                  handleSwipeEnd(event.clientX, event.clientY);
                 }}
-                onTouchEnd={(event) => {
-                  handleTouchEnd(event.changedTouches[0]?.clientX ?? 0);
+                onPointerCancel={() => {
+                  swipeStart.current = null;
                 }}
-                onTouchCancel={() => {
-                  touchStartX.current = null;
-                }}
-                className="glass-panel p-6 md:p-8 rounded-xl flex flex-col min-h-[460px] md:min-h-[390px] group cursor-grab active:cursor-grabbing touch-pan-y select-none"
+                className="glass-panel p-6 md:p-8 rounded-xl flex flex-col min-h-[460px] md:min-h-[390px] group touch-pan-y select-none"
               >
                 <div className="flex justify-between items-start mb-6">
                   <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
@@ -304,13 +300,13 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="mt-6 flex items-center justify-center gap-2">
-          {gridProjects.map((project, index) => (
+          {carouselProjects.map((project, index) => (
             <button
               key={project.id}
               type="button"
               onClick={() => setCarouselProject(index)}
-              className={`h-2.5 rounded-full transition-all ${
-                index === carouselIndex ? 'w-8 bg-primary' : 'w-2.5 bg-slate-700 hover:bg-slate-500'
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                index === carouselIndex ? 'bg-[var(--primary)]' : 'bg-slate-700 hover:bg-slate-500'
               }`}
               aria-label={`View ${project.title}`}
               aria-current={index === carouselIndex ? 'true' : undefined}
