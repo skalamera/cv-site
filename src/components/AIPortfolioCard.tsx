@@ -119,13 +119,6 @@ const AIPortfolioCard: React.FC = () => {
 
   return (
     <section className="mb-20">
-      <div className="flex flex-col gap-3 mb-10">
-        <div className="flex items-center gap-4">
-          <h2 className="text-2xl font-bold text-white tracking-tight">AI Architecture</h2>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent"></div>
-        </div>
-      </div>
-
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

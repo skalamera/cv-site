@@ -114,6 +114,12 @@ const Hero: React.FC = () => {
               <GithubIcon />
               mycareermax <span className="text-yellow-500 ml-1">★</span> Top 10
             </a>
+            <a href={profileInfo.linkedin} target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-full border border-[#0A66C2]/30 text-slate-200 bg-[#0A66C2]/10 text-sm glass hover:bg-[#0A66C2]/20 transition-colors flex items-center gap-2 glow-border">
+              <img src="/icons/linkedin.png" alt="LinkedIn" className="h-5 w-auto object-contain" />
+            </a>
+            <a href={`mailto:${profileInfo.email}`} className="px-5 py-2 rounded-full border border-[#EA4335]/30 text-slate-200 bg-[#EA4335]/10 text-sm glass hover:bg-[#EA4335]/20 transition-colors flex items-center gap-2 glow-border">
+              <img src="/icons/gmail.png" alt="Gmail" className="h-5 w-auto object-contain" />
+            </a>
           </motion.div>
         </div>
       </motion.div>
