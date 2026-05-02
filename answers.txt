@@ -1,0 +1,41 @@
+**1. Describe your experience owning end-to-end escalation or problem management lifecycles.**
+At Sigma, I manage SEV-0 and SEV-1 incident triage from the initial alert through final resolution. I coordinate directly with engineering and product teams to diagnose root causes and communicate updates to enterprise customers. At Benchmark Education, I built automated workflows that cut our overall resolution time by 38%.
+
+**2. What processes have you used to manage escalations and problem resolution?**
+I use a tiered triage process combined with custom routing scripts to send specific defect types to the right engineering pods. I also build automated communication templates that update stakeholders when ticket statuses change. This removes manual handoffs and keeps the resolution timeline clear.
+
+**3. How do you ensure problems are correctly prioritized in line with SLAs/OLAs rather than fix everything approaches?**
+I score issues based on customer impact, revenue risk, and SLA deadlines before passing them to development. If a bug affects a small subset of users with a viable workaround, I schedule it for a later sprint. This keeps engineering focused on critical path defects and active SEV-0/1 incidents.
+
+**4. What SLAs or OLAs have you been accountable for, and how did you ensure they were consistently met?**
+At Sigma, I am accountable for a 23-second chat first response time and a 1.1-hour overall resolution time. I built a machine learning staffing model that predicts ticket volume based on historical data to ensure we have the right coverage during peak hours.
+
+**5. Describe a situation where you decided not to fix an issue in a given release.**
+We identified a UI bug affecting legacy reporting exports at Benchmark Education. Because only a few accounts used that specific export and a functional workaround existed, I pulled the fix from the current release. This gave engineering the capacity to resolve a critical login defect affecting our core user base instead.
+
+**6. What experience do you have working with ticketing systems such as Jira, Freshdesk, or similar tools?**
+I have worked with Jira and Freshdesk for over 10 years, spending the last 7 years administering and building custom apps as a certified Freshdesk Product Expert. I built a custom app called Tracker Central that gives support agents over 15 dynamically changing templates to escalate issues to specific development teams. The app uses the Freshdesk API to autofill ticket data—cutting write-up time by more than half—and uses the Jira REST API to automatically create linked Jira issues only when the strict template requirements are met, reducing missing information and back-and-forth between teams.
+
+**7. What role have you played in sprint planning or backlog prioritization related to defects or escalations?**
+I represent the support organization in weekly engineering sprint planning meetings. I present a prioritized list of customer escalations ranked by SLA urgency and ARR impact. I then negotiate with product managers to secure story points for defect resolution alongside their feature roadmaps.
+
+**8. How do you work with Support, Engineering, and Product teams when priorities conflict?**
+I rely on data to resolve disagreements. I bring ticket volume numbers, ARR risk metrics, and SLA compliance data to the discussion to quantify the cost of delaying a fix. If Product wants to push a feature and Support needs a bug resolved, the data decides the sprint capacity allocation.
+
+**9. Describe a situation where you led escalation communications directly with a customer (calls, emails, exec updates).**
+At Sigma, I managed an escalation where a major enterprise customer lost access to their primary data environment. I ran the daily executive update calls and sent hourly email briefs detailing our engineering progress. I maintained this direct communication schedule until we restored their service 14 hours later.
+
+**10. Are you comfortable managing high-pressure escalations with customer-facing accountability?**
+Yes. I currently lead SEV-0 and SEV-1 incident triage for enterprise accounts. I frequently speak directly with customer stakeholders during critical outages to explain root causes and recovery timelines.
+
+**11. Do you have experience operating in an agile / sprint-based development environment?**
+Yes, I have worked in agile environments at Sigma, Benchmark Education, and Lytx. I operate within two-week sprint cycles, write specific acceptance criteria for bug tickets, and attend daily standups with engineering pods to track escalation progress.
+
+**12. Why are you interested in this escalation and problem management role?**
+TeamViewer handles high-volume, critical connections for enterprise businesses. I have spent my career building technical support operations and managing high-stakes escalations, and I want to apply my workflow automation and API experience to reduce your resolution times. I enjoy the exact work of translating urgent customer problems into clear engineering requirements.
+
+**13. Describe the types of reports or dashboards you've provided to leadership or customers.**
+I built a Python and Power BI operations hub at Benchmark Education to track agent performance, ticket backlogs, and SLA compliance. For executives, I generate weekly incident reports that quantify defect trends by product area. I also create customer-facing root cause analysis documents following major outages.
+
+**14. Tell me about your experience in supporting large enterprise customers?**
+I currently support large enterprise data clients at Sigma, handling complex technical queries and strict SLA requirements. I act as the final escalation point for technical issues that bypass standard Tier 1 and Tier 2 queues. This requires deep product knowledge and the ability to explain technical constraints to non-technical executive teams.

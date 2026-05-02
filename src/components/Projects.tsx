@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
-import { ExternalLink, Activity } from 'lucide-react';
+import { ExternalLink, Activity, ChevronLeft, ChevronRight } from 'lucide-react';
 import JedanaDeepDive from './JedanaDeepDive';
 
 const GithubIcon = () => (
@@ -27,8 +27,28 @@ const getTechIcon = (techName: string) => {
 
 const Projects: React.FC = () => {
   const [showJedanaDeepDive, setShowJedanaDeepDive] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [carouselDirection, setCarouselDirection] = useState(0);
+  const touchStartX = useRef<number | null>(null);
   const featuredProjects = projects.filter(p => p.featured && p.id !== "stephen-cv-site");
   const gridProjects = projects.filter(p => !p.featured);
+  const activeProject = gridProjects[carouselIndex];
+  const paginateCarousel = (direction: number) => {
+    setCarouselDirection(direction);
+    setCarouselIndex((current) => (current + direction + gridProjects.length) % gridProjects.length);
+  };
+  const setCarouselProject = (index: number) => {
+    setCarouselDirection(index > carouselIndex ? 1 : -1);
+    setCarouselIndex(index);
+  };
+  const handleTouchEnd = (x: number) => {
+    if (touchStartX.current === null) return;
+    const swipeOffset = x - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(swipeOffset) > 50) {
+      paginateCarousel(swipeOffset < 0 ? 1 : -1);
+    }
+  };
 
   return (
     <section id="projects" className="py-24">
@@ -184,53 +204,119 @@ const Projects: React.FC = () => {
 
       <JedanaDeepDive isOpen={showJedanaDeepDive} onClose={() => setShowJedanaDeepDive(false)} />
 
-      {/* Project Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {gridProjects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="glass-panel p-6 rounded-xl flex flex-col h-full hover:-translate-y-2 transition-transform duration-300 group"
-          >
-            <div className="flex justify-between items-start mb-6">
-              <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
-                {project.logo ? (
-                  <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                )}
-              </div>
-              <div className="flex gap-3 text-slate-400">
-                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
-                {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
-              </div>
-            </div>
-            
-            <h3 className="text-xl font-bold text-slate-200 mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-            
-            <p className="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
-              {project.description}
+      {/* Project Carousel */}
+      <div className="relative">
+        <div className="mb-6">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-slate-500">More Projects</p>
+            <p className="text-sm text-slate-400 mt-1">
+              {carouselIndex + 1} / {gridProjects.length}
             </p>
-            
-            <ul className="flex flex-wrap gap-2 mt-auto">
-              {project.techStack.map(tech => {
-                const icons = getTechIcon(tech);
-                return (
-                  <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
-                    {Array.isArray(icons) 
-                      ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
-                      : (icons && <img src={icons as string} alt={tech} className="w-3.5 max-h-3.5 object-contain" />)
-                    }
-                    {tech}
-                  </li>
-                );
-              })}
-            </ul>
-          </motion.div>
-        ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden px-9 sm:px-14">
+          <button
+            type="button"
+            onClick={() => paginateCarousel(-1)}
+            className="absolute left-0 top-36 md:top-1/2 z-20 w-9 h-9 md:w-10 md:h-10 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-950/90 text-slate-300 hover:text-white hover:border-primary/60 hover:bg-slate-800 transition-colors flex items-center justify-center shadow-lg"
+            aria-label="Previous project"
+          >
+            <ChevronLeft size={22} />
+          </button>
+
+          <AnimatePresence initial={false} custom={carouselDirection} mode="wait">
+            {activeProject && (
+              <motion.div
+                key={activeProject.id}
+                custom={carouselDirection}
+                initial={{ opacity: 0, x: carouselDirection >= 0 ? 80 : -80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: carouselDirection >= 0 ? -80 : 80 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.18}
+                onDragEnd={(_, info) => {
+                  const swipeDistance = Math.abs(info.offset.x);
+                  const swipeVelocity = Math.abs(info.velocity.x);
+                  if (swipeDistance > 70 || swipeVelocity > 450) {
+                    paginateCarousel(info.offset.x < 0 ? 1 : -1);
+                  }
+                }}
+                onTouchStart={(event) => {
+                  touchStartX.current = event.touches[0]?.clientX ?? null;
+                }}
+                onTouchEnd={(event) => {
+                  handleTouchEnd(event.changedTouches[0]?.clientX ?? 0);
+                }}
+                onTouchCancel={() => {
+                  touchStartX.current = null;
+                }}
+                className="glass-panel p-6 md:p-8 rounded-xl flex flex-col min-h-[460px] md:min-h-[390px] group cursor-grab active:cursor-grabbing touch-pan-y select-none"
+              >
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
+                    {activeProject.logo ? (
+                      <img src={activeProject.logo} alt={activeProject.title} className="w-full h-full object-contain" />
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    )}
+                  </div>
+                  <div className="flex gap-3 text-slate-400">
+                    {activeProject.github && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
+                    {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
+                  </div>
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-bold text-slate-200 mb-3 group-hover:text-primary transition-colors">{activeProject.title}</h3>
+
+                <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed">
+                  {activeProject.description}
+                </p>
+
+                <ul className="flex flex-wrap gap-2 mt-auto">
+                  {activeProject.techStack.map(tech => {
+                    const icons = getTechIcon(tech);
+                    return (
+                      <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
+                        {Array.isArray(icons)
+                          ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
+                          : (icons && <img src={icons as string} alt={tech} className="w-3.5 max-h-3.5 object-contain" />)
+                        }
+                        {tech}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            onClick={() => paginateCarousel(1)}
+            className="absolute right-0 top-36 md:top-1/2 z-20 w-9 h-9 md:w-10 md:h-10 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-950/90 text-slate-300 hover:text-white hover:border-primary/60 hover:bg-slate-800 transition-colors flex items-center justify-center shadow-lg"
+            aria-label="Next project"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-2">
+          {gridProjects.map((project, index) => (
+            <button
+              key={project.id}
+              type="button"
+              onClick={() => setCarouselProject(index)}
+              className={`h-2.5 rounded-full transition-all ${
+                index === carouselIndex ? 'w-8 bg-primary' : 'w-2.5 bg-slate-700 hover:bg-slate-500'
+              }`}
+              aria-label={`View ${project.title}`}
+              aria-current={index === carouselIndex ? 'true' : undefined}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

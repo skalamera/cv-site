@@ -54,7 +54,10 @@ async function processFile(filePath, metadata) {
     if (filePath.endsWith('.pdf')) {
       const dataBuffer = fs.readFileSync(filePath);
       const pdfModule = await import('pdf-parse/lib/pdf-parse.js').catch(async () => {
-         return await import('pdf-parse');
+         // Workaround for CJS/ESM module loading
+         const { createRequire } = await import('module');
+         const require = createRequire(import.meta.url);
+         return require('pdf-parse');
       });
       const pdf = pdfModule.default || pdfModule;
       
@@ -109,8 +112,8 @@ async function walkDir(dir, fileList = []) {
   const files = fs.readdirSync(dir);
   for (const file of files) {
     const filePath = path.join(dir, file);
-    // Skip node_modules, .git, build dirs, and large media files
-    if (file === 'node_modules' || file === '.git' || file === 'dist' || file === '.next' || file === 'public' || file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.svg') || file.endsWith('.lock') || file === 'package-lock.json') {
+    // Skip node_modules, .git, build dirs, python envs, and large media files
+    if (file === 'node_modules' || file === '.git' || file === 'dist' || file === '.next' || file === 'public' || file === 'venv' || file === '__pycache__' || file === '.venv' || file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.svg') || file.endsWith('.lock') || file === 'package-lock.json') {
       continue;
     }
     
@@ -126,8 +129,8 @@ async function walkDir(dir, fileList = []) {
 async function main() {
   console.log("Starting ingestion pipeline...");
   
-  // 1. Ingest Resume
-  const resumePath = 'C:\\Users\\skala\\OneDrive\\Documents\\Resumes\\Resume_2026.pdf';
+  // 1. Ingest Resume (TXT)
+  const resumePath = 'C:\\Users\\skala\\Downloads\\Stephen_Skalamera_Resume_2026.txt';
   if (fs.existsSync(resumePath)) {
     await processFile(resumePath, { source: 'Resume_2026', type: 'resume' });
   } else {
@@ -152,12 +155,28 @@ async function main() {
   // 4. Ingest Jedana App Source Code
   const jedanaRoot = 'C:\\Users\\skala\\OneDrive\\Documents\\Projects\\jedana-app';
   if (fs.existsSync(jedanaRoot)) {
-      const jedanaFiles = await walkDir(path.join(jedanaRoot, 'app'));
+      const jedanaFiles = await walkDir(jedanaRoot);
       for (const file of jedanaFiles) {
-        if (file.endsWith('.py') || file.endsWith('.html') || file.endsWith('.js')) {
+        if (file.endsWith('.py') || file.endsWith('.html') || file.endsWith('.js') || file.endsWith('.tsx') || file.endsWith('.ts')) {
             await processFile(file, { source: path.basename(file), project: 'jedana-app', type: 'source_code' });
         }
       }
+  }
+
+  // 5. Ingest Remaining Projects
+  const additionalProjects = ['mycareermax', 'queuety', 'HARry', 'motiv', 'jayobee'];
+  for (const projName of additionalProjects) {
+    const projRoot = `C:\\Users\\skala\\OneDrive\\Documents\\Projects\\${projName}`;
+    if (fs.existsSync(projRoot)) {
+      const projFiles = await walkDir(projRoot);
+      for (const file of projFiles) {
+        if (file.endsWith('.py') || file.endsWith('.html') || file.endsWith('.js') || file.endsWith('.tsx') || file.endsWith('.ts') || file.endsWith('.md')) {
+            await processFile(file, { source: path.basename(file), project: projName, type: 'source_code' });
+        }
+      }
+    } else {
+      console.warn(`Project not found: ${projRoot}`);
+    }
   }
 
   console.log("Ingestion complete!");
