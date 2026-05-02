@@ -310,6 +310,7 @@ export const techStack = [
     category: "AI CODING",
     skills: [
       { name: "Claude Code", icon: "/icons/claude.png" },
+      { name: "Codex", icon: "/icons/codex.png" },
       { name: "Cursor", icon: "/icons/cursor.png" },
       { name: "OpenCode", icon: "/icons/opencode.png" }
     ]
