@@ -181,7 +181,7 @@ const Projects: React.FC = () => {
                   {featured.id === 'mycareermax' && (
                     <div className="w-full flex items-center justify-center p-2 sm:p-3 lg:p-2 relative group/award">
                       <img 
-                        src="/mycareermax/top10_award.png" 
+                        src="/mycareermax/top15_award.png" 
                         alt="Top 10 Award" 
                         className="w-64 sm:w-72 lg:w-80 max-w-full object-contain filter drop-shadow-lg transition-transform duration-500 group-hover/award:scale-105" 
                       />
