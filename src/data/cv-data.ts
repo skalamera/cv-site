@@ -200,6 +200,7 @@ export const projects: Project[] = [
       id: "motiv-proj",
     title: "Motiv",
     github: "https://github.com/skalamera/motiv",
+    link: "https://motiv-azure.vercel.app/login",
     description: "Motiv is a comprehensive, AI-powered car maintenance and diagnostics platform. It provides users with automated maintenance schedules, NHTSA recall tracking, automotive news, and a multimodal 'Ask Motiv' assistant capable of reading uploaded owner manuals. Built on Next.js 16 with the App Router, it utilizes Supabase for authentication, PostgreSQL, and PDF document storage. The Vercel AI SDK integrates Google Gemini via an AI Gateway, allowing users to query their vehicle data and manuals in real-time.",
     techStack: ["Next.js 16", "Supabase", "Vercel AI SDK", "Tailwind CSS"],
     logo: "/icons/motiv.svg"

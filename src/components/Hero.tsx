@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
             </div>
             <a href="#projects" className="px-5 py-2 rounded-full border border-teal-500/30 text-slate-200 bg-teal-500/10 text-sm glass hover:bg-teal-500/20 transition-colors flex items-center gap-2 glow-border">
               <GithubIcon />
-              mycareermax <span className="text-yellow-500 ml-1">★</span> Top 10
+              mycareermax <span className="text-yellow-500 ml-1">★</span> Top 15
             </a>
             <a href={profileInfo.linkedin} target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-full border border-[#0A66C2]/30 text-slate-200 bg-[#0A66C2]/10 text-sm glass hover:bg-[#0A66C2]/20 transition-colors flex items-center gap-2 glow-border">
               <img src="/icons/linkedin.png" alt="LinkedIn" className="h-5 w-auto object-contain" />

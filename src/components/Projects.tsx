@@ -331,6 +331,12 @@ const Projects: React.FC = () => {
                             View Code
                           </a>
                         )}
+                        {activeProject.link && activeProject.id === 'motiv-proj' && (
+                          <a href={activeProject.link} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 text-sm font-bold transition-all w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}>
+                            <ExternalLink size={18} />
+                            Try the Demo
+                          </a>
+                        )}
                       </div>
                       <img
                         src={activeProject.id === 'jayobee' ? "/jayobee/pipeline.png" : "/motiv/motiv_cover.png"}

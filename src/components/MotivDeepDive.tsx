@@ -150,6 +150,14 @@ const MotivDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
 
                 <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 pointer-events-auto">
                   <a
+                    href="https://motiv-azure.vercel.app/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-blue-500/25 pointer-events-auto"
+                  >
+                    Try the Demo
+                  </a>
+                  <a
                     href="https://github.com/skalamera/motiv"
                     target="_blank"
                     rel="noopener noreferrer"
