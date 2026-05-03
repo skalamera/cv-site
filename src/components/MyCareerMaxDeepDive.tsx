@@ -200,7 +200,7 @@ const MyCareerMaxDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
               <section className="space-y-6 pb-8">
                 <h2 className="text-3xl font-semibold text-white">Traction and Takeaways</h2>
                 <p className="text-lg">
-                  The project became a real distribution experiment, not just a local demo. The portfolio card summarizes myCareerMax as a Top 15 new business app across 15 countries with roughly 20,000 global downloads. Early Google Play reporting also showed top new business rankings in 17 countries within the first 24 days.
+                  The project became a real distribution experiment, not just a local demo. myCareerMax was a Top 15 new business app across 15 countries with roughly 20,000 global downloads during its peak. Early Google Play reporting also showed top new business rankings in 17 countries within the first 24 days.
                 </p>
 
                 <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
@@ -226,16 +226,33 @@ const MyCareerMaxDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
                   The main engineering lesson was product-surface coordination. A resume builder alone is useful. A job board alone is useful. But the differentiated value came from connecting profile data, live listings, generated documents, saved-job state, alerts, and mobile access into one loop.
                 </p>
 
-                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="mt-12 w-full aspect-video rounded-xl overflow-hidden shadow-xl border border-slate-700 bg-slate-800">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/eEKL-NAv8Qs" 
+                    title="myCareerMax Project Walkthrough" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
+                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 pointer-events-auto">
                   <a
                     href="https://github.com/skalamera/mycareermax"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-lg font-bold rounded-xl transition-all"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-lg font-bold rounded-xl transition-all pointer-events-auto"
                   >
                     <GithubIcon />
                     View Code
                   </a>
+                  <button
+                    onClick={onClose}
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent hover:bg-slate-800 border border-slate-600 text-slate-300 hover:text-white text-lg font-bold rounded-xl transition-all pointer-events-auto cursor-pointer"
+                  >
+                    Close
+                  </button>
                 </div>
               </section>
             </div>

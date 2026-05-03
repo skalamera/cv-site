@@ -183,7 +183,6 @@ export const projects: Project[] = [
       theme: "yellow",
     description: "An intelligent, end-to-end AI powered career management platform. Enables users to build resumes and receive automated job alerts via a robust Python/Flask backend and Azure cloud integration.",
     techStack: ["Python", "Flask", "Azure", "Docker", "Selenium"],
-    metrics: "Top 15 new business app in 15 countries · ~20k global downloads",
     featured: true,
     highlights: [
       "Dynamic Resume Builder with custom templates",
@@ -200,6 +199,7 @@ export const projects: Project[] = [
     { 
       id: "motiv-proj",
     title: "Motiv",
+    github: "https://github.com/skalamera/motiv",
     description: "Motiv is a comprehensive, AI-powered car maintenance and diagnostics platform. It provides users with automated maintenance schedules, NHTSA recall tracking, automotive news, and a multimodal 'Ask Motiv' assistant capable of reading uploaded owner manuals. Built on Next.js 16 with the App Router, it utilizes Supabase for authentication, PostgreSQL, and PDF document storage. The Vercel AI SDK integrates Google Gemini via an AI Gateway, allowing users to query their vehicle data and manuals in real-time.",
     techStack: ["Next.js 16", "Supabase", "Vercel AI SDK", "Tailwind CSS"],
     logo: "/icons/motiv.svg"
@@ -207,6 +207,7 @@ export const projects: Project[] = [
     { 
       id: "jayobee",
     title: "Jayobee",
+    github: "https://github.com/skalamera/jd-extractor",
     description: "Jayobee is an advanced Chrome Extension designed to streamline the job application process using generative AI. It leverages Google Gemini via Manifest V3 background service workers and offscreen documents to contextualize highlighted web text and construct dynamically targeted resumes. The extension features a robust set of custom portal handlers capable of autonomously parsing and auto-filling complex Applicant Tracking System (ATS) forms across platforms like Workday, Greenhouse, Lever, Ashby, iCIMS, and Taleo.",
     techStack: ["JavaScript", "Chrome Extension API", "Gemini API", "HTML/CSS"],
     logo: "/icons/jayobee_app_icon.png"

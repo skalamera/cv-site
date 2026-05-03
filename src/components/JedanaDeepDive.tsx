@@ -191,7 +191,7 @@ const JedanaDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
                   Specialized logic is isolated in <code>static/js/agenteye.js</code> and <code>static/js/district_sentiment.js</code>. Core data processing is handled by <code>fd_metrics.py</code>. We share a CSS layer and initialize the unified database via <code>init_db.py</code>.
                 </p>
 
-                <div className="mt-12 text-center">
+                <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href="https://jedana-app.vercel.app/apps"
                     target="_blank"
@@ -200,6 +200,12 @@ const JedanaDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
                   >
                     Try the Demo
                   </a>
+                  <button
+                    onClick={onClose}
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent hover:bg-slate-800 border border-slate-600 text-slate-300 hover:text-white text-lg font-bold rounded-xl transition-all cursor-pointer"
+                  >
+                    Close
+                  </button>
                 </div>
               </section>
 

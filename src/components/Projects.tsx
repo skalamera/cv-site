@@ -5,6 +5,9 @@ import { ExternalLink, Activity, ChevronLeft, ChevronRight } from 'lucide-react'
 import JedanaDeepDive from './JedanaDeepDive';
 import MyCareerMaxDeepDive from './MyCareerMaxDeepDive';
 
+import JayobeeDeepDive from './JayobeeDeepDive';
+import MotivDeepDive from './MotivDeepDive';
+
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
@@ -15,8 +18,8 @@ const GithubIcon = () => (
 const getTechIcon = (techName: string) => {
   if (techName.toLowerCase() === "html/css") {
     return [
-      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "HTML")?.icon,
-      allTechStack.find(c => c.category === "DEV")?.skills.find(s => s.name === "CSS")?.icon
+      "/icons/html.png",
+      "/icons/css.png"
     ];
   }
   for (const category of allTechStack) {
@@ -29,6 +32,8 @@ const getTechIcon = (techName: string) => {
 const Projects: React.FC = () => {
   const [showJedanaDeepDive, setShowJedanaDeepDive] = useState(false);
   const [showMyCareerMaxDeepDive, setShowMyCareerMaxDeepDive] = useState(false);
+  const [showJayobeeDeepDive, setShowJayobeeDeepDive] = useState(false);
+  const [showMotivDeepDive, setShowMotivDeepDive] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [carouselDirection, setCarouselDirection] = useState(0);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
@@ -94,20 +99,21 @@ const Projects: React.FC = () => {
               
               {/* Left Content */}
               <div className="flex-1 flex flex-col">
-                <div className="flex items-center justify-between mb-8 relative z-10">
-                  <div className={`w-20 h-20 bg-[#111827] rounded-xl border ${innerBorderColor} p-2 shadow-lg flex items-center justify-center shrink-0`}>
-                    <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain rounded-lg" />
-                  </div>
-                  {featured.metrics && (
-                    <div className={`ml-6 px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
-                      {featured.metrics}
+                  <div className="flex flex-col md:flex-row items-start justify-between mb-8 relative z-10 gap-6 md:gap-0">
+                  <div className="flex items-center gap-4 md:gap-5">
+                    <div className="w-16 h-16 md:w-28 md:h-28 flex items-center justify-center shrink-0">
+                      <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain" />
                     </div>
-                  )}
-                </div>
-                
-                <h3 className="text-3xl font-bold text-white mb-4">
-                  {featured.title}
-                </h3>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white break-words">
+                      {featured.title}
+                    </h3>
+                  </div>
+                    {featured.metrics && (
+                      <div className={`px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder} shrink-0 max-w-full overflow-hidden text-ellipsis whitespace-normal md:whitespace-nowrap`}>
+                        {featured.metrics}
+                      </div>
+                    )}
+                  </div>
                 
                 <p className="text-slate-400 leading-relaxed mb-8">
                   {featured.description}
@@ -166,7 +172,7 @@ const Projects: React.FC = () => {
                   {featured.id === 'jedana' && (
                     <button
                       onClick={() => setShowJedanaDeepDive(true)}
-                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit`}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit cursor-pointer`}
                     >
                       <Activity size={18} />
                       Read Deep Dive
@@ -175,7 +181,7 @@ const Projects: React.FC = () => {
                   {featured.id === 'mycareermax' && (
                     <button
                       onClick={() => setShowMyCareerMaxDeepDive(true)}
-                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-yellow-500/40 bg-yellow-900/30 text-yellow-200 text-sm font-bold shadow-sm shadow-yellow-900/20 hover:bg-yellow-800/45 hover:border-yellow-400/60 hover:text-yellow-100 transition-colors w-fit`}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-yellow-500/40 bg-yellow-900/30 text-yellow-200 text-sm font-bold shadow-sm shadow-yellow-900/20 hover:bg-yellow-800/45 hover:border-yellow-400/60 hover:text-yellow-100 transition-colors w-fit cursor-pointer`}
                     >
                       <Activity size={18} />
                       Read Deep Dive
@@ -190,7 +196,7 @@ const Projects: React.FC = () => {
                   
                   {/* Award Image for mycareermax specifically */}
                   {featured.id === 'mycareermax' && (
-                    <div className="w-full flex items-center justify-center p-2 sm:p-3 lg:p-2 relative group/award">
+                    <div className="w-full flex items-center justify-center p-2 sm:p-3 lg:p-2 mb-4 lg:mb-8 relative group/award">
                       <img 
                         src="/mycareermax/top15_award.png" 
                         alt="Top 10 Award" 
@@ -219,6 +225,8 @@ const Projects: React.FC = () => {
 
       <JedanaDeepDive isOpen={showJedanaDeepDive} onClose={() => setShowJedanaDeepDive(false)} />
       <MyCareerMaxDeepDive isOpen={showMyCareerMaxDeepDive} onClose={() => setShowMyCareerMaxDeepDive(false)} />
+      <JayobeeDeepDive isOpen={showJayobeeDeepDive} onClose={() => setShowJayobeeDeepDive(false)} />
+      <MotivDeepDive isOpen={showMotivDeepDive} onClose={() => setShowMotivDeepDive(false)} />
 
       {/* Project Carousel */}
       <div className="relative">
@@ -263,23 +271,24 @@ const Projects: React.FC = () => {
                 }}
                 className="glass-panel p-6 md:p-8 rounded-xl flex flex-col min-h-[460px] md:min-h-[390px] group touch-pan-y select-none"
               >
-                <div className={`flex flex-1 gap-8 ${activeProject.id === 'jayobee' ? 'flex-col lg:flex-row lg:items-center' : 'flex-col'}`}>
+                <div className={`flex flex-1 gap-8 ${(activeProject.id === 'jayobee' || activeProject.id === 'motiv-proj') ? 'flex-col lg:flex-row lg:items-start' : 'flex-col'}`}>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex justify-between items-start mb-6">
-                      <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
-                        {activeProject.logo ? (
-                          <img src={activeProject.logo} alt={activeProject.title} className="w-full h-full object-contain" />
-                        ) : (
-                          <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                        )}
+                      <div className="flex items-center gap-4 md:gap-5">
+                        <div className="w-16 h-16 md:w-28 md:h-28 flex items-center justify-center shrink-0">
+                          {activeProject.logo ? (
+                            <img src={activeProject.logo} alt={activeProject.title} className="w-full h-full object-contain" />
+                          ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 md:w-10 md:h-10 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                          )}
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-slate-200 group-hover:text-primary transition-colors break-words">{activeProject.title}</h3>
                       </div>
-                      <div className="flex gap-3 text-slate-400">
-                        {activeProject.github && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
-                        {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
+                      <div className="flex gap-3 text-slate-400 pt-2">
+                        {activeProject.github && activeProject.id !== 'jayobee' && activeProject.id !== 'motiv-proj' && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors relative z-10 pointer-events-auto"><GithubIcon /></a>}
+                        {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors relative z-10 pointer-events-auto"><ExternalLink size={20} /></a>}
                       </div>
                     </div>
-
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-200 mb-3 group-hover:text-primary transition-colors">{activeProject.title}</h3>
 
                     <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed">
                       {activeProject.description}
@@ -301,11 +310,31 @@ const Projects: React.FC = () => {
                     </ul>
                   </div>
 
-                  {activeProject.id === 'jayobee' && (
-                    <div className="w-full lg:w-[42%] shrink-0">
+                  {(activeProject.id === 'jayobee' || activeProject.id === 'motiv-proj') && (
+                    <div className="w-full lg:w-[42%] shrink-0 flex flex-col pt-4 lg:pt-6">
+                      <div className="flex flex-wrap gap-4 justify-start md:justify-end relative z-10 pointer-events-auto mb-12 lg:mb-16 min-h-[4rem] items-center">
+                        <button
+                          onPointerDown={(e) => e.stopPropagation()}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (activeProject.id === 'jayobee') setShowJayobeeDeepDive(true);
+                            if (activeProject.id === 'motiv-proj') setShowMotivDeepDive(true);
+                          }}
+                          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}
+                        >
+                          <Activity size={18} />
+                          Read Deep Dive
+                        </button>
+                        {activeProject.github && (
+                          <a href={activeProject.github} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}>
+                            <GithubIcon />
+                            View Code
+                          </a>
+                        )}
+                      </div>
                       <img
-                        src="/jayobee/pipeline.png"
-                        alt="Jayobee pipeline"
+                        src={activeProject.id === 'jayobee' ? "/jayobee/pipeline.png" : "/motiv/motiv_cover.png"}
+                        alt={`${activeProject.title} preview`}
                         className="w-full max-h-[280px] rounded-lg border border-slate-700/50 bg-slate-950/40 object-contain shadow-xl shadow-slate-950/30"
                       />
                     </div>

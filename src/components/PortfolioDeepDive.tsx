@@ -184,6 +184,14 @@ const PortfolioDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
                 <p className="text-lg font-medium text-purple-400">
                   skalamera.me is the working implementation of those concepts. You can test the architecture or query the system about my work at Sigma directly on the site.
                 </p>
+                <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button
+                    onClick={onClose}
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent hover:bg-slate-800 border border-slate-600 text-slate-300 hover:text-white text-lg font-bold rounded-xl transition-all cursor-pointer"
+                  >
+                    Close
+                  </button>
+                </div>
               </section>
 
             </div>

@@ -133,26 +133,28 @@ const AIPortfolioCard: React.FC = () => {
           
           {/* Top Content: Project Info */}
           <div className="flex-1 flex flex-col relative z-10">
-            <div className="flex items-start justify-between mb-8">
-              <div className="w-24 h-24 flex items-center justify-center shrink-0">
-                <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-cover rounded-xl shadow-lg border border-purple-600/30" />
+            <div className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-0 mb-8">
+              <div className="flex items-center gap-4 md:gap-5 order-2 md:order-1">
+                <div className="w-16 h-16 md:w-28 md:h-28 flex items-center justify-center shrink-0">
+                  <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-cover rounded-xl shadow-lg" />
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white break-words">AI Portfolio & CV</h3>
+                  <span className="text-lg md:text-2xl text-slate-400 mt-1">(skalamera.me)</span>
+                </div>
               </div>
-              <div className="flex flex-col items-end gap-2">
+              <div className="flex flex-col items-start md:items-end gap-2 pt-2 order-1 md:order-2 w-full md:w-auto">
                 <AttackTracker />
-                <div className="flex flex-wrap gap-2 justify-end">
-                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
+                <div className="flex flex-wrap gap-2 justify-start md:justify-end w-full">
+                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder} max-w-full overflow-hidden text-ellipsis whitespace-normal md:whitespace-nowrap`}>
                     RAG (Retrieval-Augmented Generation)
                   </div>
-                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
+                  <div className={`px-3 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder} shrink-0`}>
                     Self-healing
                   </div>
                 </div>
               </div>
             </div>
-            
-            <h3 className="text-3xl font-bold text-white mb-4">
-              {featured.title}
-            </h3>
             
             <p className="text-slate-400 leading-relaxed mb-8">
               {featured.description}
