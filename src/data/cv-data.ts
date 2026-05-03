@@ -2,6 +2,7 @@ export interface Job {
   id: string;
   company: string;
   role: string;
+  location: string;
   period: string;
   description: string[];
   skills: string[];
@@ -68,6 +69,7 @@ export const jobs: Job[] = [
     id: "sigma",
     company: "Sigma",
     role: "Technical Support Engineering Manager",
+    location: "New York",
     period: "Sept 2025 - Present",
     description: [
       "Lead the New York–based Technical Support Engineering team, managing hiring, onboarding, coaching, and performance for hybrid TSEs and sustaining a 4.84/5 CSAT across a high-volume enterprise customer base.",
@@ -85,6 +87,7 @@ export const jobs: Job[] = [
     id: "benchmark",
     company: "Benchmark Education Company",
     role: "Lead, Customer Technical Support & Support Operations",
+    location: "New York",
     period: "March 2022 - August 2025",
     description: [
       "Led a hybrid team of 15 support agents plus a 5-person offshore vendor team, consistently exceeding KPIs and SLAs while reporting to the Director of Technology.",
@@ -101,6 +104,7 @@ export const jobs: Job[] = [
     id: "buildinglink",
     company: "BuildingLink",
     role: "Technical Support & Training",
+    location: "New York",
     period: "October 2019 - March 2022",
     description: [
       "Hosted on-site and remote training sessions on our platform to property management companies across the country.",
@@ -115,6 +119,7 @@ export const jobs: Job[] = [
     id: "1010data",
     company: "1010 data",
     role: "Customer Experience/Technical Support Lead",
+    location: "New York",
     period: "April 2016 - August 2019",
     description: [
       "Monitored, reviewed, and delivered Customer Experience staff’s KPIs weekly to upper management, including spot checking support tickets.",
@@ -129,6 +134,7 @@ export const jobs: Job[] = [
     id: "lytx",
     company: "Lytx",
     role: "Senior Technical Support Engineer - Tier 3",
+    location: "San Diego",
     period: "July 2014 - April 2016",
     description: [
       "Elevated and managed Tech Support incidents as the main point of escalation for the Tier 3 Tech Support team, ensuring prompt resolution for customers.",
@@ -175,9 +181,9 @@ export const projects: Project[] = [
       github: "https://github.com/skalamera/mycareermax",
       title: "myCareerMax",
       theme: "yellow",
-    description: "An intelligent, end-to-end career management platform. Enables users to build resumes and receive automated job alerts via a robust Python/Flask backend and Azure cloud integration.",
+    description: "An intelligent, end-to-end AI powered career management platform. Enables users to build resumes and receive automated job alerts via a robust Python/Flask backend and Azure cloud integration.",
     techStack: ["Python", "Flask", "Azure", "Docker", "Selenium"],
-    metrics: "Top 10 new business app in 17 countries · ~20k global downloads",
+    metrics: "Top 15 new business app in 15 countries · ~20k global downloads",
     featured: true,
     highlights: [
       "Dynamic Resume Builder with custom templates",
@@ -187,9 +193,8 @@ export const projects: Project[] = [
       "Dockerized container deployment"
     ],
     kpis: [
-      { value: "Top 10", label: "in 17 countries" },
-      { value: "~20k", label: "global downloads" },
-      { value: "5+", label: "core features" }
+      { value: "Top 15", label: "in 15 countries" },
+      { value: "~20k", label: "global downloads" }
     ]
   },
     { 

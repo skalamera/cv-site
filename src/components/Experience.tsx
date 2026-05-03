@@ -75,7 +75,7 @@ const Experience: React.FC = () => {
                    )}
                    <div className="flex items-center gap-3">
                     <h3 className="text-2xl font-bold text-white leading-tight">{job.company}</h3>
-                    <div className="text-slate-400 text-sm mt-1">{job.role === "Technical Support Engineering Manager" || job.company === "Santifer iRepair" ? "New York, NY" : "Remote / Hybrid"}</div>
+                    <div className="text-slate-400 text-sm mt-1">{job.location}</div>
                    </div>
                 </div>
               </div>

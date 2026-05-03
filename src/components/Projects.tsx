@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
                     <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain rounded-lg" />
                   </div>
                   {featured.metrics && (
-                    <div className={`px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
+                    <div className={`ml-6 px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder}`}>
                       {featured.metrics}
                     </div>
                   )}
@@ -175,15 +175,15 @@ const Projects: React.FC = () => {
               
               {/* Right Column: KPI Cards & Award (if any) */}
               {(featured.kpis || featured.id === 'mycareermax') && (
-                <div className="w-full lg:w-[280px] flex flex-col gap-6 shrink-0">
+                <div className="w-full lg:w-[340px] flex flex-col gap-6 shrink-0">
                   
                   {/* Award Image for mycareermax specifically */}
                   {featured.id === 'mycareermax' && (
-                    <div className="w-full flex items-center justify-center p-4 relative group/award">
+                    <div className="w-full flex items-center justify-center p-2 sm:p-3 lg:p-2 relative group/award">
                       <img 
                         src="/mycareermax/top10_award.png" 
                         alt="Top 10 Award" 
-                        className="w-48 object-contain filter drop-shadow-lg transition-transform duration-500 group-hover/award:scale-105" 
+                        className="w-64 sm:w-72 lg:w-80 max-w-full object-contain filter drop-shadow-lg transition-transform duration-500 group-hover/award:scale-105" 
                       />
                     </div>
                   )}
@@ -251,40 +251,54 @@ const Projects: React.FC = () => {
                 }}
                 className="glass-panel p-6 md:p-8 rounded-xl flex flex-col min-h-[460px] md:min-h-[390px] group touch-pan-y select-none"
               >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
-                    {activeProject.logo ? (
-                      <img src={activeProject.logo} alt={activeProject.title} className="w-full h-full object-contain" />
-                    ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                    )}
+                <div className={`flex flex-1 gap-8 ${activeProject.id === 'jayobee' ? 'flex-col lg:flex-row lg:items-center' : 'flex-col'}`}>
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-16 h-16 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-2 shrink-0">
+                        {activeProject.logo ? (
+                          <img src={activeProject.logo} alt={activeProject.title} className="w-full h-full object-contain" />
+                        ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-primary"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        )}
+                      </div>
+                      <div className="flex gap-3 text-slate-400">
+                        {activeProject.github && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
+                        {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-200 mb-3 group-hover:text-primary transition-colors">{activeProject.title}</h3>
+
+                    <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed">
+                      {activeProject.description}
+                    </p>
+
+                    <ul className="flex flex-wrap gap-2 mt-auto">
+                      {activeProject.techStack.map(tech => {
+                        const icons = getTechIcon(tech);
+                        return (
+                          <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
+                            {Array.isArray(icons)
+                              ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
+                              : (icons && <img src={icons as string} alt={tech} className="w-3.5 max-h-3.5 object-contain" />)
+                            }
+                            {tech}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
-                  <div className="flex gap-3 text-slate-400">
-                    {activeProject.github && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><GithubIcon /></a>}
-                    {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><ExternalLink size={20} /></a>}
-                  </div>
+
+                  {activeProject.id === 'jayobee' && (
+                    <div className="w-full lg:w-[42%] shrink-0">
+                      <img
+                        src="/jayobee/pipeline.png"
+                        alt="Jayobee pipeline"
+                        className="w-full max-h-[280px] rounded-lg border border-slate-700/50 bg-slate-950/40 object-contain shadow-xl shadow-slate-950/30"
+                      />
+                    </div>
+                  )}
                 </div>
-
-                <h3 className="text-xl md:text-2xl font-bold text-slate-200 mb-3 group-hover:text-primary transition-colors">{activeProject.title}</h3>
-
-                <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed">
-                  {activeProject.description}
-                </p>
-
-                <ul className="flex flex-wrap gap-2 mt-auto">
-                  {activeProject.techStack.map(tech => {
-                    const icons = getTechIcon(tech);
-                    return (
-                      <li key={tech} className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700/50 rounded-md text-[11px] font-medium text-slate-300">
-                        {Array.isArray(icons)
-                          ? icons.map((ic, i) => ic && <img key={i} src={ic} alt={tech} className="w-3.5 h-3.5 object-contain" />)
-                          : (icons && <img src={icons as string} alt={tech} className="w-3.5 max-h-3.5 object-contain" />)
-                        }
-                        {tech}
-                      </li>
-                    );
-                  })}
-                </ul>
               </motion.div>
             )}
           </AnimatePresence>
