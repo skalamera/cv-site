@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { projects, techStack as allTechStack } from '../data/cv-data';
 import { ExternalLink, Activity, ChevronLeft, ChevronRight } from 'lucide-react';
 import JedanaDeepDive from './JedanaDeepDive';
+import MyCareerMaxDeepDive from './MyCareerMaxDeepDive';
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -27,6 +28,7 @@ const getTechIcon = (techName: string) => {
 
 const Projects: React.FC = () => {
   const [showJedanaDeepDive, setShowJedanaDeepDive] = useState(false);
+  const [showMyCareerMaxDeepDive, setShowMyCareerMaxDeepDive] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [carouselDirection, setCarouselDirection] = useState(0);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
@@ -170,6 +172,15 @@ const Projects: React.FC = () => {
                       Read Deep Dive
                     </button>
                   )}
+                  {featured.id === 'mycareermax' && (
+                    <button
+                      onClick={() => setShowMyCareerMaxDeepDive(true)}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-yellow-500/40 bg-yellow-900/30 text-yellow-200 text-sm font-bold shadow-sm shadow-yellow-900/20 hover:bg-yellow-800/45 hover:border-yellow-400/60 hover:text-yellow-100 transition-colors w-fit`}
+                    >
+                      <Activity size={18} />
+                      Read Deep Dive
+                    </button>
+                  )}
                 </div>
               </div>
               
@@ -207,6 +218,7 @@ const Projects: React.FC = () => {
       })}
 
       <JedanaDeepDive isOpen={showJedanaDeepDive} onClose={() => setShowJedanaDeepDive(false)} />
+      <MyCareerMaxDeepDive isOpen={showMyCareerMaxDeepDive} onClose={() => setShowMyCareerMaxDeepDive(false)} />
 
       {/* Project Carousel */}
       <div className="relative">
