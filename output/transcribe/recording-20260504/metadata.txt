@@ -1,0 +1,5 @@
+source_file=C:\Users\skala\OneDrive\Documents\Sound Recordings\Recording.m4a
+detected_language=en
+language_probability=0.9972
+model=faster-whisper-small
+task=translate_to_english

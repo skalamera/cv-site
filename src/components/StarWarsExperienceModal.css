@@ -1,0 +1,650 @@
+.starwars-modal {
+  --starwars-yellow: #ffe81f;
+  --starwars-blue: #4fc3ff;
+  --starwars-black: #000;
+  --starwars-fade-black: rgba(0, 0, 0, 0);
+  --starwars-control-bg: rgba(0, 0, 0, 0.58);
+  --starwars-control-border: rgba(255, 232, 31, 0.46);
+  --starwars-crawl-duration: 118s;
+  --starwars-crawl-delay: 12.5s;
+  --starwars-manual-crawl-y: 0px;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.78);
+  color: var(--starwars-yellow);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.starwars-dialog {
+  position: relative;
+  width: min(1120px, 100%);
+  height: min(820px, calc(100dvh - 2rem));
+  overflow: hidden;
+  border: 1px solid rgba(255, 232, 31, 0.28);
+  border-radius: 8px;
+  background: var(--starwars-black);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+  outline: none;
+}
+
+.starwars-starfield,
+.starwars-starfield::before,
+.starwars-starfield::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.starwars-starfield {
+  background:
+    radial-gradient(circle at 12% 18%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 38% 8%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 28%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 16%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 36%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 6% 52%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 24% 64%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 72%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 68%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 84%, #fff 0 1px, transparent 2px),
+    #000;
+  z-index: 0;
+}
+
+.starwars-starfield::before,
+.starwars-starfield::after {
+  content: "";
+  opacity: 0.72;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    90px 140px;
+  background-size:
+    210px 260px,
+    310px 360px;
+  animation: starwars-stars-drift 34s linear infinite;
+}
+
+.starwars-starfield::after {
+  opacity: 0.42;
+  background-position:
+    60px 80px,
+    180px 220px;
+  background-size:
+    360px 420px,
+    480px 520px;
+  animation-duration: 58s;
+  animation-direction: reverse;
+}
+
+.starwars-scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  perspective: 620px;
+  perspective-origin: 50% 42%;
+}
+
+.starwars-scene::before,
+.starwars-scene::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.starwars-scene::before {
+  top: 0;
+  height: 34%;
+  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 34%, var(--starwars-fade-black) 100%);
+}
+
+.starwars-scene::after {
+  bottom: 0;
+  height: 16%;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.72) 44%, var(--starwars-fade-black) 100%);
+}
+
+.starwars-intro {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: min(78%, 720px);
+  transform: translate(-50%, -50%);
+  color: var(--starwars-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  opacity: 0;
+  animation: starwars-intro-fade 5.4s ease-in-out forwards;
+  text-shadow: 0 0 20px rgba(79, 195, 255, 0.28);
+}
+
+.starwars-title-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78%, 760px);
+  max-height: 34%;
+  object-fit: contain;
+  transform: translate(-50%, -50%) scale(1.08);
+  opacity: 0;
+  filter:
+    drop-shadow(0 0 14px rgba(255, 232, 31, 0.2))
+    drop-shadow(0 0 34px rgba(255, 232, 31, 0.12));
+  animation: starwars-title-card 6.4s ease-in 5.35s forwards;
+  pointer-events: none;
+}
+
+.starwars-crawl-frame {
+  position: absolute;
+  left: 50%;
+  bottom: -16%;
+  width: min(92%, 960px);
+  height: 150%;
+  overflow: visible;
+  transform: translateX(-50%) rotateX(28deg);
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+}
+
+.starwars-crawl {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  color: var(--starwars-yellow);
+  text-align: justify;
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 10px rgba(255, 232, 31, 0.18),
+    0 0 26px rgba(255, 232, 31, 0.08);
+  animation: starwars-crawl-scroll var(--starwars-crawl-duration) linear var(--starwars-crawl-delay) forwards;
+}
+
+.starwars-crawl header {
+  margin-bottom: 2.8rem;
+  text-align: center;
+}
+
+.starwars-episode {
+  margin: 0 0 0.65rem;
+  font-size: 0.78em;
+  text-transform: uppercase;
+}
+
+.starwars-crawl h1 {
+  margin: 0;
+  font-size: 1.32em;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.starwars-crawl h2 {
+  margin: 2.4rem 0 0.8rem;
+  font-size: 0.86em;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.starwars-crawl p {
+  margin: 0 0 1.45rem;
+}
+
+.starwars-contact {
+  margin: 3rem auto 0;
+  font-size: 0.72em;
+  line-height: 1.28;
+  text-align: center;
+}
+
+.starwars-contact h2 {
+  margin-bottom: 1.2rem;
+  font-size: 1.08em;
+}
+
+.starwars-contact-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.7em;
+  margin: 0 0 0.55em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.starwars-contact-label {
+  min-width: 5.6em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.starwars-contact-value {
+  min-width: 0;
+  overflow-wrap: normal;
+  text-align: left;
+  word-break: normal;
+}
+
+.starwars-close,
+.starwars-controls button,
+.starwars-speed-control,
+.starwars-scrub-control {
+  border: 1px solid var(--starwars-control-border);
+  background: var(--starwars-control-bg);
+  color: var(--starwars-yellow);
+  font: 700 0.75rem/1 Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.starwars-close,
+.starwars-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 2.25rem;
+  border-radius: 999px;
+  padding: 0.58rem 0.85rem;
+  cursor: pointer;
+}
+
+.starwars-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9;
+}
+
+.starwars-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  left: 8rem;
+  z-index: 8;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.starwars-speed-control,
+.starwars-scrub-control {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.25rem;
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+}
+
+.starwars-scrub-control {
+  flex-basis: min(28rem, 100%);
+  justify-content: center;
+}
+
+.starwars-speed-control input,
+.starwars-scrub-control input {
+  width: 8.2rem;
+  accent-color: var(--starwars-yellow);
+  cursor: pointer;
+}
+
+.starwars-scrub-control input {
+  width: min(22rem, 52vw);
+}
+
+.starwars-close:hover,
+.starwars-close:focus-visible,
+.starwars-controls button:hover,
+.starwars-controls button:focus-visible,
+.starwars-prompt-actions button:hover,
+.starwars-prompt-actions button:focus-visible,
+.starwars-speed-control:focus-within,
+.starwars-scrub-control:focus-within {
+  border-color: var(--starwars-yellow);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 232, 31, 0.16);
+}
+
+.starwars-controls button.is-audio-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.starwars-complete-screen,
+.starwars-audio-prompt,
+.starwars-audio-notice {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.starwars-prompt-card {
+  width: min(34rem, 100%);
+  border: 1px solid rgba(255, 232, 31, 0.46);
+  border-radius: 8px;
+  padding: 1.4rem;
+  background: rgba(0, 0, 0, 0.88);
+  color: var(--starwars-yellow);
+  text-align: center;
+  box-shadow: 0 0 36px rgba(255, 232, 31, 0.12);
+}
+
+.starwars-prompt-card p {
+  margin: 0 0 1rem;
+  font: 700 1rem/1.45 Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.starwars-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.starwars-prompt-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.35rem;
+  border: 1px solid var(--starwars-control-border);
+  border-radius: 999px;
+  padding: 0.62rem 0.92rem;
+  background: var(--starwars-control-bg);
+  color: var(--starwars-yellow);
+  font: 700 0.76rem/1 Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.starwars-modal.is-complete .starwars-close,
+.starwars-modal.is-complete .starwars-controls {
+  display: none;
+}
+
+.starwars-modal.is-paused .starwars-intro,
+.starwars-modal.is-paused .starwars-title-card,
+.starwars-modal.is-paused .starwars-crawl,
+.starwars-modal.is-paused .starwars-starfield::before,
+.starwars-modal.is-paused .starwars-starfield::after {
+  animation-play-state: paused;
+}
+
+.starwars-modal.is-manual-scrub .starwars-intro,
+.starwars-modal.is-manual-scrub .starwars-title-card {
+  animation: none;
+  opacity: 0;
+}
+
+.starwars-modal.is-manual-scrub .starwars-crawl {
+  animation: none;
+  transform: translateY(var(--starwars-manual-crawl-y));
+}
+
+@keyframes starwars-intro-fade {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  74% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes starwars-title-card {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  76% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.08);
+  }
+}
+
+@keyframes starwars-crawl-scroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(-100% - 180dvh));
+  }
+}
+
+@keyframes starwars-stars-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-120px, 180px, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .starwars-intro {
+    font-size: 1.85rem;
+  }
+
+  .starwars-crawl {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .starwars-modal {
+    padding: 0;
+  }
+
+  .starwars-dialog {
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .starwars-close {
+    top: 0.75rem;
+    left: 0.75rem;
+    min-height: 2.1rem;
+    padding: 0.54rem 0.74rem;
+    font-size: 0.68rem;
+  }
+
+  .starwars-controls {
+    top: 3.65rem;
+    right: 0.75rem;
+    left: 0.75rem;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .starwars-controls button {
+    min-height: 2.1rem;
+    padding: 0.54rem 0.74rem;
+    font-size: 0.68rem;
+  }
+
+  .starwars-speed-control,
+  .starwars-scrub-control {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.68rem;
+  }
+
+  .starwars-speed-control input,
+  .starwars-scrub-control input {
+    width: min(10rem, 44vw);
+  }
+
+  .starwars-prompt-card {
+    padding: 1.15rem;
+  }
+
+  .starwars-prompt-actions {
+    flex-direction: column;
+  }
+
+  .starwars-prompt-actions button {
+    width: 100%;
+  }
+
+  .starwars-scene {
+    perspective: 520px;
+  }
+
+  .starwars-intro {
+    width: min(82%, 24rem);
+    font-size: 1.22rem;
+  }
+
+  .starwars-title-card {
+    width: 82%;
+    max-height: 26%;
+  }
+
+  .starwars-crawl {
+    font-size: 1.2rem;
+    line-height: 1.36;
+  }
+
+  .starwars-crawl p {
+    margin-bottom: 1.1rem;
+  }
+
+  .starwars-contact {
+    font-size: 0.64em;
+  }
+
+  .starwars-contact-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.14em;
+    margin-bottom: 0.9em;
+    white-space: normal;
+  }
+
+  .starwars-contact-label,
+  .starwars-contact-value {
+    min-width: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .starwars-crawl {
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starwars-dialog {
+    overflow-y: auto;
+  }
+
+  .starwars-starfield::before,
+  .starwars-starfield::after,
+  .starwars-intro,
+  .starwars-title-card,
+  .starwars-crawl {
+    animation: none;
+  }
+
+  .starwars-scene {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+    padding: 7rem 1rem 3rem;
+    perspective: none;
+  }
+
+  .starwars-scene::before,
+  .starwars-scene::after {
+    display: none;
+  }
+
+  .starwars-intro {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(90%, 820px);
+    margin: 0 auto 2rem;
+    transform: none;
+    opacity: 1;
+  }
+
+  .starwars-title-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: block;
+    width: min(88%, 700px);
+    max-height: none;
+    margin: 1rem auto 3rem;
+    transform: none;
+    opacity: 1;
+  }
+
+  .starwars-crawl-frame {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: min(90%, 920px);
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .starwars-crawl {
+    position: relative;
+    top: auto;
+    font-size: 2rem;
+    transform: none;
+  }
+}

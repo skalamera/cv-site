@@ -1,0 +1,287 @@
+Then the manager of customer support and experience so wanting to learn a bit more about you and
+
+I have your resume and LinkedIn in front of me the best way to do this is to just to hear directly
+
+from you what you've been doing I'd say to focus on like you know top three to five accomplishments
+
+in your career you want me to know about um obviously the more it can relate to the job the better
+
+but I defer to you on what you want to highlight and then um
+
+want to learn a bit more on some questions but second part of the call
+
+um I'll turn it over to you to ask me questions and I can tell you a bit more about us and all
+
+that good stuff how does that sound yeah sounds good to me okay I'll hand it over to you
+
+sure um well yeah uh if you've looked at my resume or LinkedIn uh you probably noticed most
+
+to well the majority of my career has been in uh some sort of tech support customer support
+
+type of role you know I started out as a tech support engineer and kind of just worked
+
+my way up from there into into some lead roles team lead and then into management
+
+and right now I'm at Sigma I'm not sure if you're familiar with what they do
+
+but last year we were a BI company and this year we're an AI company
+
+so I run their New York support team it's part of a larger global support organization we have
+
+offices in San Francisco New York London and just recently opened up in Australia so
+
+I run our our east coast division here um and kind of coordinate with leadership from each of those
+
+other offices um and yeah just your typical um support uh manager type of role there um you
+
+know uh handle day-to-day uh escalations um uh one-on-one coaching mentoring all of that I
+
+have about uh seven or now eight uh starting this week eight people uh that report directly to me
+
+and uh yeah so I run our our New York division here um but work very closely uh with the with
+
+the other offices as well we're all kind of all together uh we're in office um it's not remote
+
+so I'm in an office uh five days of the week um in Manhattan um and uh yeah I like my job there I just
+
+uh I I've heard about um Regal and um saw the opportunity and thought it would be uh
+
+something to uh apply for because I what I went to Sigma to do um I feel like I've done
+
+uh and uh I kind of won my next challenge um and that's kind of why I applied here uh yeah
+
+uh like what the energizes or motivates you to be in the management management position
+
+yeah um so most of my career I haven't been uh I would say since benchmark my last uh
+
+where I was last uh where I kind of started uh people management um and just really uh I just
+
+really enjoyed um helping people grow and and you know the mentorship part of it I uh I'm a very
+
+technical uh person um I still like um uh you know doing doing the technical um type of tasks
+
+uh I consider myself like a player coach I guess you call it um I like to step in and help out
+
+when I can um you know I I'd like to handle um uh you know or at least oversee uh most of the
+
+escalations that happened so um I I think I've I've learned a lot of kind of what works and what
+
+doesn't um in tech support organizations I spent a lot of time uh on the support operations side
+
+as well um developing and and building tools and processes for support teams to use um to be
+
+more efficient um so having all that knowledge uh I think uh to me the next step was to to go um
+
+to a management position and uh uh you know try to um you know teach um and and pass that on
+
+I guess is uh yeah great um maybe tell me about a time when you go through something
+
+yeah um we metric success uh number of ways uh you know first of all the all the standard um you
+
+know support metrics KPI is um time to resolution first contact uh you know um CSAT is really
+
+what it all boils down to that's kind of what we hang our hats on here uh is uh our CSAT score
+
+we have an extremely high CSAT score uh 4.8 out of 5 they they I can't even I can't even take credit
+
+for all of that they've been they were doing that before I got there I've just continued that um
+
+but uh yeah so I actually on top of those metrics um the standard ones I started a
+
+an efficiency metric does what I came up with um which basically is just you know how efficient
+
+a a tech support engineer is per hour of the day um based on their you know availability um
+
+and a couple other factors uh you know how many tickets they're closing per hour um
+
+and I brought in you know some bonuses if you if you close a ticket same day that type of thing but
+
+efficiency to answer your question how we how we measure success that's a big
+
+part of how we measure it it's actually tied directly to each of their quarterly bonuses
+
+um so and they have a threshold that that they know uh that they need to be over
+
+that for example is 2.5 so um you know we kind of uh you know review that on a weekly basis
+
+and then see where they are um so that's kind of how we measure success uh and I guess one thing
+
+I improved um when I got to see well there was a big kind of a uh communication gap between
+
+our support team and uh the engineering and development teams but it really wasn't in
+
+communication um and when there was um when we would you know escalate a bug uh or a feature
+
+request um it would kind of get just bounced back um because it wasn't filled out correctly
+
+to their standards uh so um it was just there was a lot of back and forth I mean and it was just
+
+it was just extending the time that the customer had to wait for an answer um and that was kind
+
+of the first thing I noticed when I got to Sigma um and it was the first thing I wanted to fix
+
+and the way that we did that is you know I met with each there's a bunch of different
+
+pods they call them engineering pods um and they all kind of want a when a bug is sent over to them
+
+they all kind of want something different um you know they have different requirements um so
+
+there's about eight or so um I met with each one of them and basically built out templates uh so
+
+that when our team sent something to them um we just fill out this template uh and you know
+
+we agreed up you know what should be required um and if it was uh filled out then it did it cut
+
+back on a lot of the uh back and forth but um that sounds simple but the way I did it was uh
+
+I I built it within press desk uh is what we use as our kind of a ticketing system
+
+and intercom down um but I built it as an in-app uh kind of module uh that dynamically
+
+updated based on what team we were going to escalate it to uh the required fields but update so
+
+basically we were forcing me the tech support engineers to fill out this template um and they
+
+couldn't really send it to the engineering team unless it was filled out completely um but kind
+
+of just uh putting that in place really um you know I've seen a lot of improvement uh with the
+
+amount of back and forth um that I saw when I first got there yeah that's great awesome good example
+
+in terms of like you mentioned uh communication with uh engineering uh product or engineering could
+
+identify that route calls or like you know something along those lines where you cross
+
+collaborated yeah so um I mean when I when I go there I just noticed that every time we were sending
+
+something off to to engineering or escalating it um there was just a lot of uh well the first
+
+way I noticed is there are uh time to resolution when we uh were escalating issues was it was way
+
+too way too much um so um looking into it the reason where the ticket was getting hung up
+
+was the back and forth when we would send something to engineering they would send it back
+
+and we would send it back to engineering there was like you know a lot of that happening before we
+
+even gave the customer an answer or an update um so first thing I did was I went and and spoke
+
+with uh like I said there's a there's a couple different uh each different teams that they can
+
+get escalated to um and just uh met with them and you know they all kind of agreed that uh it wasn't
+
+it wasn't a hard sell uh but just kind of getting them uh getting it you know them to sit down
+
+and give us the requirements um that took some work um especially because there were eight of them
+
+but so you know I had to do a lot of scheduling and coordinating with with them to
+
+to get sit down to give me the requirements that they need for us so that they're not asking for
+
+more every time we send it you shared it are you actively looking it doesn't sound like it but I
+
+don't want to make that assumption yeah I am because unfortunately the our team um it's either
+
+my choice to go to San Francisco continue or um go for another job so that's what I'm doing
+
+I don't believe um well I was going to San Francisco um it's just unfortunately that's uh
+
+my option right now okay okay cool so when you mentioned earlier came for a new challenge
+
+was is that like the secondary reason or yeah like the main reason is uh I don't want to make
+
+you California um so I'd like I'd prefer I prefer to to stay in the New York area um you know uh
+
+yeah that's really the main reason yeah yeah I guess well that are not negotiables for you
+
+I guess just uh you know the the autonomy to kind of um and trust uh to build you know the team and
+
+implement processes uh that I've seen work personally um and you know you know the trust
+
+due to to do that um that's that's really the biggest thing for me um yeah okay compensation
+
+expectations um I think what I saw that you guys had listed was was fine um yeah I mean preferably
+
+the the upper side of that range uh I right now I'm currently at above that range but
+
+yeah I understand that yeah I mean obviously same as a much bigger company so uh their compensation
+
+structure on tour could be a bit different I guess the the perk for us is that you get equity um so
+
+if anything happens in the next few years that would be obviously really great for you
+
+okay perfect and then you think we come into office Tuesday Wednesday Thursday
+
+sounds like you're good with that yeah like I said I'm going to be off this Monday so
+
+that's not an issue right um okay cool and then um in terms of next steps so the next step would
+
+be a video call with the hiring manager Sarah if that goes well uh we would then have you meet with
+
+our um COO as well uh and then after that we would do a take home project slash onsite presentation
+
+and you can meet with some more folks on the team as well as Sarah again um and then uh there would
+
+just be a final interview with our CEO so there's like four steps that one says give routine
+
+okay um yeah that sounds pretty normal
+
+do you have a timeline in terms of when you're looking to make a move or when you're like expected
+
+to give the team an answer or if you have to pass that um honestly like the sooner the better um but
+
+no uh I mean my deadline is is by the end of this month uh like officially I have to do them
+
+that is by the end of this month but you know I would prefer to know it's earlier than that but
+
+so I don't have any questions for you I'm gonna uh meet with the team I think tomorrow morning is the
+
+plan for an office to go over everyone I was connected with at the last week of today
+
+and then we'll determine who to move forward in the process uh but in the meantime are there
+
+any questions for me um I said that I don't know most of my questions are probably
+
+be better directed at the hiring manager but maybe you maybe you know um like how big
+
+is the team right now who who is running the team currently yeah so Sarah is running the
+
+team she's our director of customers with that um but she's not as technical as the team needs
+
+and she's well aware of that so she's hiring someone um that uh can manage the technical
+
+side of the team um the technical support specialist in particular and she manages the
+
+customer success managers or account managers um so the amount of I think we have four
+
+technical support specialists um that you would be directly challenging okay got you um and is
+
+this the only office that you that you guys have or yeah okay yeah um yeah everyone's pretty
+
+nice there sounds good yeah um yeah most of the other questions I have are kind of like day-to-day
+
+type of questions and the role um so I'll save those if I get a chance to ask
+
+great so um yeah if you need anything else let me know but I would be in touch uh regarding
+
+next step soon uh the next 24 hours or so if you have any other questions just let me know
+
+all right I really appreciate it thank you thanks Steven appreciate your time as well thank you have a
+
+great day bye um I want to stay here but but I understand if you know I want to stay in the
+
+New York area and they know I may not you know get that same level I may not uh get that same
+
+compensation so yes my role and my team is the roles I'm moving to San Francisco um it's just
+
+that's where they need people and uh I really don't want to I moved from California I already I
+
+already lived in California and uh I already lived in California and did the whole move back here so
+
+I really don't want to I really don't want to do that all over again yeah so well yeah and it sounds
+
+like um this is and it sounds like uh this is much more of a uh and um you know I really like working
+
+with in in like early stage startup type environments you have fast pace high growth um kind of uh
+
+uh you know your your your days your days never kind of
