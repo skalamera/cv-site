@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cocoindex-code": {
+      "command": "echo \"Placeholder command for cocoindex-code\"",
+      "args": [],
+      "env": {}
+    }
+  }
+}

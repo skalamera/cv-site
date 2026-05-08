@@ -121,6 +121,17 @@ const Hero: React.FC = () => {
               <img src="/icons/gmail.png" alt="Gmail" className="h-5 w-auto object-contain" />
             </a>
           </motion.div>
+
+          {/* Certification Badges */}
+          <motion.div 
+            className="flex flex-wrap justify-center md:justify-start gap-6 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          >
+            <img src="/icons/freshdesk_product_expert.png" alt="Freshdesk Product Expert" className="h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
+            <img src="/icons/intercom_certified.png" alt="Intercom Certified" className="h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
+          </motion.div>
         </div>
       </motion.div>
     </section>
