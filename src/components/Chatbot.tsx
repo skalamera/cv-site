@@ -69,7 +69,8 @@ const TypewriterMessage = ({ content, msgId }: { content: string, msgId: string 
     <div className="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-p:mb-4 last:prose-p:mb-0 prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:mb-4 prose-li:my-1 prose-pre:overflow-x-auto prose-pre:max-w-full markdown-content">
       <ReactMarkdown 
         components={{
-          a: ({node, ...props}) => (
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          a: ({node: _node, ...props}) => (
             <a 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -112,7 +113,7 @@ const Chatbot = () => {
     const textToSend = overrideText || input;
     if (!textToSend.trim()) return;
 
-    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: textToSend };
+    const userMsg: Message = { id: crypto.randomUUID(), role: 'user', content: textToSend };
     setMessages(prev => [...prev, userMsg]);
     if (!overrideText) setInput('');
     else setInput(''); // clear it anyway
@@ -175,7 +176,7 @@ const Chatbot = () => {
       }
 
       setMessages(prev => [...prev, { 
-        id: Date.now().toString(), 
+        id: crypto.randomUUID(), 
         role: 'assistant', 
         content: responseText,
         suggestedPrompts 
@@ -183,7 +184,7 @@ const Chatbot = () => {
     } catch (error) {
       console.error("Chat error:", error);
       setMessages(prev => [...prev, { 
-        id: Date.now().toString(), 
+        id: crypto.randomUUID(), 
         role: 'assistant', 
         content: "I apologize, but I am having trouble connecting to my neural net right now. Please try again later or contact Stephen directly." 
       }]);

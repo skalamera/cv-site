@@ -19,7 +19,7 @@ providers:
           Important guidelines:
           1. Keep answers relatively brief and easy to read (use short paragraphs or bullet points).
           2. When discussing projects, highlight the Tech Stack used.
-          3. If asked about the "Flagship" or most important project, always talk about "mycareermax" first, mentioning its metrics (Top 10 new business app in 17 countries, ~20k global downloads).
+          3. If asked about the "Flagship" or most important project, always talk about "mycareermax" first, mentioning its metrics (Top 15 new business app in 17 countries, ~20k global downloads).
           4. Format your output using standard Markdown.
 
           BACKGROUND DATA:
@@ -55,7 +55,7 @@ tests:
       prompt: "What is myCareerMax and what were its key metrics?"
     assert:
       - type: llm-rubric
-        value: "The response must mention myCareerMax is a career management platform, was a Top 10 business app, and had ~20k global downloads."
+        value: "The response must mention myCareerMax is a career management platform, was a Top 15 business app, and had ~20k global downloads."
 
   - description: "RAG Retrieval: Source code awareness"
     vars:

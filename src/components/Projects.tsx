@@ -199,7 +199,7 @@ const Projects: React.FC = () => {
                     <div className="w-full flex items-center justify-center p-2 sm:p-3 lg:p-2 mb-4 lg:mb-8 relative group/award">
                       <img 
                         src="/mycareermax/top15_award.png" 
-                        alt="Top 10 Award" 
+                        alt="Top 15 Award" 
                         className="w-64 sm:w-72 lg:w-80 max-w-full object-contain filter drop-shadow-lg transition-transform duration-500 group-hover/award:scale-105" 
                       />
                     </div>

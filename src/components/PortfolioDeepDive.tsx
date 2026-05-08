@@ -164,7 +164,7 @@ const PortfolioDeepDive: React.FC<Props> = ({ isOpen, onClose }) => {
                   </div>
                   <div className="bg-slate-800/80 p-8 rounded-xl border border-slate-700 shadow-sm">
                     <strong className="text-white text-xl block mb-3">myCareerMax</strong>
-                    <p className="text-slate-300">Reached the top 10 new business apps in 17 countries with 20,000 global downloads.</p>
+                    <p className="text-slate-300">Reached the top 15 new business apps in 17 countries with 20,000 global downloads.</p>
                   </div>
                   <div className="bg-slate-800/80 p-8 rounded-xl border border-slate-700 shadow-sm">
                     <strong className="text-white text-xl block mb-3">Motiv</strong>
