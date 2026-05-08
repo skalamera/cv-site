@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BadgeCheck, Sparkles } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import { certifications } from '../data/cv-data';
 
 export const ClaudeCode: React.FC = () => {
@@ -32,8 +32,8 @@ export const ClaudeCode: React.FC = () => {
 
         {/* Header Section */}
         <div className="flex items-center gap-4 mb-4 relative z-10">
-          <div className="w-12 h-12 rounded-xl bg-[#2D243B] flex items-center justify-center border border-white/5">
-            <Sparkles className="w-6 h-6 text-[#A78BFA]" />
+          <div className="w-12 h-12 rounded-xl bg-[#2D243B] flex items-center justify-center border border-white/5 overflow-hidden p-2">
+            <img src="/icons/anthropic - white.png" alt="Anthropic" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <h3 className="text-xl font-bold text-white tracking-tight">Claude Code Power User</h3>
@@ -60,7 +60,7 @@ export const ClaudeCode: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 bg-[#2D243B]/80 hover:bg-[#3B2D4C] border border-white/5 hover:border-purple-500/30 rounded-md text-[13px] font-medium text-[#D1D5DB] hover:text-white transition-all duration-300"
             >
-              <BadgeCheck className="w-3.5 h-3.5 text-[#9CA3AF]" />
+              <GraduationCap className="w-3.5 h-3.5 text-[#9CA3AF]" />
               {link.title}
             </a>
           ))}
