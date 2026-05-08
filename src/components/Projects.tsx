@@ -190,9 +190,9 @@ const Projects: React.FC = () => {
                 </div>
               </div>
               
-              {/* Right Column: KPI Cards & Award (if any) */}
-              {(featured.kpis || featured.id === 'mycareermax') && (
-                <div className="w-full lg:w-[340px] flex flex-col gap-6 shrink-0">
+              {/* Right Column: KPI Cards & Award & UI Image (if any) */}
+              {(featured.kpis || featured.id === 'mycareermax' || featured.id === 'jedana') && (
+                <div className="w-full lg:w-[380px] flex flex-col gap-6 shrink-0 justify-center">
                   
                   {/* Award Image for mycareermax specifically */}
                   {featured.id === 'mycareermax' && (
@@ -201,6 +201,17 @@ const Projects: React.FC = () => {
                         src="/mycareermax/top15_award.png" 
                         alt="Top 15 Award" 
                         className="w-64 sm:w-72 lg:w-80 max-w-full object-contain filter drop-shadow-lg transition-transform duration-500 group-hover/award:scale-105" 
+                      />
+                    </div>
+                  )}
+
+                  {/* UI Image for jedana specifically */}
+                  {featured.id === 'jedana' && (
+                    <div className="w-full flex items-center justify-center relative mt-2 lg:mt-0">
+                      <img 
+                        src="/icons/jedana_customer_sentiment_cover.png" 
+                        alt="Jedana Customer Sentiment UI" 
+                        className="w-full max-h-[300px] rounded-lg border border-slate-700/50 bg-slate-950/40 object-contain shadow-xl shadow-slate-950/30"
                       />
                     </div>
                   )}
