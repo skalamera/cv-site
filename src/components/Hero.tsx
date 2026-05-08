@@ -27,19 +27,27 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="relative shrink-0"
+          className="relative shrink-0 flex flex-col items-center gap-6"
         >
-          <div className="w-48 h-48 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-br from-slate-600 to-slate-800 relative z-10">
-            <div className="w-full h-full rounded-full bg-[#111827] border-4 border-[#111827] overflow-hidden flex items-center justify-center relative">
-               <img src="/profile.png" alt="Stephen" className="w-full h-full object-cover scale-105" />
+          <div className="relative">
+            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-br from-slate-600 to-slate-800 relative z-10">
+              <div className="w-full h-full rounded-full bg-[#111827] border-4 border-[#111827] overflow-hidden flex items-center justify-center relative">
+                 <img src="/profile.png" alt="Stephen" className="w-full h-full object-cover scale-105" />
+              </div>
+            </div>
+            {/* Glowing ring behind */}
+            <div className="absolute inset-0 rounded-full border border-primary/30 scale-[1.15] -z-10 bg-primary/5 blur-sm"></div>
+            
+            {/* Verified Badge */}
+            <div className="absolute bottom-2 right-2 w-10 h-10 bg-blue-400 rounded-full border-4 border-[#111827] flex items-center justify-center z-20 text-white shadow-lg shadow-blue-400/20">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
           </div>
-          {/* Glowing ring behind */}
-          <div className="absolute inset-0 rounded-full border border-primary/30 scale-[1.15] -z-10 bg-primary/5 blur-sm"></div>
           
-          {/* Verified Badge */}
-          <div className="absolute bottom-2 right-2 w-10 h-10 bg-blue-400 rounded-full border-4 border-[#111827] flex items-center justify-center z-20 text-white shadow-lg shadow-blue-400/20">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          {/* Certification Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
+            <img src="/icons/freshdesk_product_expert.png" alt="Freshdesk Product Expert" className="h-16 md:h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
+            <img src="/icons/intercom_certified.png" alt="Intercom Certified" className="h-16 md:h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
           </div>
         </motion.div>
 
@@ -120,17 +128,6 @@ const Hero: React.FC = () => {
             <a href={`mailto:${profileInfo.email}`} className="px-5 py-2 rounded-full border border-[#EA4335]/30 text-slate-200 bg-[#EA4335]/10 text-sm glass hover:bg-[#EA4335]/20 transition-colors flex items-center gap-2 glow-border">
               <img src="/icons/gmail.png" alt="Gmail" className="h-5 w-auto object-contain" />
             </a>
-          </motion.div>
-
-          {/* Certification Badges */}
-          <motion.div 
-            className="flex flex-wrap justify-center md:justify-start gap-6 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
-            <img src="/icons/freshdesk_product_expert.png" alt="Freshdesk Product Expert" className="h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
-            <img src="/icons/intercom_certified.png" alt="Intercom Certified" className="h-20 w-auto object-contain drop-shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
           </motion.div>
         </div>
       </motion.div>
