@@ -379,107 +379,70 @@ const StarWarsExperienceModal = ({ isOpen, onClose }: StarWarsExperienceModalPro
               onAnimationEnd={handleCrawlAnimationEnd}
             >
               <header>
-                <p className="starwars-episode">EPISODE 2026</p>
-                <h1>Stephen Skalamera<br />Support Operations Leader</h1>
+                <p className="starwars-episode">THE JOURNEY SO FAR</p>
+                <h1>Stephen Skalamera<br />Scaling Support with AI</h1>
               </header>
 
               <p>
-                Stephen Skalamera is a New York-based Technical Support and Operations leader with 10+ years in high-growth SaaS.
-                His work centers on global Technical Support Engineering teams, developer-facing platforms, APIs, integrations,
-                incident response, and AI support tooling.
+                Stephen Skalamera has spent over a decade transforming how organizations handle customer support and technical operations. Today, his career sits at the exact intersection where traditional Support Operations meets modern AI Ops.
               </p>
 
               <p>
-                Across the saga, he has built support systems that cut resolution time, raised CSAT, and helped Engineering,
-                Product, Customer Success, and Support work from the same facts.
+                His primary focus is enabling technical support teams by providing them with custom, AI-assisted tooling. By equipping agents with these cutting-edge AI technologies, he drives unprecedented operational efficiency, automates complex workflows, and allows high-growth companies to scale rapidly while maintaining exceptional service quality.
+              </p>
+
+              <p>
+                Forging strong partnerships between Engineering, Product, and Customer Success, he ensures that support is no longer just a cost center, but a highly optimized, data-driven engine for growth where no bug report goes unheard and no customer is left behind.
               </p>
 
               <h2>Sigma</h2>
               <p>
-                September 2025 to present. Technical Support Engineering Manager in New York. Stephen leads the New York Technical
-                Support Engineering team, manages hiring, onboarding, coaching, and performance, and sustains a 4.84 out of 5 CSAT
-                across enterprise customers.
+                At Sigma, Stephen leads the New York Technical Support Engineering team. Serving as a player-coach, he dives into complex technical integrations while maintaining an exceptional 4.84 CSAT and lightning-fast 23-second first response times.
               </p>
 
               <p>
-                He works as a player-coach on complex technical issues across live chat, email, and Slack while maintaining a
-                23-second average first response time. He built workforce models and a Python ML forecasting app that reduced planned
-                headcount additions by 2 FTE through more accurate ticket volume prediction.
+                Recognizing the need for better workforce planning, he developed a Python-based machine learning forecasting app to accurately predict ticket volumes, stabilizing backlogs and conserving critical headcount during periods of rapid growth.
+              </p>
+
+              <h2>Benchmark Education</h2>
+              <p>
+                Prior to Sigma, he transformed operations at Benchmark Education. Managing a hybrid, global team, he automated complex workflows across Zendesk, Freshdesk, and RingCentral. 
               </p>
 
               <p>
-                He directs queue health, staffing strategy, dashboards, and playbooks, holding average resolution time near 1.1 hours.
-                He also leads SEV-0 and SEV-1 escalations with Engineering, Product, and Customer Success, then delivers clear updates
-                and post-incident summaries.
+                This strategic overhaul reduced resolution times by 38% and spurred the creation of an in-house, AI-powered performance review platform that achieved department-wide adoption and generated meaningful cost savings.
               </p>
 
-              <h2>Benchmark Education Company</h2>
+              <h2>BuildingLink & 1010data</h2>
               <p>
-                March 2022 to August 2025. Lead, Customer Technical Support and Support Operations in New Rochelle. Stephen led a
-                hybrid team of 15 support agents and a 5-person offshore vendor team while reporting to the Director of Technology.
+                His foundation was built in the trenches of early SaaS growth. At BuildingLink, he translated raw user feedback into actionable insights for developers, bridging the gap between customers and product teams. 
               </p>
 
               <p>
-                He automated Freshdesk, Zendesk, and RingCentral workflows and API connections, reducing resolution time by 38%,
-                improving first response time by 45%, cutting average handling time by 32%, and keeping CSAT above 98% annually.
-              </p>
-
-              <p>
-                He drove the launch of an in-house ticketing application and an AI performance review platform, built a Power BI
-                Support Operations Hub with Python and RingCentral API monitoring, and turned support feedback into product work for
-                Product, Engineering, and Customer Success.
-              </p>
-
-              <h2>BuildingLink</h2>
-              <p>
-                October 2019 to March 2022. Technical Support and Training in New York. Stephen ran on-site and remote platform
-                training for property management companies across the country, translated user feedback into bug reports and feature
-                requests, managed adoption of Freshdesk, and helped redesign the company help site.
-              </p>
-
-              <h2>1010data</h2>
-              <p>
-                April 2016 to August 2019. Customer Experience and Technical Support Lead in New York. Stephen reviewed support KPIs
-                with upper management, checked support tickets, helped interview, hire, train, and grow the Customer Experience team,
-                and managed customer issues through conflict resolution and platform support.
-              </p>
-
-              <p>
-                He also built the Confluence knowledge base from the ground up, giving the support team a working source for customer
-                answers and internal process.
+                At 1010data, he was a key architect of the Customer Experience team, scaling operations from their early stages and establishing their Confluence knowledge base to empower agents with the exact answers they needed to succeed.
               </p>
 
               <h2>Lytx</h2>
               <p>
-                July 2014 to April 2016. Senior Technical Support Engineer, Tier 3, in San Diego. Stephen acted as the main escalation
-                point for Tier 3 technical support, confirmed and documented technical issues, used SQL to troubleshoot large
-                databases, and worked with infrastructure, database, QA, and development teams.
+                Even earlier, at Lytx, Stephen stood as the ultimate Tier 3 escalation point. Utilizing SQL and deep technical expertise, he collaborated with infrastructure and database teams to resolve high-priority, customer-impacting incidents swiftly.
               </p>
 
-              <h2>Project: Jedana AI</h2>
+              <h2>The LLMOps Architect</h2>
               <p>
-                Stephen is the founder and developer of Jedana AI, a spare-time support analytics project for agent quality assurance,
-                team performance, and customer health. It reviews ticket interactions, suggests skill ratings, tracks sentiment and
-                KPIs, and creates weighted performance reviews across support channels.
-              </p>
-
-              <h2>Skills, certifications, and awards</h2>
-              <p>
-                His toolkit includes REST APIs, Freshdesk, Zendesk, RingCentral, Jira, Salesforce, NetSuite, Confluence, Power BI,
-                Tableau, BigQuery, Redshift, Azure, Snowflake, Python, HTML, CSS, JavaScript, SQL, GCP, Zapier, Vercel, Supabase,
-                React, Docker, Databricks, Cursor, Gemini, ChatGPT, Pinecone, Langfuse, MCP, Claude, Claude Code, Codex, and agentic
-                AI workflows.
+                Beyond his day-to-day leadership, Stephen is a relentless builder who turns AI concepts into operational realities. His flagship creation, Jedana AI, is a powerful analytics suite built for Freshdesk that automatically evaluates agent performance and tracks customer sentiment using advanced OpenAI models.
               </p>
 
               <p>
-                His certifications include Anthropic AI Fluency and Claude developer programs, Microsoft Career Essentials in
-                generative AI, data analysis, and project management, Zendesk and Freshdesk credentials, Harvard CS50x for AI, and
-                Babson AI for Leaders.
+                His passion for equipping teams with production-grade AI applications is further showcased through his self-healing RAG AI Portfolio, the Jayobee Chrome Extension, the Motiv Next.js platform, and the myCareerMax backend infrastructure.
+              </p>
+
+              <h2>Continuous Growth</h2>
+              <p>
+                Backed by an Economics degree from the University of Maryland, Stephen continually pushes the boundaries of his expertise.
               </p>
 
               <p>
-                He earned a bachelor's degree in Economics from the University of Maryland, Baltimore County, and won a Gold Stevie
-                Award in the 2025 American Business Awards.
+                With certifications in AI Fluency from Anthropic, Generative AI from Microsoft, and Computer Science from Harvard, he wields a modern toolkit—from Python and React to Pinecone and Claude—to redefine the future of technical support.
               </p>
 
               <section className="starwars-contact" aria-label="Contact links">

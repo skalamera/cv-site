@@ -97,30 +97,36 @@ const Projects: React.FC = () => {
               {/* Translucent overlay inside the card */}
               <div className={`absolute inset-0 ${glowColor} pointer-events-none`}></div>
               
-              {/* Left Content */}
+                {/* Left Content */}
               <div className="flex-1 flex flex-col">
-                  <div className="flex flex-col md:flex-row items-start justify-between mb-8 relative z-10 gap-6 md:gap-0">
+                  <div className="flex flex-wrap items-start md:items-center justify-between mb-4 relative z-10 gap-4 md:gap-6">
                   <div className="flex items-center gap-4 md:gap-5">
-                    <div className="w-16 h-16 md:w-28 md:h-28 flex items-center justify-center shrink-0">
-                      <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-full h-full object-contain" />
+                    <div className="flex items-center justify-center shrink-0">
+                      {featured.id === 'jedana' ? (
+                        <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-[180px] md:w-[240px] h-auto object-contain" />
+                      ) : (
+                        <img src={featured.logo || '/profile.png'} alt={featured.title} className="w-16 h-16 md:w-28 md:h-28 object-contain" />
+                      )}
                     </div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white break-words">
-                      {featured.title}
-                    </h3>
+                    {featured.id !== 'jedana' && (
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white break-normal">
+                        {featured.title}
+                      </h3>
+                    )}
                   </div>
                     {featured.metrics && (
-                      <div className={`px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder} shrink-0 max-w-full overflow-hidden text-ellipsis whitespace-normal md:whitespace-nowrap`}>
+                      <div className={`px-4 py-1.5 rounded-full ${badgeBg} ${textColor} text-xs font-semibold tracking-wide border ${badgeBorder} max-w-full overflow-hidden text-ellipsis whitespace-normal`}>
                         {featured.metrics}
                       </div>
                     )}
                   </div>
                 
-                <p className="text-slate-400 leading-relaxed mb-8">
+                <p className="text-slate-400 leading-relaxed mb-6">
                   {featured.description}
                 </p>
 
                 {featured.highlights && (
-                  <ul className="space-y-4 mb-8 flex-1">
+                  <ul className="space-y-4 mb-6 flex-1">
                     {featured.highlights.map((highlight, idx) => {
                       const text = highlight.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>');
                       return (
@@ -135,7 +141,31 @@ const Projects: React.FC = () => {
                   </ul>
                 )}
 
-                <ul className="flex flex-wrap gap-2 mb-8">
+                <div className="flex gap-4 relative z-10 flex-wrap mt-0 mb-6">
+                  {featured.link && featured.id !== 'jedana' && (
+                    <a href={featured.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
+                      <ExternalLink size={18} />
+                      View Project
+                    </a>
+                  )}
+                  {featured.github && (
+                    <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit`}>
+                      <GithubIcon />
+                      View Code
+                    </a>
+                  )}
+                  {featured.id === 'mycareermax' && (
+                    <button
+                      onClick={() => setShowMyCareerMaxDeepDive(true)}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-yellow-500/40 bg-yellow-900/30 text-yellow-200 text-sm font-bold shadow-sm shadow-yellow-900/20 hover:bg-yellow-800/45 hover:border-yellow-400/60 hover:text-yellow-100 transition-colors w-fit cursor-pointer`}
+                    >
+                      <Activity size={18} />
+                      Read Deep Dive
+                    </button>
+                  )}
+                </div>
+
+                <ul className="flex flex-wrap gap-2 mb-0">
                   {featured.techStack.map(tech => {
                     const icons = getTechIcon(tech);
                     return (
@@ -149,50 +179,11 @@ const Projects: React.FC = () => {
                     );
                   })}
                 </ul>
-
-                <div className="flex gap-4 relative z-10 flex-wrap mt-6">
-                  {featured.link && featured.id !== 'jedana' && (
-                    <a href={featured.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border ${btnBorder} ${btnBg} ${textColor} text-sm font-bold ${btnHoverBg} transition-colors w-fit`}>
-                      <ExternalLink size={18} />
-                      View Project
-                    </a>
-                  )}
-                  {featured.id === 'jedana' && (
-                    <a href="https://jedana-app.vercel.app/apps" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white shadow-lg shadow-orange-600/20 text-sm font-bold transition-all w-fit`}>
-                      <ExternalLink size={18} />
-                      Try Demo
-                    </a>
-                  )}
-                  {featured.github && (
-                    <a href={featured.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit`}>
-                      <GithubIcon />
-                      View Code
-                    </a>
-                  )}
-                  {featured.id === 'jedana' && (
-                    <button
-                      onClick={() => setShowJedanaDeepDive(true)}
-                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit cursor-pointer`}
-                    >
-                      <Activity size={18} />
-                      Read Deep Dive
-                    </button>
-                  )}
-                  {featured.id === 'mycareermax' && (
-                    <button
-                      onClick={() => setShowMyCareerMaxDeepDive(true)}
-                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-yellow-500/40 bg-yellow-900/30 text-yellow-200 text-sm font-bold shadow-sm shadow-yellow-900/20 hover:bg-yellow-800/45 hover:border-yellow-400/60 hover:text-yellow-100 transition-colors w-fit cursor-pointer`}
-                    >
-                      <Activity size={18} />
-                      Read Deep Dive
-                    </button>
-                  )}
-                </div>
               </div>
               
               {/* Right Column: KPI Cards & Award & UI Image (if any) */}
               {(featured.kpis || featured.id === 'mycareermax' || featured.id === 'jedana') && (
-                <div className="w-full lg:w-[380px] flex flex-col gap-6 shrink-0 justify-center">
+                <div className="w-full lg:w-[420px] flex flex-col gap-6 shrink-0 justify-center">
                   
                   {/* Award Image for mycareermax specifically */}
                   {featured.id === 'mycareermax' && (
@@ -207,11 +198,24 @@ const Projects: React.FC = () => {
 
                   {/* UI Image for jedana specifically */}
                   {featured.id === 'jedana' && (
-                    <div className="w-full flex items-center justify-center relative mt-2 lg:mt-0">
+                    <div className="w-full flex flex-col items-center justify-center relative mt-0 lg:mt-0 gap-12">
+                      <div className="flex flex-col gap-4 justify-center lg:justify-center relative z-10 pointer-events-auto w-full max-w-[200px] sm:max-w-none sm:flex-row lg:flex-row lg:items-center sm:items-center">
+                        <button
+                          onClick={() => setShowJedanaDeepDive(true)}
+                          className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer w-full sm:w-auto lg:w-auto`}
+                        >
+                          <Activity size={18} />
+                          Read Deep Dive
+                        </button>
+                        <a href="https://jedana-app.vercel.app/apps" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white shadow-lg shadow-orange-600/20 text-sm font-bold transition-all whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer w-full sm:w-auto lg:w-auto`}>
+                          <ExternalLink size={18} />
+                          Try Demo
+                        </a>
+                      </div>
                       <img 
                         src="/icons/jedana_customer_sentiment_cover.png" 
                         alt="Jedana Customer Sentiment UI" 
-                        className="w-full max-h-[300px] rounded-lg border border-slate-700/50 bg-slate-950/40 object-contain shadow-xl shadow-slate-950/30"
+                        className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]"
                       />
                     </div>
                   )}
@@ -284,7 +288,7 @@ const Projects: React.FC = () => {
               >
                 <div className={`flex flex-1 gap-8 ${(activeProject.id === 'jayobee' || activeProject.id === 'motiv-proj') ? 'flex-col lg:flex-row lg:items-start' : 'flex-col'}`}>
                   <div className="flex min-w-0 flex-1 flex-col">
-                    <div className="flex justify-between items-start mb-6">
+                      <div className="flex justify-between items-start mb-6">
                       <div className="flex items-center gap-4 md:gap-5">
                         <div className="w-16 h-16 md:w-28 md:h-28 flex items-center justify-center shrink-0">
                           {activeProject.logo ? (
@@ -297,7 +301,7 @@ const Projects: React.FC = () => {
                       </div>
                       <div className="flex gap-3 text-slate-400 pt-2">
                         {activeProject.github && activeProject.id !== 'jayobee' && activeProject.id !== 'motiv-proj' && <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors relative z-10 pointer-events-auto"><GithubIcon /></a>}
-                        {activeProject.link && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors relative z-10 pointer-events-auto"><ExternalLink size={20} /></a>}
+                        {activeProject.link && activeProject.id !== 'motiv-proj' && <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors relative z-10 pointer-events-auto"><ExternalLink size={20} /></a>}
                       </div>
                     </div>
 
@@ -323,7 +327,7 @@ const Projects: React.FC = () => {
 
                   {(activeProject.id === 'jayobee' || activeProject.id === 'motiv-proj') && (
                     <div className="w-full lg:w-[42%] shrink-0 flex flex-col pt-4 lg:pt-6">
-                      <div className="flex flex-wrap gap-4 justify-start md:justify-end relative z-10 pointer-events-auto mb-12 lg:mb-16 min-h-[4rem] items-center">
+                      <div className="flex flex-col sm:flex-row gap-4 justify-start lg:justify-end relative z-10 pointer-events-auto mb-6 lg:mb-8 items-stretch sm:items-center w-full">
                         <button
                           onPointerDown={(e) => e.stopPropagation()}
                           onClick={(e) => {
@@ -331,19 +335,19 @@ const Projects: React.FC = () => {
                             if (activeProject.id === 'jayobee') setShowJayobeeDeepDive(true);
                             if (activeProject.id === 'motiv-proj') setShowMotivDeepDive(true);
                           }}
-                          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}
+                          className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-blue-500/30 bg-blue-900/30 text-blue-300 text-sm font-bold hover:bg-blue-900/60 hover:border-blue-500/50 transition-colors whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer flex-1 sm:flex-none`}
                         >
                           <Activity size={18} />
                           Read Deep Dive
                         </button>
                         {activeProject.github && (
-                          <a href={activeProject.github} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}>
+                          <a href={activeProject.github} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600 bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-colors whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer flex-1 sm:flex-none`}>
                             <GithubIcon />
                             View Code
                           </a>
                         )}
                         {activeProject.link && activeProject.id === 'motiv-proj' && (
-                          <a href={activeProject.link} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 text-sm font-bold transition-all w-fit whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer`}>
+                          <a href={activeProject.link} onPointerDown={(e) => e.stopPropagation()} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 text-sm font-bold transition-all whitespace-nowrap shrink-0 pointer-events-auto cursor-pointer flex-1 sm:flex-none`}>
                             <ExternalLink size={18} />
                             Try the Demo
                           </a>

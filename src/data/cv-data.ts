@@ -151,7 +151,7 @@ export const projects: Project[] = [
     { 
       id: "jedana",
       title: "Jedana AI",
-      logo: "/jedana.png",
+      logo: "/icons/jedana.png",
       link: "https://jedana-app.vercel.app/",
       featured: true,
       theme: "blue",

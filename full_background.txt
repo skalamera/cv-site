@@ -1,0 +1,157 @@
+# RESUME
+Stephen Skalamera
+New York, NY | skalamera@gmail.com | LinkedIn: skalamera | GitHub: skalamera | skalamera.me
+
+Professional Summary
+
+Technical Support and Support Operations leader with 15+ years of experience in high-growth SaaS, building and managing global Technical Support Engineering teams that support developer-facing and product-facing platforms. Expertise includes technical support management, support operations, customer support strategy, incident management, API troubleshooting, systems integrations, workflow automation, knowledge management, AI support tooling, and customer experience analytics. Proven track record of designing scalable support processes that reduce resolution times, improve CSAT, and strengthen cross-functional collaboration with Engineering, Product, Customer Success, and Operations.
+Core Competencies: Technical Support Engineering | Support Operations | Incident Management | Escalation Management | Workforce Planning | API Troubleshooting | Knowledge Management | Workflow Automation | Customer Experience Analytics | AI Support Tooling
+
+Skills
+
+AI & LLM Engineering: Agentic Workflows, RAG (Retrieval-Augmented Generation), Prompt Evaluation and Engineering, LLM Observability, AI Workflow Monitoring, Model Context Protocol (MCP), Gemini, Claude API, ChatGPT, Claude Code, Codex.
+AI Operations & Governance: Human-in-the-Loop (HITL) Design, Operational Guardrails, QA Process Development, Escalation Paths, AI Safety, Fin (Intercom), Glean, Claude Cowork, Pinecone, Langfuse.
+Leadership: Team Leadership and Management, Global Support Operations, Cross-Functional Collaboration, Stakeholder Management, Coaching and Mentoring.
+Technical & Tools: Python, SQL, REST APIs, BigQuery, Redshift, Snowflake, Azure, Google Cloud Platform, Databricks, Zapier, Vercel, Supabase, React, Docker, Sigma, Power BI, Tableau.
+
+Professional Experience
+
+Sigma | Technical Support Engineering Manager | New York, NY | September 2025 - Present
+•	Lead the New York-based Technical Support Engineering team, managing hiring, onboarding, and performance, sustaining a 4.84/5 CSAT across enterprise customers.
+•	Serve as a player-coach by providing hands-on support for complex technical issues and integrations via live chat, email, and Slack, while maintaining a 23-second average first response time and coaching the team on best practices.
+•	Developed workforce models and a Python-based ML forecasting app that reduced planned headcount additions by 2 FTE through accurate ticket volume prediction.
+•	Directed real-time support operations, queue management, and workforce planning strategy, building operational dashboards and playbooks that stabilized backlog and maintained a 1.1-hour average resolution time.
+•	Serve as the lead escalation point for SEV-0/SEV-1 incidents, coordinating with Engineering, Product, and Customer Success to triage issues quickly and deliver clear, timely updates and post-incident summaries to stakeholders.
+•	Design and iterate support processes, runbooks, and AI- and data-powered tooling to reduce manual work, increase TSE productivity, and scale consistent best practices across regions.
+Benchmark Education | Lead, Technical Support & Operations | New Rochelle, NY | March 2022 - August 2025
+•	Led a hybrid team of 15 support agents plus a 5-person offshore vendor team, consistently exceeding KPIs and SLAs while reporting to the Director of Technology.
+•	Automated workflows and API integrations across Freshdesk, Zendesk, and RingCentral, reducing resolution time by 38%, improving first response time by 45%, reducing average handling time by 32%, and maintaining CSAT above 98% annually.
+•	Drove the design and launch of an in-house ticketing application and AI-powered performance review platform, achieving department-wide adoption and meaningful cost savings.
+•	Built a Power BI Support Operations Hub with Python integrations and real-time call queue monitoring through RingCentral API and Freshdesk, centralizing metrics and enabling data-driven decisions.
+•	Led cross-functional customer journey mapping and backlog prioritization, translating support insights into product improvements and stronger alignment across Product, Engineering, and Customer Success.
+BuildingLink | Technical Support & Training | New York, NY | October 2019 - March 2022
+•	Delivered on-site and remote platform training sessions for property management customers nationwide, expanding product adoption and improving customer readiness at scale.
+•	Converted recurring customer feedback and support trends into actionable bug reports and feature requests, helping development teams prioritize fixes and product improvements.
+•	Led team adoption of a new support ticketing system (Freshdesk), improving case management consistency and giving support operations a stronger foundation for scale.
+•	Supported the redesign of the company help site across content and experience workflows, improving usability for customers and strengthening self-service support resources.
+1010data | Customer Experience and Technical Support Lead | New York, NY | April 2016 - August 2019
+•	Owned weekly KPI reporting and ticket quality reviews for the Customer Experience team, giving upper management consistent visibility into performance, trends, and coaching opportunities.
+•	Helped scale the Customer Experience team from its early stages by leading interviewing, hiring, onboarding, and training, strengthening team capacity and operational consistency.
+•	Managed customer inquiries and in-platform support interactions across the full case lifecycle, resolving issues effectively and protecting customer relationships through strong conflict resolution.
+•	Built the Knowledge Base from the ground up in Confluence, creating a centralized support resource that improved documentation consistency and enabled faster issue resolution.
+Lytx | Senior Technical Support Engineer - Tier 3 | San Diego, CA | July 2014 - April 2016
+•	Served as the primary Tier 3 escalation point for high-priority technical support incidents, driving timely resolution and clear customer communication for complex issues.
+•	Validated and documented complex technical issues across customer environments, enabling faster handoffs, clearer root-cause analysis, and more effective resolution paths.
+•	Used SQL to investigate large datasets and troubleshoot production issues, improving diagnostic speed and supporting data-informed technical resolution.
+•	Coordinated across infrastructure, database, QA, and development teams to accelerate root-cause analysis and resolution of customer-impacting technical issues.
+
+Certifications
+
+Academic & Executive AI | Various Issuers | 2025 - 2026
+•	Harvard University: CS50x - Computer Science for AI
+•	Babson College: MIS01x: AI for Leaders
+Anthropic AI Education & Certifications | Anthropic | 2026
+•	AI Fluency & Frameworks: Teaching AI Fluency, AI Fluency (Students, Educators, Framework and Foundations)
+•	Technical & Developer Skills: Building with Claude API, Model Context Protocol (Intro and Adv), Claude Code (101 and In Action), Agent Skills, Subagents, Claude Cowork
+•	Model Strategy & Safety: Claude 101, Claude with Google Cloud Vertex AI and Amazon Bedrock, AI Capabilities and Limitations
+Microsoft Career Essentials | Microsoft | 2023 - 2025
+•	Generative AI, Data Analysis, and Project Management
+Support Platform Expertise | Various Issuers | 2024 - 2025
+•	Zendesk: Customer Service Professional Certificate
+•	Freshworks: Freshdesk Product Expert
+
+Education
+
+University of Maryland - Baltimore County | Bachelor's, Economics
+
+Awards
+
+Gold Stevie Award Winner in the 2025 American Business Awards
+
+
+### Projects
+
+## 1. Interactive Portfolio
+**Type**: Interactive Portfolio & LLMOps Web Application
+**Tech Stack**: React 19, Vite, Tailwind CSS v4, TypeScript, Google Gemini API, Pinecone Vector Database, Vercel Serverless, Langfuse, Promptfoo
+**Description**: An interactive portfolio and CV site functioning as a full-stack, production-grade LLMOps application. It showcases advanced AI integrations, strict security layers, and continuous evaluation methodologies.
+**Key Features**:
+- **7-Step Self-Healing RAG Architecture**: Queries over 15,000 embedded chunks of resume/source-code through a Pinecone database to answer user queries accurately.
+- **Active AI Firewall (Guardian)**: Pre-screens all input via a high-speed Gemini Flash model to detect and instantly block prompt injections.
+- Real-time telemetry, agentic observability, and latency tracking natively via **Langfuse**.
+- Closed-Loop CI/CD pipeline using GitHub Actions that automatically extracts thwarted attacks and converts them to regression tests via **Promptfoo**.
+
+---
+
+## 2. Jedana
+**Type**: Customer Support QA & Analytics Platform
+**Tech Stack**: Python, Flask, SQLAlchemy, PostgreSQL/SQLite, OpenAI API, Chart.js
+**Description**: An advanced, AI-powered toolkit designed to revolutionize customer support operations. It seamlessly integrates with leading platforms like Freshdesk, Aircall, and Intercom to provide deep, actionable insights into agent performance and customer sentiment.
+**Key Features**:
+- **AgentEye**: Automated QA review tool leveraging LLMs to read ticket threads and evaluate support agent performance based on clarity, empathy, and problem-solving.
+- **Customer Sentiment Analysis**: Tracks company-centric sentiment (0-100 score), operational metrics, and categorizes top positive/negative topics.
+- **Performance Review Dashboard**: A highly customizable multi-source ranking engine to score agents against user-defined algorithms and weights.
+- Auto-generates constructive AI-powered coaching suggestions for agents.
+
+---
+
+## 3. Jayobee
+**Type**: Chrome Extension
+**Tech Stack**: JavaScript, HTML/CSS, Chrome Extension Manifest V3
+**Description**: An AI-powered Chrome Extension built as a centralized command center for tracking, analyzing, and applying to tech jobs, completely eliminating the need for manual spreadsheets. *(Note: This repository shares its core architecture and documentation with `jd-extractor`)*.
+**Key Features**:
+- Context menu clipping to extract job details directly from any webpage.
+- Generative Document Engine: Creates HTML-PDF resumes and custom cover letters that precisely mirror the job description's vocabulary in addition to STAR+R interview prep docs using AI.
+- Centralized tracking and management of active applications and master resumes.
+- Automated Sourcing Pipeline: Generates AI Metadata (Job Title, Company, Archetype, Compensation).
+- Match Score & Gap Analysis: Evaluates jobs against your master resume to generate a 5.0 scale Match Score, identifying top strengths and main gaps.
+- "AI Apply": Intelligent DOM traversal that auto-fills ATS application forms and answers open-ended application questions dynamically.
+
+---
+
+## 4. Motiv
+**Type**: Next.js Web Application
+**Tech Stack**: Next.js 16 (App Router, TypeScript), Supabase (Auth, Postgres, Storage), Vercel AI SDK, Google Gemini via AI Gateway, Tailwind CSS v4, shadcn/ui
+**Description**: An AI-powered car maintenance and diagnostics web platform. It serves as a hub for maintenance schedules, owner manuals, NHTSA recalls, automotive news, and a dedicated multimodal assistant.
+**Key Features**:
+- **Multimodal Ask Motiv Assistant**: AI chat utilizing uploaded owner manuals, attachments, and Google Search.
+- Generates intelligent, customized maintenance schedules.
+- Direct integration with NHTSA APIs for vehicle recalls and NewsAPI for automotive industry news.
+- Secure user authentication, database, and PDF storage via Supabase.
+
+---
+
+## 5. myCareerMax
+**Type**: Web Application
+**Tech Stack**: Python, Flask, SQLAlchemy, OpenAI API, BeautifulSoup4, Selenium, PyODBC, Stripe, APScheduler, Azure (Identity, KeyVault)
+**Description**: A comprehensive career and job-seeking backend application focusing heavily on resume building, job scraping capabilities, and automated alerting. 
+**Key Features**:
+- AI-driven resume builder utilizing document generation tools (`python-docx`, `pdfkit`).
+- Web scraping algorithms for parsing external job postings via Selenium and BeautifulSoup4.
+- Automated job alerts system triggered through background scheduling (`APScheduler`).
+- Integration with Stripe for payment processing and Azure KeyVault for robust secure secret management.
+
+---
+
+## 6. Queuety
+**Type**: Call Queue Management Tool
+**Tech Stack**: Python, Flask, RingCentral Python SDK, Redis
+**Description**: A call queue management application integrating directly with the RingCentral platform to monitor and manage the presence and Do-Not-Disturb (DND) statuses of agents.
+**Key Features**:
+- Secure OAuth 2.0 authentication workflow directly tied to RingCentral.
+- Real-time Call Queue Presence Dashboard displaying current agent availability.
+- Interactive Agent Status Management empowering authorized users to toggle DND statuses.
+- Extremely robust distributed rate-limiting system backed by Redis to prevent RingCentral API limit breaches.
+
+---
+
+
+## 7. HARry
+**Type**: Web Application
+**Tech Stack**: Python, Flask, Gunicorn, HTML/CSS
+**Description**: A web application that analyzes HTTP Archive (HAR) files to provide insights into network requests, such as status codes, response times, and file sizes.
+**Key Features**:
+- Upload and analyze HAR files natively.
+- Interactive dashboard with summarized metrics (total requests, errors, redirects, etc.).
+- Detailed request information grouped by status code.
+- Responsive design supporting standalone use or `iframe` embedding.
